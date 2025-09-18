@@ -18,8 +18,9 @@ nav li a {
     display: flex;
     justify-content: space-between;
     padding: 28px 0;
-    width: 100vw;
+    width: 100%;
     max-width: 1300px;
+    box-sizing: border-box;
 }
 .logo {
     width: 250px;
@@ -69,8 +70,9 @@ nav li a {
 }
 .nav-bottom {
     margin: 8px 8vw 0 5.5vw;
-    width: 100vw;
+    width: 100%;
     max-width: 1300px;
+    box-sizing: border-box;
 }
 /*dropdown*/
 .nav-item {
@@ -80,7 +82,7 @@ nav li a {
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%; /* menünün altýna açýlýr */
+    top: 100%; /* menï¿½nï¿½n altï¿½na aï¿½ï¿½lï¿½r */
     left: 0;
     background: #fff;
     list-style: none;
@@ -109,7 +111,7 @@ nav li a {
                 background: #f5f5f5;
             }
 
-/* Hover olduðunda açýlma */
+/* Hover olduï¿½unda aï¿½ï¿½lma */
 .nav-item:hover .dropdown-menu {
     display: block;
 }
@@ -119,6 +121,10 @@ nav li a {
     .nav-top {
         flex-wrap: wrap;
         justify-content: center;
+        padding: 16px 16px;
+        margin: 0 auto;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .nav-top-right {

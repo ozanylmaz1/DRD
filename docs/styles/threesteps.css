@@ -1,4 +1,4 @@
-﻿.threesteps {
+.threesteps {
     display: flex;
     justify-content:space-between;
     background-color: #2b3035;
@@ -67,3 +67,39 @@
         object-fit: cover;
     }
 
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+    .threesteps {
+        flex-direction: column;
+    }
+    .threesteps div {
+        width: 100%;
+        padding: 32px;
+        box-sizing: border-box;
+    }
+    .threesteps img {
+        width: 100%;
+        height: auto;
+        border-radius: 0 0 9px 9px;
+    }
+    .threesteps span {
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .threesteps h2 {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .threesteps p {
+        font-size: 14px;
+        line-height: 20px;
+        max-width: 100%;
+    }
+    .threesteps-link-1 {
+        padding: 10px 20px;
+    }
+}
