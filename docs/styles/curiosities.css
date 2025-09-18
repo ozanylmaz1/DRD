@@ -1,4 +1,4 @@
-﻿/* Curiosities Section */
+/* Curiosities Section */
 .curiosities {
     display: flex;
     justify-content: space-between;
@@ -79,3 +79,68 @@
         line-height: 24px;
         color: #191919;
     }
+
+/* Mobile Layout */
+@media screen and (max-width: 768px) {
+    .curiosities {
+        flex-direction: column;
+        width: 92vw;
+        margin: 2em 4vw;
+        gap: 2em;
+    }
+    
+    .curiosities h2 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    
+    .curiosities p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+    .curiosities-link {
+        padding: 12px 30px;
+        font-size: 13px;
+        text-align: center;
+        display: block;
+        width: fit-content;
+        margin: 20px auto 0;
+    }
+    
+    .accordion-container {
+        max-width: 100%;
+    }
+    
+    .accordion-item h6 {
+        font-size: 18px;
+        line-height: 26px;
+    }
+    
+    .accordion-content p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .curiosities {
+        margin: 1.5em 3vw;
+        width: 94vw;
+    }
+    
+    .curiosities h2 {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    
+    .accordion-item h6 {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    
+    .curiosities-link {
+        padding: 10px 24px;
+        font-size: 12px;
+    }
+}

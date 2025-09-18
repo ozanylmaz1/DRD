@@ -1,4 +1,4 @@
-﻿.newsletter {
+.newsletter {
     background-image: url('https://drdcmsv2.taigalab.com/Files/img/ortak-alan/firsatlardanhaberdarolun_01.jpg');
     background-size: cover;
     background-position: center;
@@ -98,3 +98,77 @@
         background: #ff0029;
         color: #fff;
     }
+
+/* Mobile Layout */
+@media screen and (max-width: 768px) {
+    .newsletter {
+        width: 92vw;
+        margin: 2em 4vw;
+        padding: 30px 20px;
+    }
+    
+    .lette {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    
+    .offer {
+        font-size: 28px;
+        line-height: 36px;
+    }
+    
+    .inputbar {
+        flex-direction: column;
+        width: 100%;
+        background-color: transparent;
+        padding: 0;
+        gap: 15px;
+    }
+    
+    .newsletter-input {
+        width: 100%;
+        max-width: none;
+        height: 45px;
+        padding-left: 20px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+    
+    .newsletter button {
+        width: 45px;
+        height: 45px;
+        align-self: center;
+    }
+    
+    .newsletter-text {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+    .offer-btn {
+        padding: 15px 40px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .newsletter {
+        padding: 20px 15px;
+    }
+    
+    .lette {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    
+    .offer {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    
+    .offer-btn {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+}

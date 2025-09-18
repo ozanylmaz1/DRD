@@ -1,4 +1,4 @@
-﻿.global-space-top{
+.global-space-top{
     display: flex; 
     padding: 0 55px;
     column-gap: 6em;
@@ -40,4 +40,54 @@
 .social-icons svg{
     width: 20px;
     height: 20px;
+}
+
+/* Mobile Layout */
+@media screen and (max-width: 768px) {
+    .global-space-top {
+        flex-direction: column;
+        padding: 0 20px;
+        gap: 2em;
+    }
+    
+    .global-space-top h3 {
+        font-size: 18px;
+    }
+    
+    .general-contact-right p, 
+    .general-contact-left p {
+        width: 100%;
+        font-size: 16px;
+        line-height: 28px;
+    }
+    
+    .social-icons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .global-space-top {
+        padding: 0 15px;
+    }
+    
+    .global-space-top h3 {
+        font-size: 16px;
+    }
+    
+    .general-contact-right p, 
+    .general-contact-left p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    
+    .social-icons a {
+        padding: 12px;
+    }
+    
+    .social-icons svg {
+        width: 18px;
+        height: 18px;
+    }
 }

@@ -1,4 +1,4 @@
-﻿class NavComponent {
+class NavComponent {
     constructor() {
         this.componentName = 'nav';
     }
@@ -10,6 +10,12 @@
                     <a href="index.html">
                         <img id="nav-logo" class="logo" src="https://drdcmsv2.taigalab.com/Files/img/ortak-alan/drdlogorenkli.svg" alt="drdlogo" />
                     </a>
+                    
+                    <button class="hamburger-menu" id="hamburger-menu">
+                        <div class="hamburger-line"></div>
+                        <div class="hamburger-line"></div>
+                        <div class="hamburger-line"></div>
+                    </button>
 
 
                     <div class="nav-top-right">
@@ -104,6 +110,85 @@
                         </li>
                     </ul>
                 </div>
+                
+                <!-- Mobile Navigation -->
+                <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+                <div class="mobile-nav-menu" id="mobile-nav-menu">
+                    <div class="mobile-nav-close">
+                        <button id="mobile-nav-close">&times;</button>
+                    </div>
+                    <ul class="mobile-nav-list">
+                        <li>
+                            <div class="mobile-nav-toggle" data-target="mobile-about-submenu">
+                                <span>Bizi Tanıyın</span>
+                            </div>
+                            <ul class="mobile-nav-submenu" id="mobile-about-submenu">
+                                <li><a href="#about1">Şirket Profili</a></li>
+                                <li><a href="#about2">Sürdürülebilirlik Politikamız</a></li>
+                                <li><a href="#about3">Sosyal Sorumluluk</a></li>
+                                <li><a href="#about4">Bizden Haberler</a></li>
+                                <li><a target="_blank" href="https://e-sirket.mkk.com.tr/?page=company&company=11184#">Bilgi Toplumu Hizmetleri</a></li>
+                                <li><a href="#about6">Referanslar</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="mobile-nav-toggle" data-target="mobile-career-submenu">
+                                <span>Kariyer</span>
+                            </div>
+                            <ul class="mobile-nav-submenu" id="mobile-career-submenu">
+                                <li><a href="#career1">DRD'li Olmak</a></li>
+                                <li><a href="#career2">Kültürümüz</a></li>
+                                <li><a href="#career3">İşe Alım</a></li>
+                                <li><a href="#career4">Açık Pozisyonlar</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="neden-drd.html">Neden DRD</a></li>
+                        <li>
+                            <div class="mobile-nav-toggle" data-target="mobile-services-submenu">
+                                <span>Servis Hizmetler</span>
+                            </div>
+                            <ul class="mobile-nav-submenu" id="mobile-services-submenu">
+                                <li><a href="filo-kiralama.html">Filo Kiralama</a></li>
+                                <li><a href="filo-yonetimi.html">Filo Yönetimi</a></li>
+                                <li><a href="operasyonel-hizmetler.html">Operasyonel Hizmetler</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="mobile-nav-toggle" data-target="mobile-solutions-submenu">
+                                <span>DRD Çözümleri</span>
+                            </div>
+                            <ul class="mobile-nav-submenu" id="mobile-solutions-submenu">
+                                <li><a href="fleetino.html">Fleetino</a></li>
+                                <li><a href="paylasimli-filo.html">Paylaşımlı Filo</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="mobile-nav-toggle" data-target="mobile-vehicles-submenu">
+                                <span>Araçlar</span>
+                            </div>
+                            <ul class="mobile-nav-submenu" id="mobile-vehicles-submenu">
+                                <li><a href="araclar.html">Araç Listele</a></li>
+                                <li><a href="markalar.html">Markalar</a></li>
+                                <li><a href="araclar.html#electric">Elektrikli Araçlar</a></li>
+                                <li><a href="kampanyalar.html">Kampanyalar</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="teklif-al.html">Teklif Al</a></li>
+                        <li>
+                            <div class="mobile-nav-toggle" data-target="mobile-support-submenu">
+                                <span>Destek & İletişim</span>
+                            </div>
+                            <ul class="mobile-nav-submenu" id="mobile-support-submenu">
+                                <li><a href="sikca-sorulan-sorular.html">Sıkça Sorulan Sorular</a></li>
+                                <li><a href="iletisim.html">İletişim</a></li>
+                            </ul>
+                        </li>
+                        <li class="mobile-nav-actions">
+                            <a href="#" class="btn-primary mobile-login-btn">Fleetino | Giriş</a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
         `;
     }
@@ -115,6 +200,7 @@
         if (container) {
             container.innerHTML = this.render();
             this.initDropdownHandlers();
+            this.initMobileNavHandlers();
         }
     }
 
@@ -136,6 +222,64 @@
                 });
             }
         });
+    }
+
+    initMobileNavHandlers() {
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const mobileNavMenu = document.getElementById('mobile-nav-menu');
+        const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+        const mobileNavClose = document.getElementById('mobile-nav-close');
+
+        // Hamburger menu click handler
+        if (hamburgerMenu) {
+            hamburgerMenu.addEventListener('click', () => {
+                hamburgerMenu.classList.toggle('active');
+                mobileNavMenu.classList.toggle('active');
+                mobileNavOverlay.style.display = mobileNavMenu.classList.contains('active') ? 'block' : 'none';
+                document.body.style.overflow = mobileNavMenu.classList.contains('active') ? 'hidden' : 'auto';
+            });
+        }
+
+        // Close menu handlers
+        if (mobileNavClose) {
+            mobileNavClose.addEventListener('click', this.closeMobileNav.bind(this));
+        }
+        if (mobileNavOverlay) {
+            mobileNavOverlay.addEventListener('click', this.closeMobileNav.bind(this));
+        }
+
+        // Mobile submenu toggle handlers
+        const mobileNavToggles = document.querySelectorAll('.mobile-nav-toggle');
+        mobileNavToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const targetId = toggle.getAttribute('data-target');
+                const submenu = document.getElementById(targetId);
+                
+                if (submenu) {
+                    submenu.classList.toggle('active');
+                    toggle.classList.toggle('active');
+                }
+            });
+        });
+
+        // Close menu when clicking on links
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-list a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                this.closeMobileNav();
+            });
+        });
+    }
+
+    closeMobileNav() {
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const mobileNavMenu = document.getElementById('mobile-nav-menu');
+        const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+
+        if (hamburgerMenu) hamburgerMenu.classList.remove('active');
+        if (mobileNavMenu) mobileNavMenu.classList.remove('active');
+        if (mobileNavOverlay) mobileNavOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
     }
 }
 

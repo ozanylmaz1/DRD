@@ -1,4 +1,4 @@
-﻿body {
+body {
     font-family: "Poppins";
     margin: 0; /* Body'nin varsayılan marginini kaldır */
 }
@@ -96,6 +96,75 @@ section {
     text-decoration: none;
     color: black;
 }
+/* Mobile Layout */
+@media screen and (max-width: 768px) {
+    section {
+        margin: 2em 4vw;
+        width: 92vw;
+        max-width: none;
+    }
+    
+    .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1em;
+    }
+    
+    .section-head h2 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    
+    .header-list {
+        margin: 0 4vw;
+        width: 92vw;
+        height: 150px;
+    }
+    
+    .header-text {
+        margin-left: 30px;
+        max-width: 200px;
+    }
+    
+    .header-text h1 {
+        font-size: 24px;
+        line-height: 28px;
+    }
+    
+    .gallery-content p,
+    .drd-meet p,
+    .special-solutions p {
+        margin: 0 0 40px 20px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    section {
+        margin: 1.5em 3vw;
+        width: 94vw;
+    }
+    
+    .section-head h2 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    
+    .header-list {
+        height: 120px;
+    }
+    
+    .header-text {
+        margin-left: 20px;
+    }
+    
+    .header-text h1 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+}
+
 @media screen and (min-width: 2100px) {
     section {
         margin: 3em 0; /* Bu margin değerleri .page-wrapper'a göre ayarlanacak */
