@@ -1,4 +1,4 @@
-﻿class NavComponent {
+class NavComponent {
     constructor() {
         this.componentName = 'nav';
     }
@@ -10,7 +10,11 @@
                     <a href="index.html">
                         <img id="nav-logo" class="logo" src="https://drdcmsv2.taigalab.com/Files/img/ortak-alan/drdlogorenkli.svg" alt="drdlogo" />
                     </a>
-
+                    <button id="nav-toggle" class="nav-toggle" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </button>
 
                     <div class="nav-top-right">
                         <div class="nav-top-menu">
@@ -115,6 +119,7 @@
         if (container) {
             container.innerHTML = this.render();
             this.initDropdownHandlers();
+            this.initMobileToggle();
         }
     }
 
@@ -135,6 +140,27 @@
                     dropdown.style.display = 'none';
                 });
             }
+        });
+    }
+
+    initMobileToggle() {
+        const toggleButton = document.getElementById('nav-toggle');
+        const topList = document.querySelector('.nav-top-list');
+        const bottomNav = document.querySelector('.nav-bottom');
+        const actions = document.querySelector('.nav-top-actions');
+
+        if (!toggleButton) return;
+
+        const updateAria = (isOpen) => {
+            toggleButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        };
+
+        toggleButton.addEventListener('click', () => {
+            const isHidden = topList && getComputedStyle(topList).display === 'none';
+            if (topList) topList.style.display = isHidden ? 'flex' : 'none';
+            if (bottomNav) bottomNav.style.display = isHidden ? 'block' : 'none';
+            if (actions) actions.style.display = isHidden ? 'flex' : 'none';
+            updateAria(isHidden);
         });
     }
 }

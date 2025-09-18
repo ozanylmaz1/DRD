@@ -14,6 +14,17 @@ nav li a {
     text-decoration: none;
     color: black;
 }
+.nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid black;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+}
 .nav-top {
     display: flex;
     justify-content: space-between;
@@ -80,7 +91,7 @@ nav li a {
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%; /* menünün altýna açýlýr */
+    top: 100%; /* menï¿½nï¿½n altï¿½na aï¿½ï¿½lï¿½r */
     left: 0;
     background: #fff;
     list-style: none;
@@ -109,7 +120,7 @@ nav li a {
                 background: #f5f5f5;
             }
 
-/* Hover olduðunda açýlma */
+/* Hover olduï¿½unda aï¿½ï¿½lma */
 .nav-item:hover .dropdown-menu {
     display: block;
 }
@@ -119,6 +130,11 @@ nav li a {
     .nav-top {
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+        margin-left: auto;
     }
 
     .nav-top-right {
@@ -136,6 +152,9 @@ nav li a {
 
     .nav-top-list {
         display: none; /* Hide for a cleaner mobile view, can be toggled with JS */
+        flex-direction: column;
+        padding: 0;
+        margin-top: 12px;
     }
 
     .btn-primary {
@@ -150,5 +169,7 @@ nav li a {
 
     .nav-bottom {
         display: none; /* Hide the bottom nav on mobile to simplify the interface */
+        margin: 0;
+        padding: 0 16px;
     }
 }

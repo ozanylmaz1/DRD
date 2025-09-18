@@ -1,4 +1,4 @@
-﻿.threesteps {
+.threesteps {
     display: flex;
     justify-content:space-between;
     background-color: #2b3035;
@@ -67,3 +67,24 @@
         object-fit: cover;
     }
 
+/* Mobile layout */
+@media screen and (max-width: 900px) {
+    .threesteps {
+        flex-direction: column;
+    }
+    .threesteps div {
+        width: 100%;
+        padding: 24px;
+    }
+    .threesteps span {
+        gap: 12px;
+    }
+    .threesteps img {
+        width: 100%;
+        border-radius: 0 0 9px 9px;
+        max-height: 260px;
+    }
+    .index-threesteps img {
+        height: 260px;
+    }
+}
