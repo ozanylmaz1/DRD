@@ -1,9 +1,9 @@
 /* Teklif Al Form Styles */
 .teklif-al-form {
-    background: #fff;
     padding: 0 55px;
-
-
+    max-width: 1300px; 
+    margin: 0 auto; 
+    box-sizing: border-box;
 }
 
 .teklif-al-form .section-head {
@@ -213,10 +213,11 @@ textarea.form-control {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    . {
-        flex: 0 0 100%;
-        max-width: 100%;
+@media (max-width: 1024px) {
+
+    .col-6{
+        flex: 0 0 96%;
+        max-width: 96%;
     }
     
     .row {

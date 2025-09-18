@@ -6,16 +6,16 @@
 main {
     display: flex;
     flex-direction: column;
-    align-items: center; /* İçeriği yatayda ortala */
-    max-width: 1900px; /* Maksimum genişlik belirle */
-    margin: 0 auto; /* Sayfayı yatayda ortala */
+    align-items: center;
+    max-width: 1900px; 
+    margin: 0 auto; 
 }
 
 /* Diğer stil kurallarınızı (section, header vb.) .page-wrapper içine uygulayın */
 section {
-    margin: 3em 7vw; /* Bu margin değerleri .page-wrapper'a göre ayarlanacak */
-    width: 100%; /* Bölümlerin kapsayıcısını doldurmasını sağla */
-    max-width: 1300px; /* Örneğin, bölümlerin maksimum genişliği */
+    margin: 3em 7vw; 
+    width: 100%; 
+    max-width: 1300px; 
     box-sizing: border-box;
 }
 
@@ -49,7 +49,7 @@ section {
     height: 200px;
     display: flex;
     align-items: center;
-    margin: 0 6.8vw;
+    margin: 0 7vw;
     position: relative;
     width: 86vw;
     max-width: 1300px;
@@ -101,4 +101,59 @@ section {
         margin: 3em 0; /* Bu margin değerleri .page-wrapper'a göre ayarlanacak */
     }
 
+}
+
+@media screen and (max-width: 1024px) {
+    section {
+        margin: 3em 0;
+        width: 100vw;
+        padding: 0 3em;
+    }
+    .header-list {
+        margin: 0;
+        width: 100vw;
+    }
+    .main-content {
+        flex-direction: column;
+    }
+
+    .vehicle-filters {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .filter-actions {
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .btn-filter {
+        width: auto;
+        flex: 1;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    section {
+
+        padding: 0 1em;
+    }
+    .display-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .vehicles-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .filter-actions {
+        flex-direction: column;
+    }
+
+    .btn-filter {
+        width: 100%;
+    }
 }

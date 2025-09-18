@@ -16,8 +16,8 @@ class NewsComponent {
                     </a>
                 </div>
                 <div class="blog-main">
-                    <a href="news1.html" id="news-card-1" class="fleet-card">
-                        <img id="news-image-1" class="fleet-img" src="https://drdcmsv2.taigalab.com/Files/img/bizden-haberler/oyuncak-atolyesi.jpg" />
+                    <a href="news1.html" id="news-card-1" class="blog-card">
+                        <img id="news-image-1" class="blog-img" src="https://drdcmsv2.taigalab.com/Files/img/bizden-haberler/oyuncak-atolyesi.jpg" />
                         <h2 id="news-title-1">Gülmek İyileştirir Derneği ile Oyuncak Atölyesi</h2>
                         <p id="news-description-1">Ciddi hastalıklarla mücadele eden çocuklar için Gülmek İyileştirir Derneği iş birliğinde oyuncaklar tasarladık ve minik kalplere...</p>
                         <span class="detail">
@@ -28,8 +28,8 @@ class NewsComponent {
                         </span>
                     </a>
 
-                    <a href="news2.html" id="news-card-2" class="fleet-card">
-                        <img id="news-image-2" class="fleet-img" src="https://drdcmsv2.taigalab.com/Files/img/bizden-haberler/10-kasim.jpg" />
+                    <a href="news2.html" id="news-card-2" class="blog-card">
+                        <img id="news-image-2" class="blog-img" src="https://drdcmsv2.taigalab.com/Files/img/bizden-haberler/10-kasim.jpg" />
                         <h2 id="news-title-2">10 Kasım'da Ata'mızın Huzurundaydık</h2>
                         <p id="news-description-2">Cumhuriyetimizin kurucusu Gazi Mustafa Kemal Atatürk'ü, aramızdan ayrılışının 86. Yılında Anıtkabir'de saygıyla andık.</p>
                         <span class="detail">
@@ -40,8 +40,8 @@ class NewsComponent {
                         </span>
                     </a>
 
-                    <a href="news3.html" id="news-card-3" class="fleet-card">
-                        <img id="news-image-3" class="fleet-img" src="https://drdcmsv2.taigalab.com/Files/img/bizden-haberler/yilbasi01.jpg" />
+                    <a href="news3.html" id="news-card-3" class="blog-card">
+                        <img id="news-image-3" class="blog-img" src="https://drdcmsv2.taigalab.com/Files/img/bizden-haberler/yilbasi01.jpg" />
                         <h2 id="news-title-3">DRD ile Yılbaşı Eğlencesi de Bir Başka!</h2>
                         <p id="news-description-3">Gökhan Tepe'nin sahne aldığı eğlence dolu programla 2025'e güçlü bir başlangıç yaptık.</p>
                         <span class="detail">
@@ -79,7 +79,7 @@ class NewsComponent {
         }
 
         // News card click handlers
-        const newsCards = document.querySelectorAll('.fleet-card');
+        const newsCards = document.querySelectorAll('.blog-card');
         newsCards.forEach((card, index) => {
             card.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -121,10 +121,10 @@ class NewsComponent {
         if (blogMain && newsData) {
             const newCard = document.createElement('a');
             newCard.href = newsData.href || '#';
-            newCard.className = 'fleet-card';
+            newCard.className = 'blog-card';
             
             newCard.innerHTML = `
-                <img class="fleet-img" src="${newsData.image || ''}" />
+                <img class="blog-img" src="${newsData.image || ''}" />
                 <h2>${newsData.title || ''}</h2>
                 <p>${newsData.description || ''}</p>
                 <span class="detail">

@@ -16,11 +16,6 @@
     width: 100%;
 }
 
-.fleet-main-why {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1em;
-}
 
 .fleet-card {
     flex: 0 0 32.2%;
@@ -47,17 +42,23 @@
     object-fit: cover;
     border-radius: 9px;
 }
-
+@media screen and (max-width: 1024px) {
+    .fleet-card {
+        flex: 0 0 49%;
+        max-width: 49%;
+    }
+}
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .fleet-main {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 1em;
     }
     
     .fleet-card {
-        flex: 1 1 100%;
-        max-width: 90%;
+        flex: 0 0 100%;
+        max-width: 100%;
     }
     
     .fleet-main-why {

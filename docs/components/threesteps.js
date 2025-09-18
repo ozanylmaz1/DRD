@@ -5,7 +5,7 @@
 
     render() {
         return `
-            <section id="threesteps-section" class="threesteps">
+            <section class="threesteps">
                 <div id="threesteps-content">
                     <h2 id="threesteps-title">
                         Sadece 3 adımda yeni araçlarınızı kiralayın
