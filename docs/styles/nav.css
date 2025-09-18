@@ -82,7 +82,7 @@ nav {
 .nav-bottom {
     margin-top: 8px;
     width: 100%;
-    padding-right: 2.5em;
+
     max-width: 1380px;
     box-sizing: border-box;
 }
@@ -94,7 +94,7 @@ nav {
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%; /* menünün altýna açýlýr */
+    top: 100%; /* menÃ¼nÃ¼n altÃ½na aÃ§Ã½lÃ½r */
     left: 0;
     background: #fff;
     list-style: none;
@@ -123,7 +123,7 @@ nav {
                 background: #f5f5f5;
             }
 
-/* Hover olduðunda açýlma */
+/* Hover olduÃ°unda aÃ§Ã½lma */
 .nav-item:hover .dropdown-menu {
     display: block;
 }
@@ -133,7 +133,7 @@ nav {
     .nav-bottom {
         width: 100%;
         max-width: 1300px;
-        margin: 0 auto; /* ortalamak için */
+        margin: 0 auto; /* ortalamak iÃ§in */
     }
 
 
