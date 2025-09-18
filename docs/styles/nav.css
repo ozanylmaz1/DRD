@@ -82,7 +82,7 @@ nav {
 .nav-bottom {
     margin-top: 8px;
     width: 100%;
-
+    padding-right: 2.5em;
     max-width: 1380px;
     box-sizing: border-box;
 }
