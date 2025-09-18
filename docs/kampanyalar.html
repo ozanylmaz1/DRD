@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampanyalar | DRD</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/fleet-leasing.css">
+    <link rel="stylesheet" href="styles/campaign.css">
+    <link rel="stylesheet" href="styles/blog.css">
+    <link rel="stylesheet" href="styles/newsletter.css">
+    <link rel="stylesheet" href="styles/widget.css">
+
+
+    <!-- Scripts -->
+    <script src="components/component-loader.js"></script>
+    <script src="components/nav.js"></script>
+    <script src="components/blog.js"></script>
+    <script src="components/newsletter.js"></script>
+    <script src="components/widget-2.js"></script>
+
+</head>
+<body>
+    <main>
+    <!-- Header Section -->
+    <div class="header-list" style="background-image: url(https://drdcmsv2.taigalab.com/Files/img/campain/kampanyalar.jpg)">
+        <h1 class="header-text">Kampanyalar</h1>
+    </div>
+    <section class="campaign">
+        <img src="https://drdcmsv2.taigalab.com/Files/img/list/1.png" />
+        <a href="/tr/kampanya-1">
+            <h2 class="list-title">Doğaya duyarlı yaklaşımlarımız</h2>
+            <p class="list-title-p">DRD filo müşterilerine daha da fazla avantaj sunuyor. Bugün bize ulaşın ve DRD'nin filonuzu nasıl destekleyebileceğini görün.</p>
+
+            <div class="campaign-btn" >
+                <p class="detail" style="margin-left: 0;">
+                    Detaylı İncele
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                    </svg>
+                </p>
+            </div>
+        </a>    </section>
+    <div id="blog-container"></div>
+
+    <div id="widget-2-container"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const widget2 = new WidgetComponent2();
+            widget2.mount('#widget-2-container');
+        });
+    </script>
+
+
+    <div id="newsletter-container"></div>
+    </main>
+</body>
+</html>

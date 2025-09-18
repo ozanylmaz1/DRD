@@ -1,0 +1,154 @@
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+    }
+
+nav li a {
+    text-decoration: none;
+    color: black;
+}
+.nav-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 28px 0;
+    width: 100vw;
+    max-width: 1300px;
+}
+.logo {
+    width: 250px;
+}
+.nav-top-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5em;
+}
+.nav-top-list {
+    font-size: 14px;
+    gap: 4em;
+}
+.nav-top-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+}
+.btn-primary {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: #ff002a;
+    padding: 0 40px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border: 0;
+    border-radius: 25px;
+    cursor: pointer;
+}
+    .btn-primary:hover {
+        background-color: black;
+    }
+.search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: white;
+    cursor: pointer;
+}
+.nav-bottom {
+    margin: 8px 8vw 0 5.5vw;
+    width: 100vw;
+    max-width: 1300px;
+}
+/*dropdown*/
+.nav-item {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* menünün altýna açýlýr */
+    left: 0;
+    background: #fff;
+    list-style: none;
+    padding: 0.8em 0;
+    margin: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 180px;
+    z-index: 999;
+}
+
+    .dropdown-menu li {
+        padding: 0;
+    }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 0.6em 1.2em;
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+            .dropdown-menu li a:hover {
+                background: #f5f5f5;
+            }
+
+/* Hover olduðunda açýlma */
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* Mobile Layout */
+@media screen and (max-width: 768px) {
+    .nav-top {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-top-right {
+        gap: 1.5em;
+        margin-top: 1em;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-top-list, .nav-top-actions {
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+    }
+
+    .nav-top-list {
+        display: none; /* Hide for a cleaner mobile view, can be toggled with JS */
+    }
+
+    .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .logo {
+        width: 25vw;
+        margin-bottom: 1em;
+    }
+
+    .nav-bottom {
+        display: none; /* Hide the bottom nav on mobile to simplify the interface */
+    }
+}
