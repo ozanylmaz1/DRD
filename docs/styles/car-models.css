@@ -48,7 +48,7 @@
     }
 
 }
-/* Mobile Layout */
+/* tab Layout */
 @media screen and (max-width: 860px) {
     .car-models-main {
         flex-direction: row;
@@ -63,5 +63,16 @@
 
     .car-name {
         font-size: 16px;
+    }
+}
+/* Mobile Layout */
+@media screen and (max-width: 500px) {
+        .car-models-main a {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+    .car-name {
+        font-size: 14px;
     }
 }

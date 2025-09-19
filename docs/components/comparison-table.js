@@ -108,7 +108,7 @@ class ComparisonTable {
                             <td></td>
                             
                             <td style="text-align: center; padding: 20px;">
-                                <button class="comparison-button">Araç Bul</button>
+                                <a href="araclar.html" class="comparison-button">Araç Bul</button>
                             </td>
                             <td></td>
                         </tr>

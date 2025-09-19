@@ -7,7 +7,8 @@
         return `
             <nav>
                 <div class="nav-top">
-                    <a href="index.html">
+                <div class="nav-top-container">
+                                    <a href="index.html">
                         <img id="nav-logo" class="logo" src="https://drdcmsv2.taigalab.com/Files/img/ortak-alan/drdlogorenkli.svg" alt="drdlogo" />
                     </a>
 
@@ -17,14 +18,14 @@
                             <!--nav menü-->
                             <ul class="nav-top-list">
                                 <li id="nav-about-item" class="nav-item dropdown">
-                                    <a id="nav-about-link" href="#about" class="nav-link">Bizi Tanıyın<i class="fas fa-chevron-down"></i></a>
+                                    <a id="nav-about-link" href="#" class="nav-link">Bizi Tanıyın<i class="fas fa-chevron-down"></i></a>
                                     <ul id="nav-about-dropdown" class="dropdown-menu">
-                                        <li><a id="nav-about-profile" href="#about1">Şirket Profili</a></li>
-                                        <li><a id="nav-about-sustainability" href="#about2">Sürdürülebilirlik Politikamız</a></li>
+                                        <li><a id="nav-about-profile" href="sirket-profili.html">Şirket Profili</a></li>
+                                        <li><a id="nav-about-sustainability" href="surdurulebilirlik-politikamiz.html">Sürdürülebilirlik Politikamız</a></li>
                                         <li><a id="nav-about-social" href="#about3">Sosyal Sorumluluk</a></li>
-                                        <li><a id="nav-about-news" href="#about4">Bizden Haberler</a></li>
+                                        <li><a id="nav-about-news" href="bizden-haberler.html">Bizden Haberler</a></li>
                                         <li><a id="nav-about-services" target="_blank" href="https://e-sirket.mkk.com.tr/?page=company&company=11184#">Bilgi Toplumu Hizmetleri</a></li>
-                                        <li><a id="nav-about-references" href="#about6">Referanslar</a></li>
+                                        <li><a id="nav-about-references" href="referanslarimiz.html">Referanslar</a></li>
                                     </ul>
                                 </li>
                                 <li id="nav-career-item" class="nav-item dropdown">
@@ -61,6 +62,7 @@
                                 <span id="nav-lang-en" class="lang-option">EN</span>
                             </div>
                         </div>
+                </div>
                     </div>
                 </div>
                 <div class="nav-bottom">
@@ -141,6 +143,7 @@
 
 // Global olarak erişilebilir hale getir
 window.NavComponent = NavComponent;
+
 
 
 

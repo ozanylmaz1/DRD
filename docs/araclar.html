@@ -17,12 +17,14 @@
     <link rel="stylesheet" href="styles/newsletter.css">
     <link rel="stylesheet" href="styles/advantages-section.css">
     <link rel="stylesheet" href="styles/araclar.css">
+    <link rel="stylesheet" href="styles/blog.css">
 
     <!-- Component Scripts -->
     <script src="components/nav.js"></script>
     <script src="components/component-loader.js"></script>
     <script src="components/advantages-section.js"></script>
     <script src="components/araclar.js"></script>
+    <script src="components/special-campaign.js"></script>
 </head>
 <body>
     <main>
@@ -71,7 +73,7 @@
                         <button type="submit" class="btn-filter btn-apply">Filtreleri Uygula</button>
                         <button type="button" class="btn-filter btn-clear" onclick="clearFilters()">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
                             </svg>
                         </button>
                     </div>
@@ -80,23 +82,23 @@
 
             <!-- Vehicle Display Section -->
             <div class="vehicle-display">
-            <div class="display-header">
-                <div class="results-count" id="results-count">24 Araç Listeleniyor</div>
-                <div class="sort-controls">
-                    <label for="sort-select">Sırala:</label>
-                    <select id="sort-select" onchange="sortVehicles(this.value)">
-                        <option value="">Varsayılan</option>
-                        <option value="price-low">Fiyat (Düşük → Yüksek)</option>
-                        <option value="price-high">Fiyat (Yüksek → Düşük)</option>
-                        <option value="brand">Marka (A → Z)</option>
-                        <option value="year">Yıl (En Yeni)</option>
-                    </select>
+                <div class="display-header">
+                    <div class="results-count" id="results-count">24 Araç Listeleniyor</div>
+                    <div class="sort-controls">
+                        <label for="sort-select">Sırala:</label>
+                        <select id="sort-select" onchange="sortVehicles(this.value)">
+                            <option value="">Varsayılan</option>
+                            <option value="price-low">Fiyat (Düşük → Yüksek)</option>
+                            <option value="price-high">Fiyat (Yüksek → Düşük)</option>
+                            <option value="brand">Marka (A → Z)</option>
+                            <option value="year">Yıl (En Yeni)</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
                 <div class="vehicles-grid" id="vehicles-container">
                     <!-- Vehicles will be dynamically loaded here -->
                 </div>
-                
+
                 <!-- Pagination Container -->
                 <div class="pagination" id="pagination-container">
                     <!-- Pagination will be dynamically loaded here -->
@@ -105,11 +107,7 @@
         </section>
 
         <!-- Special Offers Section -->
-        <section class="special-offers">
-            <h2>Size Özel Fırsat ve Kampanyalar</h2>
-            <p>Seçtiğiniz araç için özel kampanya ve fırsatları keşfedin. Sınırlı süre için geçerli indirimler ve avantajlı ödeme seçenekleri.</p>
-            <button class="offer-btn" onclick="window.location.href='kampanyalar.html'">Kampanyaları Görüntüle</button>
-        </section>
+        <div id="special-campaign-container"></div>
 
         <!-- Car Brands Section -->
         <div id="car-brands-container"></div>

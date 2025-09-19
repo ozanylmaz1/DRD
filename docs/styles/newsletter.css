@@ -100,6 +100,7 @@
     }
 @media screen and (max-width: 1024px) {
     .newsletter {
-        width: 91vw;
+        width: 95vw;
+        padding: 0;
     }
 }

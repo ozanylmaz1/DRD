@@ -25,7 +25,7 @@
 @media screen and (max-width: 1024px) {
     .car-brands-main,
     .brands-main {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         justify-items: center;
     }
 

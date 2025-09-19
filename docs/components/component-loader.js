@@ -65,7 +65,7 @@ class ComponentLoader {
         }
 
         // Diğer componentleri sırayla mount et
-        const componentOrder = ['hero-slider', 'car-models', 'car-models-electric', 'car-brands', 'fleet-leasing', 'blog', 'news', 'widget', 'newsletter', 'threesteps', 'curiosities'];
+        const componentOrder = ['hero-slider', 'car-models', 'car-models-electric', 'car-brands', 'fleet-leasing', 'blog', 'news', 'widget', 'newsletter', 'threesteps', 'curiosities','special-campaign'];
         
         componentOrder.forEach(componentName => {
             if (this.components[componentName]) {
@@ -121,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.CuriositiesComponent) componentLoader.register('curiosities', CuriositiesComponent);
     if (window.HeroSliderComponent) componentLoader.register('hero-slider', HeroSliderComponent);
     if (window.AccordionComponent) componentLoader.register('accordion', AccordionComponent);
+    if (window.specialcampaignComponent) componentLoader.register('special-campaign', specialcampaignComponent);
 
     // Tüm componentleri mount et
     componentLoader.mountAll();

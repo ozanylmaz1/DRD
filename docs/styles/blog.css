@@ -37,7 +37,18 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1em;
 }
+.certificates span {
+    display: flex;
+    flex-direction: column;
+}
 
+.certificates a {
+    color: #292d32;
+    text-decoration: none;
+    font-size: 26px;
+    border-bottom: 1px solid #ccc;
+    padding: 1em;
+}
 /* Mobile Layout */
 @media screen and (max-width: 860px) {
     .blog-main {

@@ -47,8 +47,8 @@
 
 }
 
-/* Mobile Layout */
-@media screen and (max-width: 768px) {
+/* Tablet Layout */
+@media screen and (max-width: 868px) {
 
     .widget-card {
         padding: 1.5em;
@@ -58,4 +58,20 @@
     .widget-content h1 {
         font-size: 28px;
     }
+}
+
+
+/* Moble Layout */
+@media screen and (max-width: 500px) {
+
+
+    .widget-card {
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .widget-card img{
+    width: 40%;
+    }
+
 }

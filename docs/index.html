@@ -37,21 +37,108 @@
 
     <!-- Loader (should be last) -->
     <script src="components/component-loader.js"></script>
+    <style>
+        .index-threesteps {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f6f6f6;
+            border-radius: 9px;
+            padding: 40px;
+            max-width: 1300px;
+            gap: 60px;
+        }
+
+            .index-threesteps a {
+                text-decoration: none;
+                color: black;
+                display: block; 
+            }
+
+            .index-threesteps h2 {
+                font-style: normal;
+                font-weight: 700;
+                line-height: 42px;
+                font-size: 30px;
+                margin-bottom: 20px; 
+            }
+
+            .index-threesteps p {
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 24px; 
+                margin: 0 0 20px 0; 
+                max-width: 450px;
+            }
+
+            .index-threesteps img {
+                border-radius: 9px;
+                height: 360px;
+                width: auto; 
+                object-fit: cover;
+                flex-shrink: 0; 
+            }
+
+            .index-threesteps span {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-weight: 500;
+            }
+
+        @media screen and (max-width: 1024px) {
+            .index-threesteps {
+                width: 98%;
+                max-width: 1300px;
+                margin: 0 auto;
+                padding: 40px 20px; /* Sağ-sol padding ekleyin */
+            }
+
+                .index-threesteps h2 {
+                    font-size: 26px;
+                    line-height: 36px;
+                }
+        }
+
+        @media screen and (max-width: 868px) {
+            .index-threesteps {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 30px;
+                gap: 30px;
+            }
+
+                .index-threesteps p {
+                    max-width: 100%;
+                }
+
+                .index-threesteps img {
+                    width: 100%;
+                    height: 250px;
+                    order: -1; /* Move image to top on mobile */
+                }
+
+                .index-threesteps h2 {
+                    font-size: 24px;
+                    line-height: 32px;
+                }
+        }
+    </style>
 </head>
 
 <body>
     <!-- Component containers -->
     <main>
-        <div id="nav-container"></div>
 
         <div id="hero-slider-container"></div>
+
 
         <div id="car-models-container"></div>
 
 
-        <section class="threesteps index-threesteps" style="background: #f6f6f6;">
-            <div id="threesteps-content">
-                <a href="fleetino.html" style=" color: black;">
+        <section class="index-threesteps">
+            <div>
+                <a href="fleetino.html">
                     <h2>
                         Tüm filo ihtiyaçlarınızı tek panelden yönetin
                     </h2>
@@ -64,8 +151,6 @@
                         </svg>
                     </span>
                 </a>
-
-
             </div>
             <img id="threesteps-image-2" src="https://drdcmsv2.taigalab.com/Files/img/home-page/tum-filo-ihtiyaclarini-tek-panelden-yonetin.png" />
         </section>

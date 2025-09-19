@@ -3,13 +3,14 @@
     justify-content: space-between;
     background-color: #2b3035;
     border-radius: 9px;
+    width: 100vw;
 }
 
     .threesteps div {
         padding: 60px;
         color: white;
         font-weight: normal;
-        width: 35vw;
+        max-width: 420px;
     }
 
     .threesteps h2 {
@@ -63,20 +64,10 @@
 
 .threesteps img {
     object-fit: cover;
-    width: 40vw;
     border-radius: 0 9px 9px 0;
+    width: 45vw;
+    max-width: 700px;
 }
-
-.index-threesteps {
-    margin: 0;
-    flex-wrap: wrap;
-}
-
-    .index-threesteps img {
-        border-radius: 9px;
-        height: 360px;
-        object-fit: cover;
-    }
 
 @media screen and (max-width: 1024px) {
     .threesteps {
@@ -90,6 +81,7 @@
             background-size: cover;
             border-radius: 9px;
             width: 100%;
+            max-width: 1024px;
             box-sizing: border-box;
         }
 
@@ -111,5 +103,6 @@
 
         .threesteps img {
             display: none;
+
         }
 }

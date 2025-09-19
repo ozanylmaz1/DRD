@@ -1,5 +1,4 @@
-
-nav {
+﻿nav {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,10 +18,18 @@ nav {
 .nav-top {
     display: flex;
     justify-content: center;
-    padding: 28px 0;
+    padding: 28px;
     width: 100%;
-    max-width: 1380px;
+    max-width: 1300px;
     box-sizing: border-box;
+}
+
+/* Then wrap your nav content in a container with max-width */
+.nav-top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .logo {
@@ -83,7 +90,7 @@ nav {
     margin-top: 8px;
     width: 100%;
     padding-right: 2.5em;
-    max-width: 1380px;
+    max-width: 1300px;
     box-sizing: border-box;
 }
 /*dropdown*/
@@ -128,14 +135,8 @@ nav {
     display: block;
 }
 
+/* 1024px Media Query */
 @media screen and (max-width: 1024px) {
-    .nav-top,
-    .nav-bottom {
-        width: 100%;
-        max-width: 1300px;
-        margin: 0 auto; /* ortalamak için */
-    }
-
 
 }
 
@@ -144,6 +145,7 @@ nav {
     .nav-top {
         flex-wrap: wrap;
         justify-content: center;
+        padding: 20px;
     }
 
     .nav-top-right {

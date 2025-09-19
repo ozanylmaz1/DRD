@@ -1,0 +1,71 @@
+﻿.company-timeline {
+    background-image: url(https://drdcmsv2.taigalab.com/Files/img/background-white.png?v=ijA8jU3zFiw7VJZnGstdYqXXtzc);
+}
+
+.timeline-list {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+}
+
+    .timeline-list::-webkit-scrollbar {
+        display: none;
+    }
+
+.timeline-splide {
+    flex: 0 0 auto;
+    width: calc(32.3333% - 20px);
+    border-radius: 10px;
+    cursor: grab;
+    user-select: none;
+    list-style-type: none;
+}
+
+
+.gallery-content h6 {
+    margin: 0;
+    margin-left: 55px;
+    color: #292d32;
+    width: 100%;
+    max-width: 800px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    transition: transform 0.5s ease-in-out 0.3s;
+    transform: translateX(0);
+}
+.certificates span a {
+    display: inline-flex; /* ikon + yazıyı hizalamak için */
+    align-items: center;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+    .certificates span a:hover {
+        color: #ff0029;
+        transform: translateX(5px);
+    }
+
+    .certificates span a svg {
+        transition: transform 0.3s ease-in-out;
+        transform-origin: center; /* dönme ortadan olsun */
+        margin-right: 10px;
+    }
+
+    .certificates span a:hover svg {
+        transform: rotate(45deg);
+    }
+
+
+@media screen and (max-width: 1024px) {
+    .timeline-splide {
+        width: calc(50% - 15px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .timeline-splide {
+        width: 100%;
+    }
+}
