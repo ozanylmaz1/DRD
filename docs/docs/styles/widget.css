@@ -1,0 +1,77 @@
+﻿.widget {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+}
+    .widget h2 {
+        font-style: normal;
+        font-weight: 700;
+        line-height: 42px;
+        font-size: 30px;
+    }
+.lead { /*.widget p*/
+    font-size: 16px;
+    color: #292d32;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 16px 0 16px 0;
+}
+.widget-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    background: #f6f6f6;
+    padding: 0 2em;
+    border-radius: 9px;
+    min-height: 220px;
+}
+
+.widget-content h2 {
+    font-size: 35px;
+    margin: 0;
+}
+.widget-content h6 {
+    color: #292d32;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 43px;
+    margin: 0;
+}
+/* Tablet Layout */
+@media screen and (max-width: 1024px) {
+    .widget {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* Tablet Layout */
+@media screen and (max-width: 868px) {
+
+    .widget-card {
+        padding: 1.5em;
+        min-height: 150px;
+    }
+
+    .widget-content h1 {
+        font-size: 28px;
+    }
+}
+
+
+/* Moble Layout */
+@media screen and (max-width: 500px) {
+
+
+    .widget-card {
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .widget-card img{
+    width: 40%;
+    }
+
+}
