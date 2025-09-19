@@ -1,2 +1,2 @@
 # DRD
-Canlı Demo: <a href="https://ozanylmaz1.github.io/drd/">Başlat</a><br /><br />
+Canlı Demo: <a href="https://ozanylmaz1.github.io/DRD/">Başlat</a><br /><br />
