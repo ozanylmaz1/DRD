@@ -98,6 +98,18 @@
         background: #ff0029;
         color: #fff;
     }
+.newsletter-btn{
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 15px 30px;
+    border-radius: 7px;
+}
+    .newsletter-btn:hover {
+        border: 1px solid #ff0029;
+        background: #ff0029;
+        color: #fff;
+    }
 @media screen and (max-width: 1024px) {
     .newsletter {
         width: 95vw;

@@ -76,13 +76,17 @@ section {
     font-weight: normal;
     max-width: 250px;
 }
+.fleettext {
+    margin-left: 55px;
+}
+
 /*text*/
 .gallery-content p,
 .drd-meet p,
-.special-solutions p{
+.special-solutions p {
     margin: 0 0 60px 55px;
     color: #292d32;
-    width: 100%;
+    width: 90%;
     max-width: 800px;
     font-size: 16px;
     font-weight: 300;
@@ -135,12 +139,23 @@ section {
         flex: 1;
     }
 
+    /*text*/
+    .gallery-content p,
+    .drd-meet p,
+    .special-solutions p {
+        margin: 20px 0;
+        
+    }
+    .fleettext {
+        margin-left: 0;
+    }
+
 }
 
 @media screen and (max-width: 860px) {
     section {
         max-width: 668px;
-        width: 100%;
+        width: 90vw;
     }
     .display-header {
         flex-direction: column;
@@ -162,9 +177,13 @@ section {
     }
 }
 
+@media screen and (max-width: 768px) {
+    .header-text {
+        margin-left: 6%;
+    }
+}
 @media screen and (max-width: 500px) {
     section {
         max-width: 400px;
-        width: 100%;
     }
 }

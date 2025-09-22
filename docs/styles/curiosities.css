@@ -81,6 +81,16 @@
     }
 @media screen and (max-width: 1024px) {
     .curiosities {
-        width: 100vw;
+        width: 90vw;
+    }
+}
+@media screen and (max-width: 600px) {
+    .curiosities {
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width: 500px) {
+    .curiosities {
+        max-width: 400px;
     }
 }

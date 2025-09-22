@@ -64,8 +64,22 @@ class ComponentLoader {
             this.mount('nav', '#nav-container');
         }
 
-        // Diğer componentleri sırayla mount et
-        const componentOrder = ['hero-slider', 'car-models', 'car-models-electric', 'car-brands', 'fleet-leasing', 'blog', 'news', 'widget', 'newsletter', 'threesteps', 'curiosities','special-campaign'];
+
+        const componentOrder = [
+            'hero-slider',
+            'car-models',
+            'car-models-electric',
+            'car-brands',
+            'fleet-leasing',
+            'blog',
+            'news',
+            'widget',
+            'newsletter',
+            'threesteps',
+            'curiosities',
+            'special-campaign',
+            'career-banner'
+        ];
         
         componentOrder.forEach(componentName => {
             if (this.components[componentName]) {
@@ -122,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.HeroSliderComponent) componentLoader.register('hero-slider', HeroSliderComponent);
     if (window.AccordionComponent) componentLoader.register('accordion', AccordionComponent);
     if (window.specialcampaignComponent) componentLoader.register('special-campaign', specialcampaignComponent);
-
+    if (window.CareerBannerComponent) componentLoader.register('career-banner', CareerBannerComponent);
     // Tüm componentleri mount et
     componentLoader.mountAll();
 });
