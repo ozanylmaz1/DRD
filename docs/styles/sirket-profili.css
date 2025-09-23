@@ -39,6 +39,8 @@
 .certificates span a {
     display: inline-flex; /* ikon + yazıyı hizalamak için */
     align-items: center;
+    text-decoration: none;
+    color: #292d32;
     transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
@@ -62,10 +64,16 @@
     .timeline-splide {
         width: calc(50% - 15px);
     }
+
 }
 
 @media screen and (max-width: 600px) {
     .timeline-splide {
         width: 100%;
     }
+
+    .gallery-content h6 {
+        margin: 0;
+    }
+
 }

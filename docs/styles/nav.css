@@ -100,6 +100,7 @@
     border: 0;
     background: none;
     cursor: pointer;
+    padding: 0;
 }
 
 /* Mobile menu overlay */
@@ -245,21 +246,27 @@
 }
 
 /* Mobile Layout */
-@media screen and (max-width: 868px) {
+@media screen and (max-width: 860px) {
     nav {
         flex-direction: row;
-        justify-content: space-between;
-        max-width: 768px;
-        width: 100%;
+        justify-content: center;
+        max-width: 668px;
+        width: 90vw;
+        margin: 0 auto;
     }
-
+    .nav-top, .nav-bottom {
+        padding: 1em 0;
+        display: flex;
+    }
+    .nav-bottom {
+        justify-content: flex-end;
+    }
     .nav-top-right {
         display: none;
     }
 
     .logo {
-        width: 25vw;
-        margin-bottom: 1em;
+        width: 150px;
     }
 
     .nav-bottom-list {

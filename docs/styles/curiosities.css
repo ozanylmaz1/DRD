@@ -17,23 +17,6 @@
         line-height: 24px;
         color: #191919;
     }
-
-.curiosities-link {
-    border-radius: 7px;
-    border: 1px solid black;
-    padding: 15px 40px;
-    text-decoration: none;
-    color: black;
-    font-size: 14px;
-    display: inline-block;
-}
-
-    .curiosities-link:hover {
-        border: 1px solid #ff0029;
-        background-color: #ff0029;
-        color: white;
-    }
-
 /* Accordion Styles */
 .accordion-container {
     max-width: 650px;

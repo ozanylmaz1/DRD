@@ -17,7 +17,7 @@
     font-size: 18px;
     font-style: normal;
     line-height: 34px;
-    width: 600px;
+    max-width: 600px;
     margin: 0;
 }
 
@@ -40,4 +40,17 @@
 .social-icons svg{
     width: 20px;
     height: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+    .global-space-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
+    .social-icons {
+        margin: 0;
+        justify-content: center;
+    }
 }

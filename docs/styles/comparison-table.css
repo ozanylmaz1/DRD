@@ -1,8 +1,7 @@
 /* Comparison Table Styles */
 .comparison-section {
     background-color: #f8f8f8;
-    margin: 0;
-    padding: 2em 7vw;
+    padding: 2em;
 }
 
 .comparison-section h2 {
@@ -31,11 +30,11 @@
     padding: 20px;
     text-align: center;
     border-bottom: 2px solid #e9ecef;
+    width: 30vw;
 }
 
 .comparison-table th:nth-child(3) {
     border-left: 2px solid #e9ecef;
-    border-right: 2px solid #e9ecef;
 }
 
 .comparison-table th:first-child {
@@ -54,7 +53,6 @@
 
 .comparison-table td:nth-child(3) {
     border-left: 2px solid #e9ecef;
-    border-right: 2px solid #e9ecef;
 }
 
 .comparison-table td:first-child {

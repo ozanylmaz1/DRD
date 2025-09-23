@@ -33,11 +33,11 @@
                                 <li><a id="nav-career-being" href="drdli-olmak.html">DRD'li Olmak</a></li>
                                 <li><a id="nav-career-culture" href="sirket-kulturu.html">Kültürümüz</a></li>
                                 <li><a id="nav-career-hiring" href="ise-alim.html">İşe Alım</a></li>
-                                <li><a id="nav-career-positions" href="#career4">Açık Pozisyonlar</a></li>
+                                <li><a id="nav-career-positions" href="acik-pozisyonlar.html">Açık Pozisyonlar</a></li>
                             </ul>
                         </li>
                         <li id="nav-blog-item" class="nav-item">
-                            <a id="nav-blog-link" href="#blog" class="nav-link">Blog</a>
+                            <a id="nav-blog-link" href="blog.html" class="nav-link">Blog</a>
                         </li>
                     </ul>
                 </div>
@@ -119,7 +119,15 @@
             <img src="https://drdcmsv2.taigalab.com/Files/img/ortak-alan/drdlogorenkli.svg" alt="DRD Logo" style="height: 40px;">
             <button class="mobile-menu-close" id="mobile-menu-close">&times;</button>
         </div>
+
         <div class="mobile-menu-content">
+
+            <!-- Actions Section -->
+            <div class="mobile-nav-section">
+                <ul>
+                    <li><a href="#" style="color: #ff002a; font-weight: bold;">Fleetino | Giriş</a></li>
+                </ul>
+            </div>
             <!-- Bizi Tanıyın Section -->
             <div class="mobile-nav-section">
                 <h3>Bizi Tanıyın</h3>
@@ -140,17 +148,22 @@
                     <li><a href="drdli-olmak.html">DRD'li Olmak</a></li>
                     <li><a href="sirket-kulturu.html">Kültürümüz</a></li>
                     <li><a href="ise-alim.html">İşe Alım</a></li>
-                    <li><a href="#career4">Açık Pozisyonlar</a></li>
+                    <li><a href="acik-pozisyonlar.html">Açık Pozisyonlar</a></li>
+                </ul>
+            </div>
+
+            <div class="mobile-nav-section">
+                <ul>
+                    <li>
+                     <a href="blog.html">Blog</a>
+                    </li>
                 </ul>
             </div>
 
             <!-- Main Navigation -->
             <div class="mobile-nav-section">
-                <h3>Ana Menü</h3>
                 <ul>
                     <li><a href="neden-drd.html">Neden DRD</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="teklif-al.html">Teklif Al</a></li>
                 </ul>
             </div>
 
@@ -184,6 +197,12 @@
                 </ul>
             </div>
 
+            <div class="mobile-nav-section">
+                <ul>
+                    <li><a href="teklif-al.html">Teklif Al</a></li>
+                </ul>
+            </div>
+
             <!-- Destek & İletişim Section -->
             <div class="mobile-nav-section">
                 <h3>Destek & İletişim</h3>
@@ -193,13 +212,6 @@
                 </ul>
             </div>
 
-            <!-- Actions Section -->
-            <div class="mobile-nav-section">
-                <h3>Hızlı Erişim</h3>
-                <ul>
-                    <li><a href="#" style="color: #ff002a; font-weight: bold;">Fleetino | Giriş</a></li>
-                </ul>
-            </div>
         </div>
     </div>
 </nav>

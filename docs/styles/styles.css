@@ -1,5 +1,5 @@
 ﻿body {
-    font-family: "Poppins";
+    font-family: "Poppins", sans-serif;
     margin: 0; /* Body'nin varsayılan marginini kaldır */
 }
 
@@ -78,6 +78,7 @@ section {
 }
 .fleettext {
     margin-left: 55px;
+    max-width: 800px;
 }
 
 /*text*/
@@ -101,6 +102,24 @@ section {
     text-decoration: none;
     color: black;
 }
+
+.curiosities-link {
+    border-radius: 7px;
+    border: 1px solid black;
+    padding: 15px 40px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    display: inline-block;
+}
+
+    .curiosities-link:hover {
+        border: 1px solid #ff0029;
+        background-color: #ff0029;
+        color: white;
+    }
+
+
 @media screen and (min-width: 2100px) {
     section {
         margin: 3em 0; /* Bu margin değerleri .page-wrapper'a göre ayarlanacak */
