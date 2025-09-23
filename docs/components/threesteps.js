@@ -34,7 +34,7 @@
                         </a>
                     </span>
                 </div>
-                <img id="threesteps-image" src="https://drdcmsv2.taigalab.com/Files/img/ortak-alan/3adimdaarackiralayin.jpg" />
+                <img id="threesteps-image" src="https://drdcmsv2.taigalab.com/Files/img/ortak-alan/3adimdaarackiralayin.jpg" alt="Sadece 3 adımda yeni araçlarınızı kiralayın"/>
             </section>
         `;
     }

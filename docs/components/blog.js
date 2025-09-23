@@ -17,7 +17,7 @@
                 </div>
                 <div class="blog-main">
                     <a href="blog1.html" id="blog-card-1" class="blog-card">
-                        <img id="blog-image-1" class="blog-img" src="https://drdcmsv2.taigalab.com/Files/img/Blog/plaka-kodlari/ulkelerin-plaka-kodlari-tum-ulkeler-icin-detayli-liste-1.jpg" />
+                        <img id="blog-image-1" class="blog-img" alt="" src="https://drdcmsv2.taigalab.com/Files/img/Blog/plaka-kodlari/ulkelerin-plaka-kodlari-tum-ulkeler-icin-detayli-liste-1.jpg" />
                         <h2 id="blog-title-1">Ülkelerin Plaka Kodları | Tüm Ülkeler İçin Detaylı Liste</h2>
                         <p id="blog-description-1">Yurt dışına çıktığınızda veya trafikte yabancı bir araçla karşılaştığınızda, plakasındaki kısa harf kodları dikkatinizi çekmiş olabilir. Bu...</p>
                         <span class="detail" style="margin-left: 0;">
@@ -29,7 +29,7 @@
                     </a>
 
                     <a href="blog2.html" id="blog-card-2" class="blog-card">
-                        <img id="blog-image-2" class="blog-img" src="https://drdcmsv2.taigalab.com/Files/img/Blog/plaka-kodlari/ulkelerin-plaka-kodlari-tum-ulkeler-icin-detayli-liste-1.jpg" />
+                        <img id="blog-image-2" class="blog-img" alt="" src="https://drdcmsv2.taigalab.com/Files/img/Blog/plaka-kodlari/ulkelerin-plaka-kodlari-tum-ulkeler-icin-detayli-liste-1.jpg" />
                         <h2 id="blog-title-2">Ülkelerin Plaka Kodları | Tüm Ülkeler İçin Detaylı Liste</h2>
                         <p id="blog-description-2">Yurt dışına çıktığınızda veya trafikte yabancı bir araçla karşılaştığınızda, plakasındaki kısa harf kodları dikkatinizi çekmiş olabilir. Bu...</p>
                         <span class="detail" style="margin-left: 0;">
@@ -41,7 +41,7 @@
                     </a>
 
                     <a href="blog3.html" id="blog-card-3" class="blog-card">
-                        <img id="blog-image-3" class="blog-img" src="https://drdcmsv2.taigalab.com/Files/img/Blog/plaka-kodlari/ulkelerin-plaka-kodlari-tum-ulkeler-icin-detayli-liste-1.jpg" />
+                        <img id="blog-image-3" class="blog-img" alt="" src="https://drdcmsv2.taigalab.com/Files/img/Blog/plaka-kodlari/ulkelerin-plaka-kodlari-tum-ulkeler-icin-detayli-liste-1.jpg" />
                         <h2 id="blog-title-3">Ülkelerin Plaka Kodları | Tüm Ülkeler İçin Detaylı Liste</h2>
                         <p id="blog-description-3">Yurt dışına çıktığınızda veya trafikte yabancı bir araçla karşılaştığınızda, plakasındaki kısa harf kodları dikkatinizi çekmiş olabilir. Bu...</p>
                         <span class="detail" style="margin-left: 0;">

@@ -23,32 +23,32 @@
                 </div>
                 <div id="fleet-main" class="fleet-main">
                     <div id="fleet-card-1" class="fleet-card">
-                        <img id="fleet-image-1" class="fleet-img" src="https://drdcmsv2.taigalab.com/Files/img/servis-hizmetleri/filo-kiralama/maliyetleri-kontrol-altina-alin.jpg" />
+                        <img id="fleet-image-1" class="fleet-img" src="https://drdcmsv2.taigalab.com/Files/img/servis-hizmetleri/filo-kiralama/maliyetleri-kontrol-altina-alin.jpg" alt="Maliyetleri yönetin"/>
                         <h2 id="fleet-title-1">Maliyetleri yönetin</h2>
                         <p id="fleet-description-1">Filo kiralama, araç satın almanın getirdiği yüksek maliyetlerden kurtulmanızı sağlar. Sermayenizi araç alımına bağlamak yerine, aylık sabit ödemelerle bütçenizi daha verimli yöneterek finansal özgürlüğünüzü artırabilirsiniz.</p>
                     </div>
                     <div id="fleet-card-2" class="fleet-card">
-                        <img id="fleet-image-2" class="fleet-img" src="https://drdcmsv2.taigalab.com/Files/img/servis-hizmetleri/filo-kiralama/operasyonel-sureclerinizi-kolaylastirin.jpg" />
+                        <img id="fleet-image-2" class="fleet-img" src="https://drdcmsv2.taigalab.com/Files/img/servis-hizmetleri/filo-kiralama/operasyonel-sureclerinizi-kolaylastirin.jpg" alt="Operasyonu kolaylaştırın"/>
                         <h2 id="fleet-title-2">Operasyonu kolaylaştırın</h2>
                         <p id="fleet-description-2">Bakım, onarım ve hasar yönetimi gibi filo yönetimiyle ilgili tüm süreçleri uzman ekibimize devredin. Böylece zamanınızı ve iş gücünüzü daha verimli kullanarak işinize odaklanmanın keyfini çıkarın.</p>
                     </div>
                     <div id="fleet-card-3" class="fleet-card">
-                        <img id="fleet-image-3" class="fleet-img" src="https://drdcmsv2.taigalab.com/Files/img/servis-hizmetleri/filo-kiralama/her-zaman-guncel-araclara-sahip-olun.jpg" />
+                        <img id="fleet-image-3" class="fleet-img" src="https://drdcmsv2.taigalab.com/Files/img/servis-hizmetleri/filo-kiralama/her-zaman-guncel-araclara-sahip-olun.jpg" alt="Güncel araçlara sahip olun" />
                         <h2 id="fleet-title-3">Güncel araçlara sahip olun</h2>
                         <p id="fleet-description-3">Her dönem yeni ve modern araçlarla filonuzu yenileyerek teknolojinin sunduğu en son avantajlardan faydalanın. Hem iş akışınızı daha verimli hale getirin hem de çalışanlarınıza konfor sağlayın.</p>
                     </div>
                     <div id="fleet-card-4" class="fleet-card">
-                        <img id="fleet-image-4" class="fleet-img" src="https://drdcmsv2.taigalab.com/Files/img/servis-hizmetleri/filo-kiralama/maliyetleri-kontrol-altina-alin.jpg" />
+                        <img id="fleet-image-4" class="fleet-img" src="https://drdcmsv2.taigalab.com/Files/img/servis-hizmetleri/filo-kiralama/maliyetleri-kontrol-altina-alin.jpg" alt="Maliyetleri yönetin" />
                         <h2 id="fleet-title-4">Maliyetleri yönetin</h2>
                         <p id="fleet-description-4">Filo kiralama, araç satın almanın getirdiği yüksek maliyetlerden kurtulmanızı sağlar. Sermayenizi araç alımına bağlamak yerine, aylık sabit ödemelerle bütçenizi daha verimli yöneterek finansal özgürlüğünüzü artırabilirsiniz.</p>
                     </div>
                     <div id="fleet-card-5" class="fleet-card">
-                        <img id="fleet-image-5" class="fleet-img" src="https://drdcmsv2.taigalab.com/Files/img/servis-hizmetleri/filo-kiralama/operasyonel-sureclerinizi-kolaylastirin.jpg" />
+                        <img id="fleet-image-5" class="fleet-img" src="https://drdcmsv2.taigalab.com/Files/img/servis-hizmetleri/filo-kiralama/operasyonel-sureclerinizi-kolaylastirin.jpg" alt="Operasyonu kolaylaştırın" />
                         <h2 id="fleet-title-5">Operasyonu kolaylaştırın</h2>
                         <p id="fleet-description-5">Bakım, onarım ve hasar yönetimi gibi filo yönetimiyle ilgili tüm süreçleri uzman ekibimize devredin. Böylece zamanınızı ve iş gücünüzü daha verimli kullanarak işinize odaklanmanın keyfini çıkarın.</p>
                     </div>
                     <div id="fleet-card-6" class="fleet-card">
-                        <img id="fleet-image-6" class="fleet-img" src="https://drdcmsv2.taigalab.com/Files/img/servis-hizmetleri/filo-kiralama/her-zaman-guncel-araclara-sahip-olun.jpg" />
+                        <img id="fleet-image-6" class="fleet-img" src="https://drdcmsv2.taigalab.com/Files/img/servis-hizmetleri/filo-kiralama/her-zaman-guncel-araclara-sahip-olun.jpg" alt="Güncel araçlara sahip olun" />
                         <h2 id="fleet-title-6">Güncel araçlara sahip olun</h2>
                         <p id="fleet-description-6">Her dönem yeni ve modern araçlarla filonuzu yenileyerek teknolojinin sunduğu en son avantajlardan faydalanın. Hem iş akışınızı daha verimli hale getirin hem de çalışanlarınıza konfor sağlayın.</p>
                     </div>
