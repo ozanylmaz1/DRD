@@ -312,5 +312,4 @@
 }
 
 // Global olarak erişilebilir hale getir
-
 window.NavComponent = NavComponent;

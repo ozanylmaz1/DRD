@@ -71,9 +71,11 @@ class ComponentLoader {
             'car-models-electric',
             'car-brands',
             'fleet-leasing',
+            'why-drd-slider',
             'blog',
             'news',
             'widget',
+            'TimelineComponent',
             'newsletter',
             'threesteps',
             'curiosities',
@@ -114,6 +116,7 @@ class ComponentLoader {
     getLoadedComponents() {
         return Array.from(this.loadedComponents);
     }
+
 }
 
 // Global component loader instance'ı oluştur
@@ -127,13 +130,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.CarModelsComponent) componentLoader.register('car-models', CarModelsComponent);
     if (window.CarModelsElectricComponent) componentLoader.register('car-models-electric', CarModelsElectricComponent);
     if (window.FleetLeasingComponent) componentLoader.register('fleet-leasing', FleetLeasingComponent);
-    if (window.NavComponent) componentLoader.register('nav', NavComponent);
+    if (window.WhyDrdSliderComponent) componentLoader.register('why-drd-slider', WhyDrdSliderComponent);    if (window.NavComponent) componentLoader.register('nav', NavComponent);
     if (window.NewsComponent) componentLoader.register('news', NewsComponent);
     if (window.WidgetComponent) componentLoader.register('widget', WidgetComponent);
     if (window.NewsletterComponent) componentLoader.register('newsletter', NewsletterComponent);
     if (window.ThreeStepsComponent) componentLoader.register('threesteps', ThreeStepsComponent);
     if (window.CuriositiesComponent) componentLoader.register('curiosities', CuriositiesComponent);
     if (window.HeroSliderComponent) componentLoader.register('hero-slider', HeroSliderComponent);
+    if (window.TimelineComponent) componentLoader.register('TimelineComponent', TimelineComponent);
     if (window.AccordionComponent) componentLoader.register('accordion', AccordionComponent);
     if (window.specialcampaignComponent) componentLoader.register('special-campaign', specialcampaignComponent);
     if (window.CareerBannerComponent) componentLoader.register('career-banner', CareerBannerComponent);

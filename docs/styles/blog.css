@@ -63,3 +63,8 @@
         height: 240px;
     }
 }
+@media screen and (max-width: 500px) {
+    .fleet-main-why {
+        grid-template-columns: 1fr;
+    }
+}
