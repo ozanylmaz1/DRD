@@ -5,7 +5,10 @@
         this.boundHandlers = {};
         this.timelineList = null;
         this.timelineData = this.getTimelineData();
+
+        this.scrollSpeed = 2; 
     }
+
 
     getTimelineData() {
         return [
@@ -110,10 +113,10 @@
         this.timelineList.addEventListener('mousedown', this.boundHandlers.mousedown);
         this.timelineList.addEventListener('mousemove', this.boundHandlers.mousemove);
         this.timelineList.addEventListener('mouseleave', this.boundHandlers.mouseleave);
-        this.timelineList.addEventListener('touchstart', this.boundHandlers.touchstart, { passive: false });
+        this.timelineList.addEventListener('touchstart', this.boundHandlers.touchstart, { passive: true }); // Passive true
         this.timelineList.addEventListener('touchmove', this.boundHandlers.touchmove, { passive: false });
-        this.timelineList.addEventListener('touchend', this.boundHandlers.touchend);
-        this.timelineList.addEventListener('scroll', this.boundHandlers.scroll);
+        this.timelineList.addEventListener('touchend', this.boundHandlers.touchend, { passive: true }); // Passive true
+        this.timelineList.addEventListener('scroll', this.boundHandlers.scroll, { passive: true });
         this.timelineList.addEventListener('click', this.boundHandlers.click);
 
         document.addEventListener('mouseup', this.boundHandlers.mouseup);
@@ -126,7 +129,7 @@
         this.isDragging = true;
         this.hasMoved = false;
         this.timelineList.style.cursor = 'grabbing';
-        this.startX = e.pageX;
+        this.startX = e.pageX - this.timelineList.offsetLeft;
         this.scrollLeft = this.timelineList.scrollLeft;
         e.preventDefault();
     }
@@ -136,9 +139,9 @@
         e.preventDefault();
 
         const x = e.pageX;
-        const walk = (x - this.startX) * 1.5; // Daha makul scroll hızı
+        const walk = (x - this.startX) * this.scrollSpeed;
 
-        if (Math.abs(walk) > 5) {
+        if (Math.abs(walk) > 3) {
             this.hasMoved = true;
         }
 
@@ -171,7 +174,7 @@
         this.isDragging = true;
         this.hasMoved = false;
         const touch = e.touches[0];
-        this.startX = touch.pageX;
+        this.startX = touch.pageX - this.timelineList.offsetLeft;
         this.scrollLeft = this.timelineList.scrollLeft;
     }
 
@@ -179,9 +182,9 @@
         if (!this.isDragging) return;
 
         const touch = e.touches[0];
-        const walk = (touch.pageX - this.startX) * 1.5;
+        const walk = (touch.pageX - this.startX) * this.scrollSpeed;
 
-        if (Math.abs(walk) > 5) {
+        if (Math.abs(walk) > 3) {
             this.hasMoved = true;
             e.preventDefault();
         }
@@ -284,6 +287,8 @@
         // Referansları temizle
         this.timelineList = null;
         this.boundHandlers = {};
+        this.isDragging = false;
+        this.hasMoved = false;
     }
 }
 

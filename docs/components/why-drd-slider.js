@@ -218,7 +218,7 @@ class WhyDrdSliderComponent {
         e.preventDefault();
 
         const x = e.pageX;
-        const walk = (x - this.startX);
+        const walk = (x - this.startX) * 2; 
 
         // Hareket eþiði
         if (Math.abs(walk) > 5) {
@@ -264,9 +264,9 @@ class WhyDrdSliderComponent {
         if (!this.isDragging) return;
 
         const touch = e.touches[0];
-        const walk = (touch.pageX - this.startX);
+        const walk = (touch.pageX - this.startX) * 2; 
 
-        if (Math.abs(walk) > 5) {
+        if (Math.abs(walk) > 3) {
             this.hasMoved = true;
             e.preventDefault(); // Scroll'u engelle
         }
