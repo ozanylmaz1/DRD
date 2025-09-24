@@ -2,28 +2,28 @@ class WhyDrdSliderComponent {
     constructor(customSlides = null) {
         this.componentName = 'why-drd-slider';
 
-        // Varsayýlan slide'lar
+        // VarsayÃ½lan slide'lar
         this.defaultSlides = [
             {
                 img: 'https://drdcmsv2.taigalab.com/Files/img/neden-drd/neden-drd-5.png',
-                title: 'Hýzlý ve Etkin Çözümler',
+                title: 'HÃ½zlÃ½ ve Etkin Ã‡Ã¶zÃ¼mler',
             },
             {
                 img: 'https://drdcmsv2.taigalab.com/Files/img/neden-drd/neden-drd-4.png',
-                title: 'Yaygýn Servis Aðý',
+                title: 'YaygÃ½n Servis AÃ°Ã½',
             },
             {
                 img: 'https://drdcmsv2.taigalab.com/Files/img/neden-drd/neden-drd-1.png',
-                title: 'Geniþ Araç Portföyü',
+                title: 'GeniÃ¾ AraÃ§ PortfÃ¶yÃ¼',
             }
         ];
 
-        // Tüm mevcut slide'lar (pool)
+        // TÃ¼m mevcut slide'lar (pool)
         this.allSlides = [
             {
                 id: 1,
                 img: 'https://drdcmsv2.taigalab.com/Files/img/neden-drd/neden-drd-1.png',
-                title: 'Geniþ Araç Portföyü',
+                title: 'GeniÃ¾ AraÃ§ PortfÃ¶yÃ¼',
             },
             {
                 id: 2,
@@ -33,17 +33,17 @@ class WhyDrdSliderComponent {
             {
                 id: 3,
                 img: 'https://drdcmsv2.taigalab.com/Files/img/neden-drd/neden-drd-3.png',
-                title: 'Güvenilir Çözümler',
+                title: 'GÃ¼venilir Ã‡Ã¶zÃ¼mler',
             },
             {
                 id: 4,
                 img: 'https://drdcmsv2.taigalab.com/Files/img/neden-drd/neden-drd-4.png',
-                title: 'Yaygýn Servis Aðý',
+                title: 'YaygÃ½n Servis AÃ°Ã½',
             },
             {
                 id: 5,
                 img: 'https://drdcmsv2.taigalab.com/Files/img/neden-drd/neden-drd-5.png',
-                title: 'Hýzlý ve Etkin Çözümler',
+                title: 'HÃ½zlÃ½ ve Etkin Ã‡Ã¶zÃ¼mler',
             },
             {
                 id: 6,
@@ -58,51 +58,51 @@ class WhyDrdSliderComponent {
             {
                 id: 8,
                 img: 'https://drdcmsv2.taigalab.com/Files/img/neden-drd/neden-drd-8.png',
-                title: 'Teknoloji ve Ýnovasyon',
+                title: 'Teknoloji ve Ãnovasyon',
             },
             {
                 id: 9,
                 img: 'https://drdcmsv2.taigalab.com/Files/img/neden-drd/neden-drd-9.png',
-                title: 'Müþteri Memnuniyeti',
+                title: 'MÃ¼Ã¾teri Memnuniyeti',
             }
         ];
 
-        // Sayfa bazlý slide konfigürasyonu
+        // Sayfa bazlÃ½ slide konfigÃ¼rasyonu
         this.pageSlideConfig = {
-            'default': [1, 4, 5], // varsayýlan
+            'default': [1, 4, 5], // varsayÃ½lan
             'index': [1, 2, 3],
             'about': [3, 4, 5],
             'services': [6, 7, 8],
             'contact': [2, 5, 9]
         };
 
-        // Custom slides varsa kullan, yoksa varsayýlaný kullan
+        // Custom slides varsa kullan, yoksa varsayÃ½lanÃ½ kullan
         this.slides = customSlides || this.defaultSlides;
 
-        // Event handler referanslarýný sakla (temizleme için)
+        // Event handler referanslarÃ½nÃ½ sakla (temizleme iÃ§in)
         this.boundHandlers = {};
         this.slider = null;
         this.resizeTimeout = null;
     }
 
-    // Sayfa adýna göre slide'larý ayarla
+    // Sayfa adÃ½na gÃ¶re slide'larÃ½ ayarla
     setSlidesByPage(pageName) {
         const slideIds = this.pageSlideConfig[pageName] || this.pageSlideConfig['default'];
         this.slides = this.getSlidesByIds(slideIds);
 
-        // Eðer component mount edilmiþse, yeniden render et
+        // EÃ°er component mount edilmiÃ¾se, yeniden render et
         if (this.slider) {
             const container = this.slider.parentElement;
             this.mount(container);
         }
     }
 
-    // ID'lere göre slide'larý getir
+    // ID'lere gÃ¶re slide'larÃ½ getir
     getSlidesByIds(ids) {
         return ids.map(id => this.allSlides.find(slide => slide.id === id)).filter(Boolean);
     }
 
-    // Manuel olarak slide'larý ayarla
+    // Manuel olarak slide'larÃ½ ayarla
     setCustomSlides(slides) {
         this.slides = slides;
         if (this.slider) {
@@ -111,12 +111,12 @@ class WhyDrdSliderComponent {
         }
     }
 
-    // Mevcut sayfayý otomatik tespit et ve slide'larý ayarla
+    // Mevcut sayfayÃ½ otomatik tespit et ve slide'larÃ½ ayarla
     autoDetectPage() {
         const pathname = window.location.pathname;
         const filename = pathname.split('/').pop().replace('.html', '');
 
-        // Özel sayfa eþlemeleri
+        // Ã–zel sayfa eÃ¾lemeleri
         const pageMapping = {
             'index.html': 'index',
             '': 'index', // Ana sayfa
@@ -146,7 +146,7 @@ class WhyDrdSliderComponent {
         if (typeof container === "string") container = document.querySelector(container);
         if (!container) return;
 
-        // Önceki içeriði temizle
+        // Ã–nceki iÃ§eriÃ°i temizle
         this.destroy();
 
         container.innerHTML = this.render();
@@ -160,10 +160,10 @@ class WhyDrdSliderComponent {
         this.scrollLeft = 0;
         this.hasMoved = false;
 
-        // Event handler'larý bind et ve sakla
+        // Event handler'larÃ½ bind et ve sakla
         this.bindEvents();
 
-        // Ýlk yüklemede ortadaki slide'ý göster
+        // Ãlk yÃ¼klemede ortadaki slide'Ã½ gÃ¶ster
         requestAnimationFrame(() => {
             this.centerMiddleSlide();
         });
@@ -181,12 +181,12 @@ class WhyDrdSliderComponent {
         this.boundHandlers.touchmove = this.handleTouchMove.bind(this);
         this.boundHandlers.touchend = this.handleTouchEnd.bind(this);
 
-        // Diðer events
+        // DiÃ°er events
         this.boundHandlers.dragstart = this.handleDragStart.bind(this);
         this.boundHandlers.contextmenu = this.handleContextMenu.bind(this);
         this.boundHandlers.resize = this.handleResize.bind(this);
 
-        // Event listener'larý ekle
+        // Event listener'larÃ½ ekle
         this.slider.addEventListener('mousedown', this.boundHandlers.mousedown);
         this.slider.addEventListener('mousemove', this.boundHandlers.mousemove);
         this.slider.addEventListener('mouseleave', this.boundHandlers.mouseleave);
@@ -220,7 +220,7 @@ class WhyDrdSliderComponent {
         const x = e.pageX;
         const walk = (x - this.startX) * 2; 
 
-        // Hareket eþiði
+        // Hareket eÃ¾iÃ°i
         if (Math.abs(walk) > 5) {
             this.hasMoved = true;
         }
@@ -234,7 +234,7 @@ class WhyDrdSliderComponent {
         this.isDragging = false;
         this.slider.classList.remove('active');
 
-        // Link týklamalarýný engelle
+        // Link tÃ½klamalarÃ½nÃ½ engelle
         if (this.hasMoved) {
             e.preventDefault();
             this.snapToClosest();
@@ -264,7 +264,7 @@ class WhyDrdSliderComponent {
         if (!this.isDragging) return;
 
         const touch = e.touches[0];
-        const walk = (touch.pageX - this.startX) * 2; 
+       const walk = (touch.pageX - this.startX); 
 
         if (Math.abs(walk) > 3) {
             this.hasMoved = true;
@@ -285,7 +285,7 @@ class WhyDrdSliderComponent {
         }
     }
 
-    // Diðer Events
+    // DiÃ°er Events
     handleDragStart(e) {
         if (e.target.tagName === 'IMG') {
             e.preventDefault();
@@ -306,7 +306,7 @@ class WhyDrdSliderComponent {
         }, 250);
     }
 
-    // Yardýmcý Metodlar
+    // YardÃ½mcÃ½ Metodlar
     centerMiddleSlide() {
         if (!this.slider) return;
 
@@ -367,7 +367,7 @@ class WhyDrdSliderComponent {
 
     // Component temizleme
     destroy() {
-        // Event listener'larý temizle
+        // Event listener'larÃ½ temizle
         if (this.slider) {
             this.slider.removeEventListener('mousedown', this.boundHandlers.mousedown);
             this.slider.removeEventListener('mousemove', this.boundHandlers.mousemove);
@@ -382,15 +382,16 @@ class WhyDrdSliderComponent {
         document.removeEventListener('mouseup', this.boundHandlers.mouseup);
         window.removeEventListener('resize', this.boundHandlers.resize);
 
-        // Timeout'larý temizle
+        // Timeout'larÃ½ temizle
         if (this.resizeTimeout) {
             clearTimeout(this.resizeTimeout);
         }
 
-        // Referanslarý temizle
+        // ReferanslarÃ½ temizle
         this.slider = null;
         this.boundHandlers = {};
     }
 }
+
 
 window.WhyDrdSliderComponent = WhyDrdSliderComponent;
