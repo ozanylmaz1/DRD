@@ -139,7 +139,7 @@
         e.preventDefault();
 
         const x = e.pageX;
-        const walk = (x - this.startX) * this.scrollSpeed;
+        const walk = (x - this.startX)
 
         if (Math.abs(walk) > 3) {
             this.hasMoved = true;
@@ -295,3 +295,4 @@
 
 
 window.TimelineComponent = TimelineComponent;
+
