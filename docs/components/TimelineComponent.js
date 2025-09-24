@@ -178,19 +178,20 @@
         this.scrollLeft = this.timelineList.scrollLeft;
     }
 
-    handleTouchMove(e) {
+    handleMouseMove(e) {
         if (!this.isDragging) return;
-
-        const touch = e.touches[0];
-        const walk = (touch.pageX - this.startX) * this.scrollSpeed;
-
+        e.preventDefault();
+    
+        const x = e.pageX;
+        const walk = (x - this.startX); 
+    
         if (Math.abs(walk) > 3) {
             this.hasMoved = true;
-            e.preventDefault();
         }
-
+    
         this.timelineList.scrollLeft = this.scrollLeft - walk;
     }
+
 
     handleTouchEnd(e) {
         if (!this.isDragging) return;
@@ -291,5 +292,6 @@
         this.hasMoved = false;
     }
 }
+
 
 window.TimelineComponent = TimelineComponent;
