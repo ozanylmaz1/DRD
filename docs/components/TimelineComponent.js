@@ -178,20 +178,19 @@
         this.scrollLeft = this.timelineList.scrollLeft;
     }
 
-    handleMouseMove(e) {
+    handleTouchMove(e) {
         if (!this.isDragging) return;
-        e.preventDefault();
-    
-        const x = e.pageX;
-        const walk = (x - this.startX); 
-    
+
+        const touch = e.touches[0];
+        const walk = (touch.pageX - this.startX) 
+
         if (Math.abs(walk) > 3) {
             this.hasMoved = true;
+            e.preventDefault();
         }
-    
+
         this.timelineList.scrollLeft = this.scrollLeft - walk;
     }
-
 
     handleTouchEnd(e) {
         if (!this.isDragging) return;
@@ -293,6 +292,4 @@
     }
 }
 
-
 window.TimelineComponent = TimelineComponent;
-

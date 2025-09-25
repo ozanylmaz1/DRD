@@ -16,7 +16,7 @@
                     </a>
                 </div>
                 <div id="car-models-main" class="car-models-main">
-                    <a id="car-card-1" href="car1">
+                    <a id="car-card-1" href="sedan-35-tfsi-150-advanced-s-tronic.html">
                         <img id="car-image-1" src="https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/alfa-romeo-tonale-ti-16-diesel-130-dct/alfa-romeo-tonale-ti-16-diesel-130-dct-1.jpg"
                              alt="Alfa-Romeo-Tonale-Veloce-Hybrid-eAWD" />
                         <h6 id="car-name-1" class="car-name">
