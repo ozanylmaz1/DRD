@@ -1,0 +1,78 @@
+﻿/* Curiosities Section */
+.curiosities {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    max-width: 1175px;
+    width: 100vw;
+}
+
+    .curiosities h2 {
+        font-size: 30px;
+    }
+
+    .curiosities p {
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 24px;
+        color: #191919;
+    }
+/* Accordion Styles */
+.accordion-container {
+    max-width: 590px;
+}
+
+.accordion-item {
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+    cursor: pointer;
+}
+
+.accordion-item h6 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 32px;
+    margin: 0;
+}
+
+.icon-sss {
+    margin-top: 15px;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active .icon-sss {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    padding: 1rem 0;
+    display: none;
+}
+
+    .accordion-content p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 24px;
+        color: #191919;
+    }
+@media screen and (max-width: 1024px) {
+    .curiosities {
+        width: 90vw;
+    }
+}
+@media screen and (max-width: 600px) {
+    .curiosities {
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width: 500px) {
+    .curiosities {
+        max-width: 400px;
+    }
+}

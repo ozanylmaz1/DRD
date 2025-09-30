@@ -1,0 +1,38 @@
+﻿.Sustainability {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .Sustainability img {
+        border-radius: 9px;
+        height: 400px;
+        width: auto;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+
+    .Sustainability a {
+        max-width: 400px;
+        padding: 0 100px;
+    }
+@media (max-width: 1024px) {
+    .Sustainability {
+        justify-content:center;
+        flex-wrap: wrap;
+    }
+        .Sustainability img {
+            width: 90%;
+            height: auto;
+        }
+    .no-Sustainability {
+        flex-wrap: wrap-reverse;
+    }
+    .Sustainability a {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+}

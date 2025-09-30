@@ -1,0 +1,106 @@
+﻿.threesteps {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2b3035;
+    border-radius: 9px;
+}
+
+    .threesteps div {
+        padding: 60px;
+        color: white;
+        font-weight: normal;
+        width: 500px;
+    }
+
+    .threesteps h2 {
+        font-style: normal;
+        font-weight: 700;
+        line-height: 42px;
+        font-size: 30px;
+    }
+
+    .threesteps h3 {
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 20.5px;
+        margin: 2em 0 12px 0;
+    }
+
+    .threesteps p {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 20px;
+        margin: 0;
+        max-width: 450px;
+    }
+
+    .threesteps span {
+        display: flex;
+        gap: 4em;
+    }
+
+    .threesteps a {
+        text-decoration: none;
+        color: white;
+    }
+
+.threesteps-link-1 {
+    border-radius: 8px;
+    border: 1px solid white;
+    padding: 10px 40px;
+}
+
+    .threesteps-link-1:hover {
+        border: 1px solid #ff0029;
+        background-color: #ff0029;
+    }
+
+.threesteps-link-2 {
+    display: flex;
+    align-items: center;
+    gap: 15px
+}
+
+.threesteps img {
+    object-fit: cover;
+    border-radius: 0 9px 9px 0;
+    width: 600px;
+}
+
+@media screen and (max-width: 1024px) {
+    .threesteps {
+        display: block;
+        background: none;
+    }
+
+        .threesteps div {
+            position: relative;
+            background-image: url(https://drdcmsv2.taigalab.com/Files/img/three-steps.jpg?v=3PUrBzNZIZpzkCrheU-ypehBZCw);
+            background-size: cover;
+            border-radius: 9px;
+            width: 1024px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+            .threesteps div::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                border-radius: 9px;
+                z-index: 1;
+            }
+        .threesteps h2, .threesteps h3, .threesteps p, .threesteps span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .threesteps img {
+            display: none;
+
+        }
+}

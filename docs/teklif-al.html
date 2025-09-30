@@ -1,0 +1,428 @@
+﻿<!DOCTYPE html>
+<html lang="tr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teklif Al | DRD</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Global & Base Styles -->
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/nav.css">
+
+
+    <!-- Page/Component Styles -->
+    <link rel="stylesheet" href="styles/teklif-al.css">
+
+
+    <!-- Component Scripts -->
+    <script src="components/nav.js"></script>
+    <script src="components/component-loader.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize form functionality
+            initFormHandlers();
+        });
+
+        function initFormHandlers() {
+            // Checkbox functionality
+            const checkboxes = document.querySelectorAll('.checkbox-custom');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('click', function () {
+                    this.classList.toggle('checked');
+                });
+            });
+
+            // Form submission
+            const submitBtn = document.getElementById('get-offer-send-btn');
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function () {
+                    handleFormSubmission();
+                });
+            }
+
+            // Province-District relationship
+            const provinceSelect = document.getElementById('province-select');
+            const districtSelect = document.getElementById('district-select');
+
+            if (provinceSelect && districtSelect) {
+                provinceSelect.addEventListener('change', function () {
+                    updateDistricts(this.value, districtSelect);
+                });
+            }
+
+            // Tax office population
+            populateTaxOffices();
+        }
+
+        function handleFormSubmission() {
+            // Validate required fields
+            const requiredFields = [
+                'first-name', 'last-name', 'phone', 'email',
+                'company', 'province-select', 'district-select',
+                'tax-office', 'tax-no', 'vehicle-count',
+                'km-select', 'term-select'
+            ];
+
+            let isValid = true;
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (field && !field.value.trim()) {
+                    field.classList.add('error');
+                    isValid = false;
+                } else if (field) {
+                    field.classList.remove('error');
+                }
+            });
+
+            // Check KVKK checkbox
+            const kvkkCheckbox = document.getElementById('kvkk-checkbox1');
+            if (!kvkkCheckbox.classList.contains('checked')) {
+                isValid = false;
+                alert('Kişisel Verilerin Korunması ve İşlenmesi Politikası\'nı kabul etmelisiniz.');
+            }
+
+            if (isValid) {
+                // Show loading state
+                const submitBtn = document.getElementById('get-offer-send-btn');
+                submitBtn.classList.add('loading');
+                submitBtn.textContent = 'Gönderiliyor...';
+
+                // Simulate form submission
+                setTimeout(() => {
+                    alert('Teklif talebiniz başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.');
+                    submitBtn.classList.remove('loading');
+                    submitBtn.innerHTML = 'Gönder <i class="bi bi-arrow-right contact-send-btn-i"></i>';
+                }, 2000);
+            } else {
+                alert('Lütfen tüm zorunlu alanları doldurun.');
+            }
+        }
+
+        function updateDistricts(provinceId, districtSelect) {
+            // Clear existing options
+            districtSelect.innerHTML = '<option value="">İlçe</option>';
+
+            if (!provinceId) return;
+
+            // Sample district data (you would normally fetch this from an API)
+            const districts = {
+                '34': ['Adalar', 'Arnavutköy', 'Ataşehir', 'Avcılar', 'Bağcılar', 'Bahçelievler', 'Bakırköy', 'Başakşehir', 'Bayrampaşa', 'Beşiktaş', 'Beykoz', 'Beylikdüzü', 'Beyoğlu', 'Büyükçekmece', 'Çatalca', 'Çekmeköy', 'Esenler', 'Esenyurt', 'Eyüpsultan', 'Fatih', 'Gaziosmanpaşa', 'Güngören', 'Kadıköy', 'Kağıthane', 'Kartal', 'Küçükçekmece', 'Maltepe', 'Pendik', 'Sancaktepe', 'Sarıyer', 'Silivri', 'Sultanbeyli', 'Sultangazi', 'Şile', 'Şişli', 'Tuzla', 'Ümraniye', 'Üsküdar', 'Zeytinburnu'],
+                '6': ['Akyurt', 'Altındağ', 'Ayaş', 'Bala', 'Beypazarı', 'Çamlıdere', 'Çankaya', 'Çubuk', 'Elmadağ', 'Etimesgut', 'Evren', 'Gölbaşı', 'Güdül', 'Haymana', 'Kalecik', 'Kazan', 'Keçiören', 'Kızılcahamam', 'Mamak', 'Nallıhan', 'Polatlı', 'Pursaklar', 'Sincan', 'Şereflikoçhisar', 'Yenimahalle'],
+                '35': ['Aliağa', 'Balçova', 'Bayındır', 'Bayraklı', 'Bergama', 'Beydağ', 'Bornova', 'Buca', 'Çeşme', 'Çiğli', 'Dikili', 'Foça', 'Gaziemir', 'Güzelbahçe', 'Karabağlar', 'Karaburun', 'Karşıyaka', 'Kemalpaşa', 'Kınık', 'Kiraz', 'Konak', 'Menderes', 'Menemen', 'Narlıdere', 'Ödemiş', 'Seferihisar', 'Selçuk', 'Tire', 'Torbalı', 'Urla']
+            };
+
+            if (districts[provinceId]) {
+                districts[provinceId].forEach(district => {
+                    const option = document.createElement('option');
+                    option.value = district;
+                    option.textContent = district;
+                    districtSelect.appendChild(option);
+                });
+            }
+        }
+
+        function populateTaxOffices() {
+            const taxOfficeSelect = document.getElementById('tax-office');
+            if (!taxOfficeSelect) return;
+
+            // Sample tax office data
+            const taxOffices = [
+                'Adana Vergi Dairesi',
+                'Ankara Vergi Dairesi',
+                'İstanbul Vergi Dairesi',
+                'İzmir Vergi Dairesi',
+                'Bursa Vergi Dairesi',
+                'Antalya Vergi Dairesi',
+                'Konya Vergi Dairesi',
+                'Gaziantep Vergi Dairesi',
+                'Mersin Vergi Dairesi',
+                'Kayseri Vergi Dairesi'
+            ];
+
+            taxOffices.forEach(office => {
+                const option = document.createElement('option');
+                option.value = office;
+                option.textContent = office;
+                taxOfficeSelect.appendChild(option);
+            });
+        }
+    </script>
+</head>
+<body>
+    <main>
+    <div class="header-list" style="background-image: url(http://drdcmsv2.taigalab.com/Files/img/teklif-al/teklif-al.jpg)">
+        <h1 class="header-text">Teklif Al</h1>
+    </div>
+    <section class="teklif-al-form">
+        <div class="section-head">
+            <h2>Teklif Al</h2>
+        </div>
+        <!-- Ad ve Soyad -->
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="first-name">Ad<span style="color: red"> *</span></label>
+                    <input type="text" id="first-name" class="form-control" placeholder="Adınız">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="last-name">Soyad<span style="color: red"> *</span></label>
+                    <input type="text" id="last-name" class="form-control" placeholder="Soyadınız">
+                </div>
+            </div>
+        </div>
+
+        <!-- Cep Telefonu ve E-Posta Adresi -->
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="phone">Cep Telefonu<span style="color: red"> *</span></label>
+                    <input type="tel" id="phone" class="form-control" placeholder="0 (5__) ___ __ __">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="email">E-Posta Adresi<span style="color: red"> *</span></label>
+                    <input type="email" id="email" class="form-control" placeholder="E-Posta Adresiniz">
+                </div>
+            </div>
+        </div>
+
+        <!-- Firma Adı ve Unvan -->
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="company">Firma Adı<span style="color: red"> *</span></label>
+                    <input type="text" id="company" class="form-control" placeholder="Firma Adı">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="title">Ünvan</label>
+                    <input type="text" id="title" class="form-control" placeholder="Ünvan">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- İl ve İlçe -->
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="province-select">İl<span style="color: red"> *</span></label>
+                    <select id="province-select" class="form-control">
+                        <option value="">İl Seçiniz</option>
+                        <option value="1">Adana</option>
+                        <option value="2">Adıyaman</option>
+                        <option value="3">Afyonkarahisar</option>
+                        <option value="4">Ağrı</option>
+                        <option value="5">Amasya</option>
+                        <option value="6">Ankara</option>
+                        <option value="7">Antalya</option>
+                        <option value="8">Artvin</option>
+                        <option value="9">Aydın</option>
+                        <option value="10">Balıkesir</option>
+                        <option value="11">Bilecik</option>
+                        <option value="12">Bingöl</option>
+                        <option value="13">Bitlis</option>
+                        <option value="14">Bolu</option>
+                        <option value="15">Burdur</option>
+                        <option value="16">Bursa</option>
+                        <option value="17">Çanakkale</option>
+                        <option value="18">Çankırı</option>
+                        <option value="19">Çorum</option>
+                        <option value="20">Denizli</option>
+                        <option value="21">Diyarbakır</option>
+                        <option value="22">Edirne</option>
+                        <option value="23">Elazığ</option>
+                        <option value="24">Erzincan</option>
+                        <option value="25">Erzurum</option>
+                        <option value="26">Eskişehir</option>
+                        <option value="27">Gaziantep</option>
+                        <option value="28">Giresun</option>
+                        <option value="29">Gümüşhane</option>
+                        <option value="30">Hakkari</option>
+                        <option value="31">Hatay</option>
+                        <option value="32">Isparta</option>
+                        <option value="33">Mersin</option>
+                        <option value="34">İstanbul</option>
+                        <option value="35">İzmir</option>
+                        <option value="36">Kars</option>
+                        <option value="37">Kastamonu</option>
+                        <option value="38">Kayseri</option>
+                        <option value="39">Kırklareli</option>
+                        <option value="40">Kırşehir</option>
+                        <option value="41">Kocaeli</option>
+                        <option value="42">Konya</option>
+                        <option value="43">Kütahya</option>
+                        <option value="44">Malatya</option>
+                        <option value="45">Manisa</option>
+                        <option value="46">Kahramanmaraş</option>
+                        <option value="47">Mardin</option>
+                        <option value="48">Muğla</option>
+                        <option value="49">Muş</option>
+                        <option value="50">Nevşehir</option>
+                        <option value="51">Niğde</option>
+                        <option value="52">Ordu</option>
+                        <option value="53">Rize</option>
+                        <option value="54">Sakarya</option>
+                        <option value="55">Samsun</option>
+                        <option value="56">Siirt</option>
+                        <option value="57">Sinop</option>
+                        <option value="58">Sivas</option>
+                        <option value="59">Tekirdağ</option>
+                        <option value="60">Tokat</option>
+                        <option value="61">Trabzon</option>
+                        <option value="62">Tunceli</option>
+                        <option value="63">Şanlıurfa</option>
+                        <option value="64">Uşak</option>
+                        <option value="65">Van</option>
+                        <option value="66">Yozgat</option>
+                        <option value="67">Zonguldak</option>
+                        <option value="68">Aksaray</option>
+                        <option value="69">Bayburt</option>
+                        <option value="70">Karaman</option>
+                        <option value="71">Kırıkkale</option>
+                        <option value="72">Batman</option>
+                        <option value="73">Şırnak</option>
+                        <option value="74">Bartın</option>
+                        <option value="75">Ardahan</option>
+                        <option value="76">Iğdır</option>
+                        <option value="77">Yalova</option>
+                        <option value="78">Karabük</option>
+                        <option value="79">Kilis</option>
+                        <option value="80">Osmaniye</option>
+                        <option value="81">Düzce</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="district-select">İlçe<span style="color: red"> *</span></label>
+                    <select id="district-select" class="form-control">
+                        <option value="">İlçe</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vergi No ve Vergi Dairesi -->
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tax-office">Vergi Dairesi<span style="color: red"> *</span></label>
+                    <select id="tax-office" class="form-control">
+                        <option value="">Vergi Dairesi</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="tax-no">Vergi No<span style="color: red"> *</span></label>
+                    <input type="text" id="tax-no" class="form-control" placeholder="Vergi No" pattern="^\d+$">
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Kiralanacak Araç Sayısı ve KM -->
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="vehicle-count">Araç Sayısı<span style="color: red"> *</span></label>
+                    <input type="text" id="vehicle-count" class="form-control" placeholder="Araç Sayısı">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="km-select">Yıllık KM Sınırı<span style="color: red"> *</span></label>
+                    <select id="km-select" class="form-control">
+                        <option value="">Yıllık KM Sınırı</option>
+                        <option value="10000">10.000 km</option>
+                        <option value="15000">15.000 km</option>
+                        <option value="20000">20.000 km</option>
+                        <option value="25000">25.000 km</option>
+                        <option value="30000">30.000 km</option>
+                        <option value="35000">35.000 km</option>
+                        <option value="40000">40.000 km</option>
+                        <option value="45000">45.000 km</option>
+                        <option value="50000">50.000 km</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vade ve Kampanya Kodu -->
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="term-select">Vade<span style="color: red"> *</span></label>
+                    <select id="term-select" class="form-control">
+                        <option value="">Vade</option>
+                        <option value="24">24 Ay</option>
+                        <option value="36">36 Ay</option>
+                        <option value="48">48 Ay</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="campaign-code">Kampanya Kodu</label>
+                    <input type="text" id="campaign-code" class="form-control" placeholder="Kampanya Kodu">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Mesajınız -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="message">Mesajınız</label>
+                    <textarea id="message" class="form-control" rows="4" placeholder="Mesajınız"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- KVKK ve İzinler -->
+        <div class="form-group kvkk-group">
+            <div class="form-checkbox">
+                <span type="checkbox" class="checkbox-custom"></span>
+                <p class="checkbox-text">
+                    <a href="/tr/yasal-merkez#kvk-aydinlatma-metni" target="_blank" rel="noopener noreferrer">Kişisel Verilerin Korunması ve İşlenmesi Politikası'nı ve Aydınlatma Metni'ni</a>  okuduğumu, anladığımı ve kişisel verilerimle ilgili bilgilendirildiğimi kabul ediyorum.
+                    <span style="color: red"> *</span>
+                </p>
+            </div>
+        </div>
+        <div class="form-group kvkk-group">
+            <div class="form-checkbox">
+                <span class="checkbox-custom"></span>
+                <p class="checkbox-text">
+                    Telefon, e-posta, SMS ve benzeri kanallar üzerinden ürün ve hizmetlerimize ilişkin kampanya, bilgilendirme ve tanıtım içeriklerinin gönderilmesini kabul ediyorum.
+                </p>
+            </div>
+        </div>
+
+        <!-- Gönder Butonu -->
+        <div class="row">
+            <div class="col-md-12 text-center mt-30 mb-30">
+                <button type="button" class="contact-send-btn" id="get-offer-send-btn" aria-label="iletisim-form-gonder">
+                    Gönder
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,54 @@
+.car-brands-main, .brands-main {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1em;
+}
+
+    .car-brands-main a, .brands-main a{
+        text-decoration: none;
+        color: black;
+        background: #f1f1f1;
+        border-radius: 9px;
+        padding: 1em;
+    }
+
+    .car-brands-main img, .brands-main img {
+        display: block;
+        width: 80%;
+        height: 100%;
+        margin: 0 auto;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease-in-out;
+    }
+
+        .car-brands-main a:hover img, .brands-main a:hover img {
+            filter: grayscale(0%);
+        }
+
+@media screen and (max-width: 1024px) {
+    .car-brands-main,
+    .brands-main {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+        .car-brands-main #brands-card-10 {
+            display: none;
+        }
+}
+
+
+
+/* mobil Layout */
+@media screen and (max-width: 768px) {
+    .car-brands-main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+        .car-brands-main #brands-card-7, .car-brands-main #brands-card-8, .car-brands-main #brands-card-9 {
+            display: none;
+        }
+
+    .brands-main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

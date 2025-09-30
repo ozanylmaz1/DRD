@@ -1,0 +1,120 @@
+﻿.newsletter {
+    background-image: url('https://drdcmsv2.taigalab.com/Files/img/ortak-alan/firsatlardanhaberdarolun_01.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+    border-radius: 9px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.8em 0;
+    width: 100vw;
+    max-width: 1175px;
+
+}
+.lette { /*.newsletter h2 (Fırsatlardan haberdar olun)*/
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px;
+    font-size: 30px;
+}
+
+.offer { /*.newsletter h2 (Avantajları Keşfedin)*/
+    color: #fff;
+    text-align: center;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 48px;
+    margin: 0;
+}
+.inputbar {
+    display: flex;
+    align-items: center;
+    background-color: #2b3035;
+    padding: 10px;
+    border-radius: 35px;
+    gap: 10px;
+}
+
+.newsletter-input {
+    width: 50vw;
+    max-width: 600px;
+    height: 50px;
+    border-radius: 80px;
+    padding-left: 26px;
+    border: 0;
+    font-size: 16px;
+    outline: none;
+}
+
+.newsletter button {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.newsletter label {
+    display: flex;
+    align-items: center;
+    margin-top: 1em;
+}
+.newsletter label a{
+    color: white;
+    font-size: 12px;
+    font-weight: normal;
+}
+.newsletter h2 {
+    text-align: center;
+}
+
+.newsletter-text {
+    text-align: center;
+    margin: 10px 0 20px 0;
+    max-width: 900px;
+}
+.offer-btn {
+    display: inline-flex;
+    padding: 18px 76.88px 16.06px 77px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9999px;
+    background: #fff;
+    color: #191919;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+    text-decoration: none;
+}
+    .offer-btn:hover {
+        background: #ff0029;
+        color: #fff;
+    }
+.newsletter-btn{
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 15px 30px;
+    border-radius: 7px;
+}
+    .newsletter-btn:hover {
+        border: 1px solid #ff0029;
+        background: #ff0029;
+        color: #fff;
+    }
+@media screen and (max-width: 1024px) {
+    .newsletter {
+        width: 95vw;
+        padding: 0;
+    }
+}

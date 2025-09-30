@@ -1,0 +1,159 @@
+/* Comparison Table Styles */
+.comparison-section {
+    background-color: #f8f8f8;
+    width: 1175px;
+    padding: 3em 40vw;
+}
+
+.comparison-section h2 {
+    color: #292d32;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 42px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.comparison-table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.comparison-table th {
+    background-color: #f8f8f8;
+    color: #292d32;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #e9ecef;
+    width: 30vw;
+}
+
+.comparison-table th:nth-child(3) {
+    border-left: 2px solid #e9ecef;
+}
+
+.comparison-table th:first-child {
+    text-align: left;
+    background-color: #f8f8f8;
+    border-right: 1px solid #e9ecef;
+}
+
+.comparison-table td {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 16px;
+    color: #292d32;
+}
+    .comparison-table th:nth-child(2),
+    .comparison-table td:nth-child(2) {
+        width: 175px; 
+    }
+.comparison-table td:nth-child(3) {
+    border-left: 2px solid #e9ecef;
+}
+
+.comparison-table td:first-child {
+    text-align: left;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    border-right: 1px solid #e9ecef;
+    background-color: #f8f8f8;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Checkmark Styles */
+.checkmark {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+.checkmark.checked svg {
+    color: #292d32;
+    width: 24px;
+    height: 24px;
+}
+
+.checkmark.unchecked svg {
+    color: #d7d7d7;
+    width: 24px;
+    height: 24px;
+}
+
+/* Button Styles */
+.comparison-button {
+    border-radius: 7px;
+    border: 1px solid black;
+    padding: 15px 50px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    display: inline-block;
+    background-color: #f8f8f8;
+}
+
+    .comparison-button:hover {
+        border: 1px solid #ff0029;
+        background-color: #ff0029;
+        color: white;
+    }
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .comparison-section {
+        padding: 40px 20px;
+    }
+    
+    .comparison-section h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 15px 10px;
+        font-size: 14px;
+    }
+    
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .comparison-section {
+        padding: 30px 15px;
+    }
+    
+    .comparison-section h2 {
+        font-size: 20px;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+    
+    .checkmark {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .checkmark.checked::after {
+        font-size: 12px;
+    }
+}
