@@ -34,6 +34,11 @@ class WhyDrdSliderComponent {
 
         return `
         <div class="why-drd-slider">
+                    ${clonedSlidesStart.map((slide, index) => `
+                <div class="why-drd-slide clone-start" data-index="${index}">
+                    <img src="${slide.img}" alt="${slide.title}" draggable="false">
+                </div>
+            `).join('')}
             ${clonedSlidesEnd.map((slide, index) => `
                 <div class="why-drd-slide clone-end" data-index="${index}">
                     <img src="${slide.img}" alt="${slide.title}" draggable="false">
@@ -46,6 +51,11 @@ class WhyDrdSliderComponent {
             `).join('')}
             ${clonedSlidesStart.map((slide, index) => `
                 <div class="why-drd-slide clone-start" data-index="${index}">
+                    <img src="${slide.img}" alt="${slide.title}" draggable="false">
+                </div>
+            `).join('')}
+            ${clonedSlidesEnd.map((slide, index) => `
+                <div class="why-drd-slide clone-end" data-index="${index}">
                     <img src="${slide.img}" alt="${slide.title}" draggable="false">
                 </div>
             `).join('')}

@@ -38,5 +38,12 @@ a{
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://drdcmsv2.taigalab.com/Files/img/ortak-alan/kampanya3.jpg?v=AfFbaKtj68TXa7WY3d_Ku-XcJpc);
     color: white;
 }
-
+    .hov:hover path {
+        stroke: white;
+    }
+@media screen and (max-width: 786px) {
+    .responsibility img {
+        max-height: 350px;
+    }
+}
 

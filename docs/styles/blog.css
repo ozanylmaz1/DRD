@@ -6,8 +6,6 @@
 .blog-main a{
     text-decoration: none;
     color: black;
-    display:flex;
-    flex-direction: column;
 }
     .blog-main a h2 {
         color: #292d32;

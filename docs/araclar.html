@@ -13,10 +13,8 @@
     <!-- Global & Base Styles -->
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/nav.css">
-    <link rel="stylesheet" href="styles/car-brands.css">
     <link rel="stylesheet" href="styles/car-models.css">
     <link rel="stylesheet" href="styles/newsletter.css">
-    <link rel="stylesheet" href="styles/advantages-section.css">
     <link rel="stylesheet" href="styles/araclar.css">
     <link rel="stylesheet" href="styles/blog.css">
 
@@ -144,27 +142,100 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const filterButtons = document.querySelectorAll(".car-filter-btn");
+            const clearButton = document.querySelector(".btn-clear");
 
+            // Checkbox değişikliklerini dinle
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    updateButtonText();
+                    updateClearButtonState();
+                });
+            });
+
+            // Buton metinlerini güncelle
+            function updateButtonText() {
+                filterButtons.forEach(button => {
+                    const filterType = button.dataset.filter;
+                    const dropdown = button.nextElementSibling;
+                    const checkedBoxes = dropdown.querySelectorAll('input[type="checkbox"]:checked');
+                    const originalText = button.dataset.originalText;
+
+                    if (checkedBoxes.length > 0) {
+                        const selectedValues = Array.from(checkedBoxes).map(cb => cb.parentElement.textContent.trim());
+
+                        // Metni kısalt ve göster
+                        let displayText = selectedValues.join(', ');
+                        const maxLength = 20; // Maksimum karakter sayısı
+
+                        if (displayText.length > maxLength) {
+                            displayText = displayText.substring(0, maxLength) + '...';
+                        }
+
+                        button.innerHTML = `
+                    ${displayText}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                    </svg>
+                `;
+                        button.style.fontWeight = '500';
+                    } else {
+                        button.innerHTML = `
+                    ${originalText}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                    </svg>
+                `;
+                        button.style.fontWeight = 'normal';
+                    }
+                });
+            }
+
+            // Temizle butonunun durumunu güncelle
+            function updateClearButtonState() {
+                const anyChecked = document.querySelectorAll('input[type="checkbox"]:checked').length > 0;
+
+                if (anyChecked) {
+                    clearButton.style.borderColor = '#ff0029';
+                    clearButton.style.background = '#ff0029';
+                    clearButton.style.cursor = 'pointer';
+                    clearButton.querySelector('svg').style.fill = '#fff';
+                } else {
+                    clearButton.style.background = '#f8f9fa';
+                    clearButton.style.borderColor = '#ddd';
+                    clearButton.style.cursor = 'default';
+                    clearButton.querySelector('svg').style.fill = '#666';
+                }
+
+            }
+
+            // Tüm filtreleri temizle
+            window.clearFilters = function () {
+                document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                updateButtonText();
+                updateClearButtonState();
+            };
+
+            // Dropdown açma/kapama
             filterButtons.forEach(button => {
-                button.addEventListener("click", function () {
-                    // Önce bütün açık dropdown'ları kapat
+                button.addEventListener("click", function (e) {
+                    e.stopPropagation();
+
+                    // Diğer dropdown'ları kapat
                     document.querySelectorAll(".dropdown-content").forEach(drop => {
                         if (drop !== this.nextElementSibling) {
                             drop.style.display = "none";
                         }
                     });
 
-                    // İlgili dropdown'u aç/kapat
+                    // Bu dropdown'u aç/kapat
                     const dropdown = this.nextElementSibling;
-                    if (dropdown.style.display === "block") {
-                        dropdown.style.display = "none";
-                    } else {
-                        dropdown.style.display = "block";
-                    }
+                    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
                 });
             });
 
-            // Sayfanın başka bir yerine tıklayınca dropdown kapansın
+            // Sayfanın başka yerine tıklayınca kapat
             document.addEventListener("click", function (e) {
                 if (!e.target.closest(".filter-group")) {
                     document.querySelectorAll(".dropdown-content").forEach(drop => {
@@ -172,8 +243,17 @@
                     });
                 }
             });
-        });
 
+            // Dropdown içinde tıklama olduğunda kapanmasın
+            document.querySelectorAll(".dropdown-content").forEach(dropdown => {
+                dropdown.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                });
+            });
+
+            // İlk yükleme
+            updateClearButtonState();
+        });
     </script>
 </body>
 </html>

@@ -110,13 +110,13 @@
     justify-content: center;
     color: #fff;
     cursor: pointer;
+    transition: opacity 0.3s ease; 
 }
 
-.nav-btn svg {
-    display: block;
-    width: 16px;
-    height: auto;
-}
+    .nav-btn.disabled {
+        opacity: 0.3;
+        cursor: auto;
+    }
 
 /* Progress Indicator */
 .progress-indicator {

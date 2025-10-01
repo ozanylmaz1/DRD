@@ -2,7 +2,7 @@
 .panel h2 {
     color: #000;
     max-width: 679px;
-    margin: 0 0 0 75px;
+    margin: 0 0 0 60px;
     font-style: normal;
     font-weight: 700;
     line-height: 42px;
@@ -11,7 +11,7 @@
 .panel p, .fleetino-text p, .panel li {
     color: #292d32;
     max-width: 812px;
-    margin-left: 75px;
+    margin-left: 60px;
     font-size: 16px;
     font-style: normal;
     font-weight: 300;
@@ -26,21 +26,20 @@
 }
 .panel div {
     display: flex;
-    margin: 6px 0 0 75px;
+    margin: 6px 0 0 60px;
     gap: 3em;
 }
     .panel div h6, .fleetino-text h6 {
         margin-top: 15px;
         color: #191919;
-        max-width: 240px;
-        width: 100%;
+        width: 190px;
         font-size: 20px;
         font-weight: 700;
         line-height: 32px;
     }
 .fleetino-text {
     display: flex;
-    margin-left: 55px;
+    margin-left: 60px;
 }
     .fleetino-text p {
         max-width: 712px;

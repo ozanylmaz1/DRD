@@ -77,17 +77,64 @@
 
         function getCardWidth() {
             const card = fleetMain.querySelector(".fleet-card");
-            const style = getComputedStyle(card);
             const gap = parseFloat(getComputedStyle(fleetMain).gap) || 0;
             return card.offsetWidth + gap;
         }
 
+        const updateButtonStates = () => {
+            const scrollLeft = fleetMain.scrollLeft;
+            const scrollWidth = fleetMain.scrollWidth;
+            const clientWidth = fleetMain.clientWidth;
+
+            if (scrollLeft <= 10) {
+                prevBtn.classList.add('disabled');
+                prevBtn.style.opacity = '0.3';
+                prevBtn.style.cursor = 'auto';
+            } else {
+                prevBtn.classList.remove('disabled');
+                prevBtn.style.opacity = '1';
+                prevBtn.style.cursor = 'pointer';
+            }
+
+            if (scrollLeft >= scrollWidth - clientWidth - 10) {
+                nextBtn.classList.add('disabled');
+                nextBtn.style.opacity = '0.3';
+                nextBtn.style.cursor = 'auto';
+            } else {
+                nextBtn.classList.remove('disabled');
+                nextBtn.style.opacity = '1';
+                nextBtn.style.cursor = 'pointer';
+            }
+        };
+
+        updateButtonStates();
+        fleetMain.addEventListener('scroll', updateButtonStates);
+
         nextBtn.addEventListener("click", () => {
-            fleetMain.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+            if (nextBtn.classList.contains('disabled')) return;
+
+            const cardWidth = getCardWidth();
+            const currentScroll = fleetMain.scrollLeft;
+
+            // Kısmen kartın ortasındaysa floor kullan
+            const currentIndex = Math.floor(currentScroll / cardWidth);
+            const maxScroll = fleetMain.scrollWidth - fleetMain.clientWidth;
+            const targetScroll = Math.min((currentIndex + 1) * cardWidth, maxScroll);
+
+            fleetMain.scrollTo({ left: targetScroll, behavior: 'smooth' });
         });
 
         prevBtn.addEventListener("click", () => {
-            fleetMain.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+            if (prevBtn.classList.contains('disabled')) return;
+
+            const cardWidth = getCardWidth();
+            const currentScroll = fleetMain.scrollLeft;
+
+            // Burayı düzelttim: ceil yerine round
+            const currentIndex = Math.round(currentScroll / cardWidth);
+            const targetScroll = Math.max(0, (currentIndex - 1) * cardWidth);
+
+            fleetMain.scrollTo({ left: targetScroll, behavior: 'smooth' });
         });
     }
 

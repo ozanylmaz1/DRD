@@ -64,6 +64,23 @@ class ComponentLoader {
             this.mount('nav', '#nav-container');
         }
 
+        // Footer component'ini en sona ekle
+        if (this.components['footer']) {
+            // Main tag'ini bul
+            const mainElement = document.querySelector('main');
+            if (mainElement) {
+                // Footer container'ı oluştur ve main'den sonra ekle
+                const footerContainer = document.createElement('div');
+                footerContainer.id = 'footer-container';
+
+                // Main'den sonra, body'nin sonuna ekle
+                if (mainElement.parentNode) {
+                    mainElement.parentNode.insertBefore(footerContainer, mainElement.nextSibling);
+                }
+
+                this.mount('footer', '#footer-container');
+            }
+        }
 
         const componentOrder = [
             'hero-slider',
@@ -130,7 +147,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.CarModelsComponent) componentLoader.register('car-models', CarModelsComponent);
     if (window.CarModelsElectricComponent) componentLoader.register('car-models-electric', CarModelsElectricComponent);
     if (window.FleetLeasingComponent) componentLoader.register('fleet-leasing', FleetLeasingComponent);
-    if (window.WhyDrdSliderComponent) componentLoader.register('why-drd-slider', WhyDrdSliderComponent);    if (window.NavComponent) componentLoader.register('nav', NavComponent);
+    if (window.WhyDrdSliderComponent) componentLoader.register('why-drd-slider', WhyDrdSliderComponent);
+    if (window.NavComponent) componentLoader.register('nav', NavComponent);
+    if (window.FooterComponent) componentLoader.register('footer', FooterComponent);
     if (window.NewsComponent) componentLoader.register('news', NewsComponent);
     if (window.WidgetComponent) componentLoader.register('widget', WidgetComponent);
     if (window.NewsletterComponent) componentLoader.register('newsletter', NewsletterComponent);

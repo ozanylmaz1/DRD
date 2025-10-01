@@ -3,10 +3,11 @@ class HeroSliderComponent {
         this.componentName = 'hero-slider';
         this.currentSlide = 0;
         this.slides = [];
-        this.autoSlideInterval = null;
-        this.autoSlideDelay = 5000; // 5 saniye
         this.isTransitioning = false;
+        this.autoPlayInterval = null; // Otomatik oynatma için
+        this.autoPlayDelay = 5000; // 5 saniye
     }
+
 
     render() {
         return `
@@ -58,44 +59,75 @@ class HeroSliderComponent {
         this.slidesContainer = document.querySelector('.slides');
         this.prevBtn = document.getElementById('prev-btn');
         this.nextBtn = document.getElementById('next-btn');
-        this.progressBar = document.getElementById('progress-bar');
 
         // Event listeners
         this.prevBtn.addEventListener('click', () => this.previousSlide());
         this.nextBtn.addEventListener('click', () => this.nextSlide());
 
+        // Ýlk yüklemede nav butonlarýný güncelle
+        this.updateNavButtons();
+
         // Mouse events for dragging
         this.addMouseEvents();
 
-        // Start auto slide
-        this.startAutoSlide();
-
-        // Progress bar animation
-        this.startProgressAnimation();
+        // Otomatik oynatmayý baþlat
+        this.startAutoPlay();
 
         // Prevent context menu on captions
         this.preventContextMenu();
     }
+    startAutoPlay() {
+        this.stopAutoPlay(); // Önce mevcut interval'i temizle
+
+        this.autoPlayInterval = setInterval(() => {
+            // Son slide'daysa baþa dön
+            if (this.currentSlide === this.slides.length - 1) {
+                this.currentSlide = 0;
+            } else {
+                this.currentSlide++;
+            }
+            this.updateSlide();
+        }, this.autoPlayDelay);
+    }
+
+    stopAutoPlay() {
+        if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+            this.autoPlayInterval = null;
+        }
+    }
 
     nextSlide() {
         if (this.isTransitioning) return;
-        
-        this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+
+        // Otomatik oynatmayý sýfýrla
+        this.startAutoPlay();
+
+        if (this.currentSlide === this.slides.length - 1) {
+            this.currentSlide = 0; // Baþa dön
+        } else {
+            this.currentSlide++;
+        }
         this.updateSlide();
-        this.resetAutoSlide();
     }
 
     previousSlide() {
         if (this.isTransitioning) return;
-        
-        this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+
+        // Otomatik oynatmayý sýfýrla
+        this.startAutoPlay();
+
+        if (this.currentSlide === 0) {
+            this.currentSlide = this.slides.length - 1; // Sona git
+        } else {
+            this.currentSlide--;
+        }
         this.updateSlide();
-        this.resetAutoSlide();
     }
 
     updateSlide() {
         this.isTransitioning = true;
-        
+
         // Update slides visibility
         this.slides.forEach((slide, index) => {
             slide.setAttribute('aria-hidden', index !== this.currentSlide);
@@ -105,30 +137,32 @@ class HeroSliderComponent {
         const translateX = -this.currentSlide * 100;
         this.slidesContainer.style.transform = `translateX(${translateX}%)`;
 
+        // Nav butonlarýnýn durumunu güncelle
+        this.updateNavButtons();
+
         // Reset transition after animation
         setTimeout(() => {
             this.isTransitioning = false;
         }, 600);
     }
 
-    startAutoSlide() {
-        this.autoSlideInterval = setInterval(() => {
-            this.nextSlide();
-        }, this.autoSlideDelay);
-    }
+    updateNavButtons() {
+        // Ýlk slide'dayýz - sol butonu devre dýþý býrak
+        if (this.currentSlide === 0) {
+            this.prevBtn.classList.add('disabled');
+            this.prevBtn.setAttribute('aria-disabled', 'true');
+        } else {
+            this.prevBtn.classList.remove('disabled');
+            this.prevBtn.setAttribute('aria-disabled', 'false');
+        }
 
-    resetAutoSlide() {
-        clearInterval(this.autoSlideInterval);
-        this.startAutoSlide();
-        this.startProgressAnimation();
-    }
-
-    startProgressAnimation() {
-        if (this.progressBar) {
-            this.progressBar.style.animation = 'none';
-            setTimeout(() => {
-                this.progressBar.style.animation = `progress ${this.autoSlideDelay}ms linear`;
-            }, 10);
+        // Son slide'dayýz - sað butonu devre dýþý býrak
+        if (this.currentSlide === this.slides.length - 1) {
+            this.nextBtn.classList.add('disabled');
+            this.nextBtn.setAttribute('aria-disabled', 'true');
+        } else {
+            this.nextBtn.classList.remove('disabled');
+            this.nextBtn.setAttribute('aria-disabled', 'false');
         }
     }
 
@@ -137,32 +171,32 @@ class HeroSliderComponent {
         let currentX = 0;
         let isDragging = false;
 
+        // Mouse hover'da otomatik oynatmayý durdur
+        this.slidesContainer.addEventListener('mouseenter', () => {
+            this.stopAutoPlay();
+        });
+
+        this.slidesContainer.addEventListener('mouseleave', () => {
+            if (!isDragging) {
+                this.startAutoPlay();
+            }
+        });
+
         this.slidesContainer.addEventListener('mousedown', (e) => {
             startX = e.clientX;
             isDragging = true;
             this.slidesContainer.style.cursor = 'grabbing';
-            this.resetAutoSlide();
-        });
-
-        this.slidesContainer.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            
-            currentX = e.clientX;
-            const diffX = startX - currentX;
-            
-            // Prevent default to avoid text selection
-            e.preventDefault();
         });
 
         this.slidesContainer.addEventListener('mouseup', () => {
             if (!isDragging) return;
-            
+
             isDragging = false;
             this.slidesContainer.style.cursor = 'grab';
-            
+
             const diffX = startX - currentX;
-            const threshold = 50; // Minimum drag distance
-            
+            const threshold = 50;
+
             if (Math.abs(diffX) > threshold) {
                 if (diffX > 0) {
                     this.nextSlide();
@@ -180,14 +214,13 @@ class HeroSliderComponent {
         // Touch events for mobile
         this.slidesContainer.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
-            this.resetAutoSlide();
         });
 
         this.slidesContainer.addEventListener('touchend', (e) => {
             currentX = e.changedTouches[0].clientX;
             const diffX = startX - currentX;
             const threshold = 50;
-            
+
             if (Math.abs(diffX) > threshold) {
                 if (diffX > 0) {
                     this.nextSlide();

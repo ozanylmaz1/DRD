@@ -8,7 +8,11 @@ const vehicleData = [
         fuelType: 'Hibrit',
         transmission: 'Otomatik',
         vehicleType: 'SUV',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/alfa-romeo-tonale-ti-16-diesel-130-dct/alfa-romeo-tonale-ti-16-diesel-130-dct-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/alfa-romeo-tonale-ti-16-diesel-130-dct/alfa-romeo-tonale-ti-16-diesel-130-dct-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/alfa-romeo-tonale-ti-16-diesel-130-dct/alfa-romeo-tonale-ti-16-diesel-130-dct-2.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/alfa-romeo-tonale-ti-16-diesel-130-dct/alfa-romeo-tonale-ti-16-diesel-130-dct-3.jpg'
+        ],
     },
     // Audi
     {
@@ -18,7 +22,11 @@ const vehicleData = [
         fuelType: 'Dizel',
         transmission: 'Otomatik',
         vehicleType: 'Sedan',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a6-40-20-tdi-quattro-204-design-s-tronic/audi-a6-40-20-tdi-quattro-204-design-s-tronic-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a6-40-20-tdi-quattro-204-design-s-tronic/audi-a6-40-20-tdi-quattro-204-design-s-tronic-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a6-40-20-tdi-quattro-204-design-s-tronic/audi-a6-40-20-tdi-quattro-204-design-s-tronic-2.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a6-40-20-tdi-quattro-204-design-s-tronic/audi-a6-40-20-tdi-quattro-204-design-s-tronic-3.jpg'
+        ],
     },
     // BMW
     {
@@ -28,7 +36,11 @@ const vehicleData = [
         fuelType: 'Dizel',
         transmission: 'Otomatik',
         vehicleType: 'Sedan',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/bmw-520d-xdrive-sedan-20-190-m-sport/bmw-520d-xdrive-sedan-20-190-m-sport-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/bmw-520d-xdrive-sedan-20-190-m-sport/bmw-520d-xdrive-sedan-20-190-m-sport-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/bmw-520d-xdrive-sedan-20-190-m-sport/bmw-520d-xdrive-sedan-20-190-m-sport-2.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/bmw-520d-xdrive-sedan-20-190-m-sport/bmw-520d-xdrive-sedan-20-190-m-sport-3.jpg'
+        ],
     },
     {
         id: 4,
@@ -37,7 +49,11 @@ const vehicleData = [
         fuelType: 'Elektrikli',
         transmission: 'Otomatik',
         vehicleType: 'Sedan',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/bmw-i4-edrive40/bmw-i4-edrive40-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/bmw-i4-edrive40/bmw-i4-edrive40-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/bmw-i4-edrive40/bmw-i4-edrive40-2.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/bmw-i4-edrive40/bmw-i4-edrive40-3.jpg'
+        ],
     },
     // Dacia
     {
@@ -47,7 +63,10 @@ const vehicleData = [
         fuelType: 'Dizel',
         transmission: 'Manuel',
         vehicleType: 'MPV',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/dacia-lodgy-stepway-15-bluedci-115-7k-e6d-full/dacia-lodgy-stepway-15-bluedci-115-7k-e6d-full-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/dacia-lodgy-stepway-15-bluedci-115-7k-e6d-full/dacia-lodgy-stepway-15-bluedci-115-7k-e6d-full-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/dacia-lodgy-stepway-15-bluedci-115-7k-e6d-full/dacia-lodgy-stepway-15-bluedci-115-7k-e6d-full-2.jpg'
+        ],
     },
     // Peugeot
     {
@@ -57,9 +76,12 @@ const vehicleData = [
         fuelType: 'Dizel',
         transmission: 'Otomatik',
         vehicleType: 'SUV',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/peugeot-3008-allure-15-bluehdi-130-eat8/peugeot-3008-allure-15-bluehdi-130-eat8-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/peugeot-3008-allure-15-bluehdi-130-eat8/peugeot-3008-allure-15-bluehdi-130-eat8-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/peugeot-3008-allure-15-bluehdi-130-eat8/peugeot-3008-allure-15-bluehdi-130-eat8-2.jpg'
+        ],
     },
-    // Volkswagen
+    // Volkswagen Polo
     {
         id: 7,
         brand: 'Volkswagen',
@@ -67,8 +89,12 @@ const vehicleData = [
         fuelType: 'Benzin',
         transmission: 'Yarı Otomatik',
         vehicleType: 'Hatchback',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/volkswagen-polo10-tsi-95-dsg-life/volkswagen-polo10-tsi-95-dsg-life-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/volkswagen-polo10-tsi-95-dsg-life/volkswagen-polo10-tsi-95-dsg-life-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/volkswagen-polo10-tsi-95-dsg-life/volkswagen-polo10-tsi-95-dsg-life-2.jpg'
+        ],
     },
+    // Volkswagen ID.4
     {
         id: 8,
         brand: 'Volkswagen',
@@ -76,9 +102,12 @@ const vehicleData = [
         fuelType: 'Elektrikli',
         transmission: 'Otomatik',
         vehicleType: 'SUV',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/volkswagen-id4/volkswagen-id4-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/volkswagen-id4/volkswagen-id4-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/volkswagen-id4/volkswagen-id4-2.jpg'
+        ],
     },
-    // Tesla
+    // Tesla Model 3
     {
         id: 9,
         brand: 'Tesla',
@@ -86,8 +115,12 @@ const vehicleData = [
         fuelType: 'Elektrikli',
         transmission: 'Otomatik',
         vehicleType: 'Sedan',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/tesla-model-3-long-range/tesla-model-3-long-range-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/tesla-model-3-long-range/tesla-model-3-long-range-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/tesla-model-3-long-range/tesla-model-3-long-range-2.jpg'
+        ],
     },
+    // Tesla Model Y
     {
         id: 10,
         brand: 'Tesla',
@@ -95,9 +128,12 @@ const vehicleData = [
         fuelType: 'Elektrikli',
         transmission: 'Otomatik',
         vehicleType: 'SUV',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/tesla-model-y-long-range/tesla-model-y-long-range-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/tesla-model-y-long-range/tesla-model-y-long-range-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/tesla-model-y-long-range/tesla-model-y-long-range-2.jpg'
+        ],
     },
-    // Mercedes
+    // Mercedes EQS
     {
         id: 11,
         brand: 'Mercedes',
@@ -105,9 +141,12 @@ const vehicleData = [
         fuelType: 'Elektrikli',
         transmission: 'Otomatik',
         vehicleType: 'Sedan',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/mercedes-eqs-450/mercedes-eqs-450-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/mercedes-eqs-450/mercedes-eqs-450-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/mercedes-eqs-450/mercedes-eqs-450-2.jpg'
+        ],
     },
-    // Ford
+    // Ford Focus
     {
         id: 12,
         brand: 'Ford',
@@ -115,7 +154,10 @@ const vehicleData = [
         fuelType: 'Benzin',
         transmission: 'Manuel',
         vehicleType: 'Hatchback',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/ford-focus-10-ecoboost-125-st-line/ford-focus-10-ecoboost-125-st-line-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/ford-focus-10-ecoboost-125-st-line/ford-focus-10-ecoboost-125-st-line-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/ford-focus-10-ecoboost-125-st-line/ford-focus-10-ecoboost-125-st-line-2.jpg'
+        ],
     },
     // Audi Q2
     {
@@ -125,7 +167,10 @@ const vehicleData = [
         fuelType: 'Benzin',
         transmission: 'Otomatik',
         vehicleType: 'SUV',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-q2-35-tfsi-150-advanced-s-tronic/audi-q2-35-tfsi-150-advanced-s-tronic-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-q2-35-tfsi-150-advanced-s-tronic/audi-q2-35-tfsi-150-advanced-s-tronic-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-q2-35-tfsi-150-advanced-s-tronic/audi-q2-35-tfsi-150-advanced-s-tronic-2.jpg'
+        ],
     },
     // Audi Q3
     {
@@ -135,7 +180,10 @@ const vehicleData = [
         fuelType: 'Benzin',
         transmission: 'Otomatik',
         vehicleType: 'SUV',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-q3-35-tfsi-150-advanced-s-tronic/audi-q3-35-tfsi-150-advanced-s-tronic-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-q3-35-tfsi-150-advanced-s-tronic/audi-q3-35-tfsi-150-advanced-s-tronic-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-q3-35-tfsi-150-advanced-s-tronic/audi-q3-35-tfsi-150-advanced-s-tronic-2.jpg'
+        ],
     },
     // Mercedes C-Class
     {
@@ -145,7 +193,10 @@ const vehicleData = [
         fuelType: 'Benzin',
         transmission: 'Otomatik',
         vehicleType: 'Sedan',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/mercedes-c-class-200-15-amg-line/mercedes-c-class-200-15-amg-line-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/mercedes-c-class-200-15-amg-line/mercedes-c-class-200-15-amg-line-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/mercedes-c-class-200-15-amg-line/mercedes-c-class-200-15-amg-line-2.jpg'
+        ],
     },
     // BMW X3
     {
@@ -155,7 +206,10 @@ const vehicleData = [
         fuelType: 'Dizel',
         transmission: 'Otomatik',
         vehicleType: 'SUV',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/bmw-x3-xdrive20d-20-m-sport/bmw-x3-xdrive20d-20-m-sport-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/bmw-x3-xdrive20d-20-m-sport/bmw-x3-xdrive20d-20-m-sport-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/bmw-x3-xdrive20d-20-m-sport/bmw-x3-xdrive20d-20-m-sport-2.jpg'
+        ],
     },
     // Volkswagen Golf
     {
@@ -165,7 +219,10 @@ const vehicleData = [
         fuelType: 'Benzin',
         transmission: 'Manuel',
         vehicleType: 'Hatchback',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/volkswagen-golf-15-tsi-150-life/volkswagen-golf-15-tsi-150-life-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/volkswagen-golf-15-tsi-150-life/volkswagen-golf-15-tsi-150-life-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/volkswagen-golf-15-tsi-150-life/volkswagen-golf-15-tsi-150-life-2.jpg'
+        ],
     },
     // Peugeot 208
     {
@@ -175,7 +232,10 @@ const vehicleData = [
         fuelType: 'Benzin',
         transmission: 'Manuel',
         vehicleType: 'Hatchback',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/peugeot-208-12-puretech-100-allure/peugeot-208-12-puretech-100-allure-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/peugeot-208-12-puretech-100-allure/peugeot-208-12-puretech-100-allure-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/peugeot-208-12-puretech-100-allure/peugeot-208-12-puretech-100-allure-2.jpg'
+        ],
     },
     // Renault Clio
     {
@@ -185,7 +245,10 @@ const vehicleData = [
         fuelType: 'Benzin',
         transmission: 'Manuel',
         vehicleType: 'Hatchback',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/renault-clio-10-tce-100-icon/renault-clio-10-tce-100-icon-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/renault-clio-10-tce-100-icon/renault-clio-10-tce-100-icon-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/renault-clio-10-tce-100-icon/renault-clio-10-tce-100-icon-2.jpg'
+        ],
     },
     // Hyundai i20
     {
@@ -195,7 +258,10 @@ const vehicleData = [
         fuelType: 'Benzin',
         transmission: 'Manuel',
         vehicleType: 'Hatchback',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/hyundai-i20-10-t-gdi-120-premium/hyundai-i20-10-t-gdi-120-premium-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/hyundai-i20-10-t-gdi-120-premium/hyundai-i20-10-t-gdi-120-premium-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/hyundai-i20-10-t-gdi-120-premium/hyundai-i20-10-t-gdi-120-premium-2.jpg'
+        ],
     },
     // Kia Sportage
     {
@@ -205,7 +271,10 @@ const vehicleData = [
         fuelType: 'Dizel',
         transmission: 'Otomatik',
         vehicleType: 'SUV',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/kia-sportage-16-crdi-136-gt-line/kia-sportage-16-crdi-136-gt-line-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/kia-sportage-16-crdi-136-gt-line/kia-sportage-16-crdi-136-gt-line-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/kia-sportage-16-crdi-136-gt-line/kia-sportage-16-crdi-136-gt-line-2.jpg'
+        ],
     },
     // Skoda Octavia
     {
@@ -215,7 +284,10 @@ const vehicleData = [
         fuelType: 'Benzin',
         transmission: 'Manuel',
         vehicleType: 'Sedan',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/skoda-octavia-15-tsi-150-style/skoda-octavia-15-tsi-150-style-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/skoda-octavia-15-tsi-150-style/skoda-octavia-15-tsi-150-style-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/skoda-octavia-15-tsi-150-style/skoda-octavia-15-tsi-150-style-2.jpg'
+        ],
     },
     // Citroen C3
     {
@@ -225,7 +297,10 @@ const vehicleData = [
         fuelType: 'Benzin',
         transmission: 'Manuel',
         vehicleType: 'Hatchback',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/citroen-c3-12-puretech-110-shine/citroen-c3-12-puretech-110-shine-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/citroen-c3-12-puretech-110-shine/citroen-c3-12-puretech-110-shine-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/citroen-c3-12-puretech-110-shine/citroen-c3-12-puretech-110-shine-2.jpg'
+        ],
     },
     // Opel Astra
     {
@@ -235,7 +310,10 @@ const vehicleData = [
         fuelType: 'Benzin',
         transmission: 'Manuel',
         vehicleType: 'Hatchback',
-        image: 'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/opel-astra-14-turbo-150-elegance/opel-astra-14-turbo-150-elegance-1.jpg',
+        images: [
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/opel-astra-14-turbo-150-elegance/opel-astra-14-turbo-150-elegance-1.jpg',
+            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/opel-astra-14-turbo-150-elegance/opel-astra-14-turbo-150-elegance-2.jpg'
+        ],
     }
 ];
 
@@ -261,37 +339,24 @@ function initVehicleFilters() {
 }
 
 function filterVehicles() {
-    const brandFilter = document.getElementById('brand-filter').value.toLowerCase();
-    const fuelTypeFilter = document.getElementById('fuel-type-filter').value.toLowerCase();
-    const transmissionFilter = document.getElementById('transmission-filter').value.toLowerCase();
-    const vehicleTypeFilter = document.getElementById('vehicle-type-filter').value.toLowerCase();
-    const priceMinFilter = document.getElementById('price-min').value;
-    const priceMaxFilter = document.getElementById('price-max').value;
+    // Checkbox'lardan seçili değerleri al
+    const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(cb => cb.value);
+    const selectedFuelTypes = Array.from(document.querySelectorAll('input[name="fuel-type"]:checked')).map(cb => cb.value.toLowerCase());
+    const selectedTransmissions = Array.from(document.querySelectorAll('input[name="transmission"]:checked')).map(cb => cb.value.toLowerCase());
+    const selectedVehicleTypes = Array.from(document.querySelectorAll('input[name="vehicle-type"]:checked')).map(cb => cb.value.toLowerCase());
 
     filteredVehicles = vehicleData.filter(vehicle => {
-        const matchesBrand = !brandFilter || vehicle.brand.toLowerCase().includes(brandFilter);
-        const matchesFuelType = !fuelTypeFilter || vehicle.fuelType.toLowerCase().includes(fuelTypeFilter);
-        const matchesTransmission = !transmissionFilter || vehicle.transmission.toLowerCase().includes(transmissionFilter);
-        const matchesVehicleType = !vehicleTypeFilter || vehicle.vehicleType.toLowerCase().includes(vehicleTypeFilter);
-        
-        let matchesPrice = true;
-        if (priceMinFilter || priceMaxFilter) {
-            const vehiclePrice = parseInt(vehicle.price.replace(/[^\d]/g, ''));
-            if (priceMinFilter) {
-                matchesPrice = matchesPrice && vehiclePrice >= parseInt(priceMinFilter);
-            }
-            if (priceMaxFilter) {
-                matchesPrice = matchesPrice && vehiclePrice <= parseInt(priceMaxFilter);
-            }
-        }
+        const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(vehicle.brand);
+        const matchesFuelType = selectedFuelTypes.length === 0 || selectedFuelTypes.includes(vehicle.fuelType.toLowerCase());
+        const matchesTransmission = selectedTransmissions.length === 0 || selectedTransmissions.includes(vehicle.transmission.toLowerCase());
+        const matchesVehicleType = selectedVehicleTypes.length === 0 || selectedVehicleTypes.includes(vehicle.vehicleType.toLowerCase());
 
-        return matchesBrand && matchesFuelType && matchesTransmission && matchesVehicleType && matchesPrice;
+        return matchesBrand && matchesFuelType && matchesTransmission && matchesVehicleType;
     });
 
-    currentPage = 1; // Reset to first page when filtering
+    currentPage = 1;
     displayVehicles(filteredVehicles);
 }
-
 function displayAllVehicles() {
     filteredVehicles = [...vehicleData];
     currentPage = 1;
@@ -302,7 +367,7 @@ function displayVehicles(vehicles) {
     const vehiclesContainer = document.getElementById('vehicles-container');
     const resultsCount = document.getElementById('results-count');
     const paginationContainer = document.getElementById('pagination-container');
-    
+
     if (!vehiclesContainer) return;
 
     // Update results count
@@ -333,25 +398,40 @@ function displayVehicles(vehicles) {
     const endIndex = startIndex + vehiclesPerPage;
     const currentVehicles = vehicles.slice(startIndex, endIndex);
 
-            // Display current page vehicles
-            const vehiclesHTML = currentVehicles.map(vehicle => `
-                <a href="#" class="vehicle-card" data-vehicle-id="${vehicle.id}" onclick="showVehicleDetail(${vehicle.id}); return false;">
-                    <div class="vehicle-image">
-                        <img src="${vehicle.image}" alt="${vehicle.model}" loading="lazy">
-                    </div>
-                    <div class="vehicle-info">
-                       
-                        <h3 class="vehicle-model">${vehicle.model}</h3>
-                        <p class="car-specification">
-                            <span class="spec-item">${vehicle.fuelType}</span> / 
-                            <span class="spec-item">${vehicle.transmission}</span> / 
-                            <span class="spec-item">${vehicle.vehicleType}</span>
+    // Display current page vehicles
+    const vehiclesHTML = currentVehicles.map(vehicle => {
+        const primaryImage = vehicle.images ? vehicle.images[0] : vehicle.image;
+        const hasMultipleImages = vehicle.images && vehicle.images.length > 1;
+
+        return `
+            <a href="#" class="vehicle-card" data-vehicle-id="${vehicle.id}" onclick="showVehicleDetail(${vehicle.id}); return false;">
+                <div class="vehicle-image ${hasMultipleImages ? 'has-carousel' : ''}" 
+                     ${hasMultipleImages ? `data-images='${JSON.stringify(vehicle.images)}'` : ''}>
+                    <img src="${primaryImage}" alt="${vehicle.model}" loading="lazy" class="primary-image">
+                    ${hasMultipleImages ? `
+                        <div class="image-indicators">
+                            ${vehicle.images.map((_, index) => `
+                                <span class="indicator ${index === 0 ? 'active' : ''}" data-index="${index}"></span>
+                            `).join('')}
                         </div>
-                    </div>
-                </a>
-            `).join('');
+                    ` : ''}
+                </div>
+                <div class="vehicle-info">
+                    <h6 class="car-name">${vehicle.model}</h6>
+                    <p class="car-specifications">
+                        <span class="spec-item">${vehicle.fuelType}</span> / 
+                        <span class="spec-item">${vehicle.transmission}</span> / 
+                        <span class="spec-item">${vehicle.vehicleType}</span>
+                    </p>
+                </div>
+            </a>
+        `;
+    }).join('');
 
     vehiclesContainer.innerHTML = vehiclesHTML;
+
+    // Initialize image carousels
+    initImageCarousels();
 
     // Display pagination
     if (paginationContainer && totalPages > 1) {
@@ -360,7 +440,6 @@ function displayVehicles(vehicles) {
         paginationContainer.innerHTML = '';
     }
 }
-
 function displayPagination(totalPages) {
     const paginationContainer = document.getElementById('pagination-container');
     if (!paginationContainer) return;
@@ -486,7 +565,55 @@ function sortVehicles(sortBy) {
     vehicleCards.forEach(card => vehiclesContainer.appendChild(card));
 }
 
-// Initialize everything when DOM is loaded
+function initImageCarousels() {
+    const vehicleCards = document.querySelectorAll('.vehicle-card');
+
+    vehicleCards.forEach(card => {
+        const imageContainer = card.querySelector('.vehicle-image.has-carousel');
+        if (!imageContainer) return;
+
+        const images = JSON.parse(imageContainer.dataset.images);
+        const img = imageContainer.querySelector('img');
+        const indicators = imageContainer.querySelectorAll('.indicator');
+
+        let currentIndex = 0;
+        let interval = null;
+
+        card.addEventListener('mouseenter', () => {
+            if (images.length <= 1) return;
+
+            interval = setInterval(() => {
+                // Eski görsel kaybolur
+                img.classList.add('slide-out');
+
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    img.src = images[currentIndex];
+                    img.classList.remove('slide-out');
+
+                    // Indicator'ları güncelle
+                    indicators.forEach((indicator, index) => {
+                        indicator.classList.toggle('active', index === currentIndex);
+                    });
+                }, 100); // Yarım animasyon süresi
+
+            }, 700); // 2 saniyede bir değiş
+        });
+
+        card.addEventListener('mouseleave', () => {
+            if (interval) {
+                clearInterval(interval);
+                interval = null;
+            }
+            currentIndex = 0;
+            img.src = images[0];
+            img.classList.remove('slide-out');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === 0);
+            });
+        });
+    });
+}// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function () {
     initVehicleFilters();
     displayAllVehicles();

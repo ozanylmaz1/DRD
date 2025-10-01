@@ -7,6 +7,7 @@
     border: 0;
     border-radius: 25px;
     cursor: pointer;
+    transition: opacity 0.3s ease;
 }
 
 .fleet-main {
@@ -19,7 +20,7 @@
 
 .fleet-card {
     flex: 0 0 32.2%;
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease;
 }
 
 .fleet-card h2 {

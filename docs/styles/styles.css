@@ -82,7 +82,7 @@ section {
 }
 
 .fleettext {
-    margin-left: 55px;
+    margin-left: 60px;
     max-width: 800px;
 }
 
@@ -90,7 +90,7 @@ section {
 .gallery-content p,
 .drd-meet p,
 .special-solutions p {
-    margin: 0 0 60px 55px;
+    margin: 0 0 0 60px;
     color: #292d32;
     width: 90%;
     max-width: 800px;
