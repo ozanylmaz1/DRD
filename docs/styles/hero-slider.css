@@ -143,6 +143,9 @@
 
 /* Responsive */
 @media (max-width: 900px) {
+    .hero-slider {
+        width: 95vw;
+    }
     .slides-wrap {
         height: 46vh;
     }

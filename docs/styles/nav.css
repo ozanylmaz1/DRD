@@ -13,6 +13,7 @@
     nav li a {
         text-decoration: none;
         color: black;
+        font-weight: 500;
     }
 
 .nav-top {
@@ -64,7 +65,7 @@
     background-color: #ff002a;
     padding: 0 40px;
     color: white;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 14px;
     border: 0;
     border-radius: 25px;
@@ -94,6 +95,10 @@
     max-width: 1225px;
     box-sizing: border-box;
     position: relative;
+}
+.language-selector a{
+    text-decoration: none;
+    color: #000;
 }
 
 .list-btn {
@@ -240,8 +245,8 @@
 /* 1024px Media Query */
 @media screen and (max-width: 1024px) {
     nav {
-        max-width: 950px;
-        width: 100%;
+        width: 95vw;
+        margin: 0 auto;
     }
 }
 
@@ -287,7 +292,6 @@
 /*footer*/
 footer {
     width: 100%;
-
     background-color: #292d32;
     color: white;
 }
@@ -329,7 +333,7 @@ footer {
     }
 
         .footer-list ul .head {
-            font-weight: 600;
+            font-weight: bolder;
             font-size: 14px;
         }
 
@@ -400,3 +404,76 @@ footer {
         font-size: 14px;
         color: #fff;
     }
+
+
+@media screen and (max-width: 1200px) {
+    footer {
+        width: 90%;
+        padding: 0 5%;
+    }
+    .footer-up, .footer-down, .footer-list {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 768px) {
+    footer {
+        width: 90%;
+        padding: 0 5%;
+    } 
+
+    .footer-down {
+        flex-wrap: wrap;
+    }
+    .footer-down-left{
+        display: flex;
+        width: 100%;
+        flex-direction: column-reverse;
+    }
+        .footer-down-left span {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 17px 33px;
+        }
+    .footer-down-right {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .footer-social {
+    margin: 0;
+    }
+    .footer-list {
+        display: none;
+    }
+    .footer-down-right h4 {
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26px;
+        font-size: 18px;
+    }
+
+}
+@media screen and (max-width: 500px) {
+    .footer-up img {
+        width: 140px;
+        height: auto;
+    }
+
+    .footer-up h2 {
+        font-style: normal;
+        font-weight: 600;
+        line-height: 28px;
+        font-size: 20px;
+        margin: 0;
+    }
+    .footer-down-left p {
+        text-align: center;
+    }
+
+    .footer-social a {
+        width: 30px;
+        height: 30px;
+    }
+}

@@ -109,7 +109,19 @@
         background-color: #ff0029;
         color: white;
     }
+@media screen and (max-width: 1200px) {
+    .comparison-section {
+        width: 100vw;
+        padding: 2em 0;
+    }
+        .comparison-section h2 {
+            padding-left: 6vw;
+        }
 
+    .comparison-table {
+        width: 90%;
+    }
+}
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .comparison-section {
@@ -131,6 +143,10 @@
     .comparison-table td:first-child {
         font-size: 13px;
     }
+        .comparison-table th:nth-child(2),
+        .comparison-table td:nth-child(2) {
+            width: 5vw;
+        }
 }
 
 @media screen and (max-width: 480px) {

@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Haritası | DRD</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/nav.css">
+
+    <!-- Scripts -->
+    <script src="components/nav.js"></script>
+    <script src="components/component-loader.js"></script>
+    <script src="components/footer.js"></script>
+    <style>
+        .sitemap-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 50px 5%;
+        }
+
+        .sitemap-column h3 {
+            font-style: normal;
+            font-weight: bold;
+            margin: 18px 0;
+            line-height: 24px;
+            font-size: 18px;
+        }
+
+        .sitemap-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .sitemap-column ul li {
+                margin: 0;
+            }
+
+        .sitemap-column a {
+            text-decoration: none;
+            color: black;
+            font-size: 15px;
+        }
+
+            .sitemap-column a:hover {
+                text-decoration: underline;
+            }
+
+        .sitemap-column ul li::before {
+            content: "● ";
+            color: red;
+            font-size: 14px;
+            margin-right: 5px;
+        }
+
+        .sitemap-column:nth-child(2),
+        .sitemap-column:nth-child(3) {
+            border-left: 1px solid #ddd;
+            padding-left: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .sitemap-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .sitemap-column {
+                border-left: none;
+                padding-left: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <div class="header-list" style="background-image: url(https://s3img.sm.mncdn.com/mnresize/1300/300/Files/img/ortak-alan/map.jpg) ">
+            <h1 class="header-text">Site Haritası</h1>
+        </div>
+        <section class="sitemap-container">
+            <div class="sitemap-column">
+                <h3>Ana Sayfa</h3>
+                <ul>
+                    <li><a href="#">Anasayfa</a></li>
+                </ul>
+
+                <h3>Neden Drd</h3>
+                <ul>
+                    <li><a href="#">Neden Drd</a></li>
+                </ul>
+
+                <h3>Servis Hizmetler</h3>
+                <ul>
+                    <li><a href="#">Filo Kiralama</a></li>
+                    <li><a href="#">Filo Yönetimi</a></li>
+                    <li><a href="#">Operasyonel Hizmetler</a></li>
+                </ul>
+
+                <h3>DRD Çözümleri</h3>
+                <ul>
+                    <li><a href="#">Fleetino</a></li>
+                    <li><a href="#">Paylaşımlı Filo</a></li>
+                </ul>
+            </div>
+
+            <!-- Sütun 2 -->
+            <div class="sitemap-column">
+                <h3>Araçlar</h3>
+                <ul>
+                    <li><a href="#">Araç Listele</a></li>
+                    <li><a href="#">Markalar</a></li>
+                    <li><a href="#">Elektrikli Araçlar</a></li>
+                    <li><a href="#">Kampanyalar</a></li>
+                </ul>
+
+                <h3>Teklif Al</h3>
+                <ul>
+                    <li><a href="#">Teklif Al</a></li>
+                </ul>
+
+                <h3>Destek & İletişim</h3>
+                <ul>
+                    <li><a href="#">Sıkça Sorulan Sorular</a></li>
+                    <li><a href="#">İletişim</a></li>
+                </ul>
+
+                <h3>Bizi Tanıyın</h3>
+                <ul>
+                    <li><a href="#">Şirket Profili</a></li>
+                    <li><a href="#">Sürdürülebilirlik Politikamız</a></li>
+                    <li><a href="#">Sosyal Sorumluluk</a></li>
+                    <li><a href="#">Bizden Haberler</a></li>
+                    <li><a href="#">Bilgi Toplumu Hizmetleri</a></li>
+                    <li><a href="#">Referanslar</a></li>
+                </ul>
+            </div>
+
+            <!-- Sütun 3 -->
+            <div class="sitemap-column">
+                <h3>Kariyer</h3>
+                <ul>
+                    <li><a href="#">DRD’li Olmak</a></li>
+                    <li><a href="#">Kültürümüz</a></li>
+                    <li><a href="#">İşe Alım</a></li>
+                    <li><a href="#">Açık Pozisyonlar</a></li>
+                </ul>
+
+                <h3>Blog</h3>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+
+                <h3>Mükemmellik Yaklaşımı</h3>
+                <ul>
+                    <li><a href="#">Mükemmellik Yaklaşımı</a></li>
+                </ul>
+
+                <h3>Yasal Merkez</h3>
+                <ul>
+                    <li><a href="#">Yasal Merkez</a></li>
+                </ul>
+            </div>
+
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

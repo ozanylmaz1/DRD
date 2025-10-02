@@ -8,32 +8,33 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/nav.css">
     <link rel="stylesheet" href="styles/curiosities.css">
 
-
     <!-- Scripts -->
     <script src="components/component-loader.js"></script>
     <script src="components/nav.js"></script>
     <script src="components/accordion.js"></script>
+    <script src="components/footer.js"></script>
+
     <style>
         .search-box {
             position: relative;
             margin: 20px auto;
         }
 
-        .search-box .bi-search {
-            position: absolute;
-            top: 50%;
-            left: 16px;
-            transform: translateY(-50%);
-            color: #555;
-            font-size: 1.2rem;
-        }
+            .search-box .bi-search {
+                position: absolute;
+                top: 50%;
+                left: 16px;
+                transform: translateY(-50%);
+                color: #555;
+                font-size: 1.2rem;
+            }
 
             .search-box input {
                 border-radius: 100px;
@@ -42,13 +43,16 @@
                 width: 1170px;
                 border: 2px solid #ddd;
             }
+
         .accordion-header {
             width: 1175px;
             padding-bottom: 0;
         }
+
         .curiosities {
             justify-content: center;
         }
+
         @media screen and (max-width: 1200px) {
             .accordion-header {
                 max-width: 90vw;
@@ -57,7 +61,6 @@
             .search-box input {
                 max-width: 90vw;
             }
-
         }
     </style>
 </head>

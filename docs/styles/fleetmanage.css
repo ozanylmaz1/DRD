@@ -48,16 +48,12 @@
         font-weight: 500;
     }
 
-@media screen and (max-width: 1224px) {
+@media screen and (max-width: 1200px) {
     .index-threesteps {
-        width: 96%;
-        padding: 40px 2%; 
+        max-width: 90%;
+        width: 90%;
+        padding: 4em 5%;
     }
-
-        .index-threesteps h2 {
-            font-size: 26px;
-            line-height: 36px;
-        }
 }
 
 @media screen and (max-width: 968px) {

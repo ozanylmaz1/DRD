@@ -3,13 +3,14 @@
     justify-content: space-between;
     background-color: #2b3035;
     border-radius: 9px;
+    width: 100vw;
 }
 
     .threesteps div {
-        padding: 60px;
         color: white;
         font-weight: normal;
         width: 500px;
+        padding: 60px;
     }
 
     .threesteps h2 {
@@ -23,11 +24,11 @@
         font-size: 18px;
         font-weight: bold;
         line-height: 20.5px;
-        margin: 2em 0 12px 0;
+        margin: 3em 0 12px 0;
     }
 
     .threesteps p {
-        font-weight: 300;
+        font-weight: 400;
         font-size: 16px;
         line-height: 20px;
         margin: 0;
@@ -48,6 +49,7 @@
     border-radius: 8px;
     border: 1px solid white;
     padding: 10px 40px;
+    white-space: nowrap;
 }
 
     .threesteps-link-1:hover {
@@ -58,7 +60,8 @@
 .threesteps-link-2 {
     display: flex;
     align-items: center;
-    gap: 15px
+    gap: 15px ;
+    white-space: nowrap;
 }
 
 .threesteps img {
@@ -67,7 +70,7 @@
     width: 600px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1070px) {
     .threesteps {
         display: block;
         background: none;
@@ -78,9 +81,10 @@
             background-image: url(https://drdcmsv2.taigalab.com/Files/img/three-steps.jpg?v=3PUrBzNZIZpzkCrheU-ypehBZCw);
             background-size: cover;
             border-radius: 9px;
-            width: 1024px;
-            max-width: 100%;
-            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 5%;
+            max-width: 90%;
+            width: 90vw;
         }
 
             .threesteps div::before {
@@ -103,4 +107,12 @@
             display: none;
 
         }
+}
+@media screen and (max-width: 500px) {
+    .threesteps span {
+        gap: 2em;
+    }
+    .threesteps-link-2 {
+        white-space: normal;
+    }
 }

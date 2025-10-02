@@ -35,7 +35,7 @@
     color: #292d32;
     font-size: 32px;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 43px;
     margin: 0;
 }
@@ -43,6 +43,7 @@
 @media screen and (max-width: 1024px) {
     .widget {
         grid-template-columns: 1fr;
+        width: 100vw;
     }
 
 }
@@ -63,8 +64,6 @@
 
 /* Moble Layout */
 @media screen and (max-width: 500px) {
-
-
     .widget-card {
         align-items: center;
         justify-content: center;

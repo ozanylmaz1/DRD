@@ -41,6 +41,7 @@ section {
         text-decoration: none;
         color: black;
         column-gap: 1em;
+        font-weight: 500;
     }
 /*header*/
 .header-list {
@@ -95,7 +96,9 @@ section {
     width: 90%;
     max-width: 800px;
     font-size: 16px;
-    font-weight: 300;
+    margin-left: 55px;
+    font-style: normal;
+    font-weight: 400;
     line-height: 24px;
 }
 
@@ -106,6 +109,7 @@ section {
     gap: 10px;
     text-decoration: none;
     color: black;
+    font-weight: 500;
 }
 
 .curiosities-link {
@@ -140,13 +144,17 @@ section {
     section {
         margin: 1.5em auto;
         max-width: 90%;
+        width: 90%;
+    }
+    .why-fleetino {
+        width: 100vw;
+
     }
 }
 
 @media screen and (max-width: 1024px) {
     section {
-        max-width: 950px;
-        width: 100%;
+        width: 100vw;
         padding: 0;
     }
 
@@ -185,13 +193,12 @@ section {
     .fleettext {
         margin-left: 0;
     }
+    .header-text {
+        margin: 0 5%;
+    }
 }
 
 @media screen and (max-width: 860px) {
-    section {
-        max-width: 668px;
-        width: 90vw;
-    }
 
     .display-header {
         flex-direction: column;
@@ -221,6 +228,5 @@ section {
 
 @media screen and (max-width: 500px) {
     section {
-        max-width: 400px;
     }
 }

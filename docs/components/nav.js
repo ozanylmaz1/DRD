@@ -56,9 +56,9 @@
                       </svg>
                     </button>
                     <div id="nav-language-selector" class="language-selector">
-                        <span id="nav-lang-tr" class="lang-active">TR</span>
-                        <span id="nav-lang-divider" class="lang-divider">|</span>
-                        <span id="nav-lang-en" class="lang-option">EN</span>
+                        <a id="nav-lang-tr" class="lang-active" href="/tr">TR</a>
+                        <hr />
+                        <a id="nav-lang-en" class="lang-option" href="/en">EN</a>
                     </div>
                 </div>
             </div>

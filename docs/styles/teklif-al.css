@@ -188,7 +188,14 @@ textarea.form-control {
 .mb-30 {
     margin-bottom: 30px;
 }
+@media (max-width: 1200px) {
 
+    .col-6 {
+        flex: 0 0 46%;
+        max-width: 46%;
+    }
+
+}
 /* Responsive Design */
 @media (max-width: 1024px) {
 

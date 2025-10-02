@@ -10,16 +10,11 @@
         margin: 0 auto;
     }
 .gallery-content h6 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 32px;
     margin: 0;
-    margin-left: 55px;
-    color: #292d32;
-    width: 100%;
-    max-width: 800px;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    transition: transform 0.5s ease-in-out 0.3s;
-    transform: translateX(0);
+    padding: 15px 60px;
 }
 
 .certificates span a {
@@ -85,30 +80,20 @@
 .timeline-slide {
     padding: 30px;
     border-radius: 10px;
-    transition: box-shadow 0.3s ease;
     min-height: 200px;
     display: flex;
     flex-direction: column;
 }
 
 .timeline-year {
-    color: #e31e24;
+    color: #0f0f0f;
     font-size: 24px;
     font-weight: 700;
     margin: 0 0 15px 0;
     position: relative;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
 }
 
-    .timeline-year::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 50px;
-        height: 3px;
-        background: #e31e24;
-    }
 
 .timeline-slide p {
     color: #666;
@@ -121,24 +106,26 @@
 /* Responsive Design */
 @media screen and (max-width: 1400px) {
     .timeline-slide-item {
-        flex: 0 0 calc(40% - 20px);
+        flex: 0 0 calc(32.3333% - 20px);
     }
 }
-
-@media screen and (max-width: 1024px) {
-    .company-timeline {
-        padding: 2em 3em;
+@media screen and (max-width: 1200px) {
+    .timeline-slide-item {
+        flex: 0 0 calc(55% - 20px);
     }
-
+    .company-timeline {
+        padding: 0 5%;
+    }
+}
+@media screen and (max-width: 1024px) {
     .timeline-slide-item {
         flex: 0 0 calc(50% - 15px);
         min-width: 280px;
     }
-
     .timeline-list {
-        gap: 20px;
-    }
+        gap: 10px;
 
+    }
     .timeline-slide {
         padding: 25px;
     }
@@ -151,24 +138,24 @@
         font-size: 14px;
     }
     .gallery-content h6 {
-        margin-left: 0;
+        padding: 5px 0;
 
     }
 }
 
 @media screen and (max-width: 768px) {
     .timeline-slide-item {
-        flex: 0 0 100%;
-        min-width: 100%;
-        max-width: 100%;
+        flex: 0 0 90%;
+        max-width: 90%;
+    }
+    .certificates span a {
+        font-size: 3vw;
     }
 
 }
 
 @media screen and (max-width: 600px) {
-    .company-timeline {
-        padding: 1.5em 1em;
-    }
+
 
     .timeline-list {
         gap: 15px;
