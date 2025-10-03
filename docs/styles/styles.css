@@ -83,7 +83,7 @@ section {
 }
 
 .fleettext {
-    margin-left: 60px;
+    margin-left: 55px;
     max-width: 800px;
 }
 
@@ -147,8 +147,8 @@ section {
         width: 90%;
     }
     .why-fleetino {
-        width: 100vw;
-
+        width: 90vw;
+        padding: 2em 5vw;
     }
 }
 
@@ -223,10 +223,5 @@ section {
 @media screen and (max-width: 768px) {
     .header-text {
         margin-left: 6%;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    section {
     }
 }

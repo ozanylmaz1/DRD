@@ -43,8 +43,12 @@
         font-weight: 400;
         line-height: 20px;
     }
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1024px) {
+    .services {
+        padding-left: 0;
+    }
+}
+@media screen and (max-width: 768px) {
     .services {
         padding-left: 0;
     }

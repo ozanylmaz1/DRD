@@ -83,6 +83,15 @@
         margin-left: 0;
     }
     .panel div {
-        margin-left: 0;
+        margin: 0;
+        flex-wrap: wrap;
+        gap: 0;
+    }
+    .panel p, .fleetino-text p, .panel li {
+        margin: 0;
+    }
+    .panel div h6, .fleetino-text h6 {
+        margin: 10px 0;
+        width: 100%;
     }
 }

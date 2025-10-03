@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Global & Base Styles -->
-    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/nav.css">
     <link rel="stylesheet" href="styles/services.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/cars-detail.css">
     <link rel="stylesheet" href="styles/curiosities.css">
     <link rel="stylesheet" href="styles/car-models.css">
@@ -31,7 +31,52 @@
     <main>
         <section>
             <div class="cars-detail">
-                <img alt="Audi A3 Sedan 35 TFSI 150 Advanced S Tronic" title="Audi A3 Sedan 35 TFSI 150 Advanced S Tronic" />
+                <div class="car-image-slider-container">
+                    <!-- Ana Görsel -->
+                    <div class="main-image-container">
+                        <img id="main-car-image"
+                             src="https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-1.jpg"
+                             alt="Audi A3 Sedan 35 TFSI 150 Advanced S Tronic"
+                             title="Audi A3 Sedan 35 TFSI 150 Advanced S Tronic">
+                    </div>
+
+                    <!-- 2x2 Grid Görseller -->
+                    <div class="image-grid-container">
+                        <div class="image-grid-item" onclick="changeMainImage('https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-2.jpg')">
+                            <img src="https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-2.jpg" alt="Görsel 2">
+                        </div>
+                        <div class="image-grid-item" onclick="changeMainImage('https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-3.jpg')">
+                            <img src="https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-3.jpg" alt="Görsel 3">
+                        </div>
+                        <div class="image-grid-item" onclick="changeMainImage('https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-4.jpg')">
+                            <img src="https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-4.jpg" alt="Görsel 4">
+                        </div>
+                        <div class="image-grid-item" onclick="changeMainImage('https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-5.jpg')">
+                            <img src="https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-5.jpg" alt="Görsel 5">
+                        </div>
+                    </div>
+
+                    <!-- Daha Fazla Butonu -->
+                    <button class="more-button" onclick="toggleGallery()">
+                        Daha Fazla
+                    </button>
+
+                    <!-- Genişletilmiş Galeri (Gizli) -->
+                    <div class="expanded-gallery" id="expandedGallery">
+                        <div class="gallery-item" onclick="changeMainImage('https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-1.jpg')">
+                            <img src="https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-1.jpg" alt="Ek Görsel 1">
+                        </div>
+                        <div class="gallery-item" onclick="changeMainImage('https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-2.jpg')">
+                            <img src="https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-2.jpg" alt="Ek Görsel 2">
+                        </div>
+                        <div class="gallery-item" onclick="changeMainImage('https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-3.jpg')">
+                            <img src="https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-3.jpg" alt="Ek Görsel 3">
+                        </div>
+                        <div class="gallery-item" onclick="changeMainImage('https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-4.jpg')">
+                            <img src="https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-4.jpg" alt="Ek Görsel 4">
+                        </div>
+                    </div>
+                </div>
                 <div class="cars-detail-right">
                     <span class="cars-detail-right-title">DRD Ayrıcalıkları ile</span>
                     <h1>
@@ -177,53 +222,54 @@
                 </p>
 
             </div>
-            <div class="services">
-                <h2>
-                    Neden bizi seçmelisiniz?
-                </h2>
-                <div class="services-main">
-                    <div>
-                        <img src="https://drdcmsv2.taigalab.com/Files/img/drd-web-i%CC%87kon-seti/drd-iconset/h%C4%B1zl%C4%B1.png">
-                        <h6>Hızlı ve kolay kiralama süreci</h6>
-                        <p>Web sitemizdeki teklif formuyla hızlıca talep oluşturabilir, şirket aracınızı kolayca kiralayabilirsiniz.</p>
-                    </div>
-                    <div>
-                        <img src="https://drdcmsv2.taigalab.com/Files/img/drd-web-i%CC%87kon-seti/drd-iconset/inovasyon-odakli-vizyon-4.png">
-                        <h6>Geniş araç seçenekleri</h6>
-                        <p>İhtiyacınıza en uygun araçları seçebileceğiniz geniş bir araç filosu sunuyoruz.</p>
-                    </div>
-                    <div>
-                        <img src="https://drdcmsv2.taigalab.com/Files/img/drd-web-i%CC%87kon-seti/drd-iconset/inovasyon-odakli-vizyon-2.png">
-                        <h6>Zahmetsiz süreç yönetimi</h6>
-                        <p>Bakım, onarım, hasar yönetimi gibi tüm operasyonel süreçleri sizin adınıza yönetiyor, iş yükünüzü hafifletiyoruz.</p>
-                    </div>
-                    <div>
-                        <img src="https://drdcmsv2.taigalab.com/Files/img/drd-web-i%CC%87kon-seti/drd-iconset/mali.png">
-                        <h6>Verimli bütçe kullanımı</h6>
-                        <p>Sabit kira ödemeleri ve ekonomik çözümlerimizle bütçenizi optimize etmenize yardımcı oluyoruz.</p>
-                    </div>
-                    <div>
-                        <img src="https://drdcmsv2.taigalab.com/Files/img/drd-web-i%CC%87kon-seti/drd-iconset/inovasyon-odakli-vizyon-3.png">
-                        <h6>Şeffaf ve güvenilir hizmet</h6>
-                        <p>Tüm süreçlerde şeffaflık ilkesini benimseyerek güvenilir bir iş ortaklığı sağlıyoruz.</p>
-                    </div>
-                    <div>
-                        <img src="https://drdcmsv2.taigalab.com/Files/img/drd-web-i%CC%87kon-seti/drd-iconset/inovasyon-odakli-vizyon-1.png">
-                        <h6>Müşteri memnuniyeti odağı</h6>
-                        <p>Müşterilerimizden gelen geri bildirimlerle sürekli kendimizi geliştiriyor ve en yüksek memnuniyet seviyesini hedefliyoruz.</p>
-                    </div>
-                </div>
-            </div>
+
 
 
         </section>
+        <div class=" why-fleetino">
+            <h2>
+                Neden bizi seçmelisiniz?
+            </h2>
+            <div class="services-main">
+                <div>
+                    <img src="https://drdcmsv2.taigalab.com/Files/img/drd-web-i%CC%87kon-seti/drd-iconset/h%C4%B1zl%C4%B1.png">
+                    <h6>Hızlı ve kolay kiralama süreci</h6>
+                    <p>Web sitemizdeki teklif formuyla hızlıca talep oluşturabilir, şirket aracınızı kolayca kiralayabilirsiniz.</p>
+                </div>
+                <div>
+                    <img src="https://drdcmsv2.taigalab.com/Files/img/drd-web-i%CC%87kon-seti/drd-iconset/inovasyon-odakli-vizyon-4.png">
+                    <h6>Geniş araç seçenekleri</h6>
+                    <p>İhtiyacınıza en uygun araçları seçebileceğiniz geniş bir araç filosu sunuyoruz.</p>
+                </div>
+                <div>
+                    <img src="https://drdcmsv2.taigalab.com/Files/img/drd-web-i%CC%87kon-seti/drd-iconset/inovasyon-odakli-vizyon-2.png">
+                    <h6>Zahmetsiz süreç yönetimi</h6>
+                    <p>Bakım, onarım, hasar yönetimi gibi tüm operasyonel süreçleri sizin adınıza yönetiyor, iş yükünüzü hafifletiyoruz.</p>
+                </div>
+                <div>
+                    <img src="https://drdcmsv2.taigalab.com/Files/img/drd-web-i%CC%87kon-seti/drd-iconset/mali.png">
+                    <h6>Verimli bütçe kullanımı</h6>
+                    <p>Sabit kira ödemeleri ve ekonomik çözümlerimizle bütçenizi optimize etmenize yardımcı oluyoruz.</p>
+                </div>
+                <div>
+                    <img src="https://drdcmsv2.taigalab.com/Files/img/drd-web-i%CC%87kon-seti/drd-iconset/inovasyon-odakli-vizyon-3.png">
+                    <h6>Şeffaf ve güvenilir hizmet</h6>
+                    <p>Tüm süreçlerde şeffaflık ilkesini benimseyerek güvenilir bir iş ortaklığı sağlıyoruz.</p>
+                </div>
+                <div>
+                    <img src="https://drdcmsv2.taigalab.com/Files/img/drd-web-i%CC%87kon-seti/drd-iconset/inovasyon-odakli-vizyon-1.png">
+                    <h6>Müşteri memnuniyeti odağı</h6>
+                    <p>Müşterilerimizden gelen geri bildirimlerle sürekli kendimizi geliştiriyor ve en yüksek memnuniyet seviyesini hedefliyoruz.</p>
+                </div>
+            </div>
+        </div>
         <section class="curiosities">
-            <div class="col-md-12"  style="max-width: 1300px; width: 100%;">
+            <div class="col-md-12" style="max-width: 1300px; width: 100%;">
                 <div class="section-head">
                     <h2>SSS</h2>
                 </div>
                 <div class="accordion-item">
-                <h6 class="accordion-header col-ai">
+                    <h6 class="accordion-header col-ai">
                         DRD Filo Kiralama kimdir? DRD Filo Kiralama’dan araç nasıl kiralanır?
                         <span class="icon-sss">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
@@ -231,13 +277,13 @@
                             </svg>
                         </span>
                     </h6>
-                    <div class="accordion-content" >
+                    <div class="accordion-content">
                         <p>DRD Türkiye’nin öncü filo kiralama markalarından biri olarak, müşteri ihtiyaçlarına odaklanan hizmetleri ve yenilikçi çözümleriyle sektöründe fark yaratmaktadır. Geniş marka model araç filosu ve profesyonel ekibiyle, işletmelerin operasyonel süreçlerini kolaylaştırmayı hedefler. Web sitemizde yer alan teklif formu, DRD’den araç kiralamak için ilk adımı atmanızı sağlar. Formu doldurduktan sonra ekibimiz sizinle iletişime geçerek süreci hızlı ve kolay bir şekilde tamamlar.</p>
                     </div>
                 </div>
 
                 <div class="accordion-item">
-                <h6 class="accordion-header col-ai">
+                    <h6 class="accordion-header col-ai">
                         Uzun dönem araç kiralama kimler için uygundur?
                         <span class="icon-sss">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
@@ -245,13 +291,13 @@
                             </svg>
                         </span>
                     </h6>
-                    <div class="accordion-content" >
+                    <div class="accordion-content">
                         <p>Uzun dönem araç kiralama, araç sahipliği yerine kiralama yaparak operasyonel yüklerini azaltmak ve maliyetlerini optimize etmek isteyen kurumsal müşteriler için uygundur. İşletmeler periyodik bakım, onarım gibi zaman alıcı süreçleri devrederek kaynaklarını daha verimli bir şekilde kullanabilir. Ayrıca sabit maliyetlerle bütçesini yönetmek isteyen küçük işletmeler için de ideal bir çözümdür. Filo kiralama işletmelerin ihtiyaçlarına uygun çözümler sunar.</p>
                     </div>
                 </div>
 
                 <div class="accordion-item">
-                <h6 class="accordion-header col-ai">
+                    <h6 class="accordion-header col-ai">
                         Uzun dönem operasyonel araç kiralama sürecinde hangi hizmetler dahildir?
                         <span class="icon-sss">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
@@ -259,13 +305,13 @@
                             </svg>
                         </span>
                     </h6>
-                    <div class="accordion-content" >
+                    <div class="accordion-content">
                         <p>Uzun dönem operasyonel araç kiralama sürecinde, müşterilerimizin ihtiyaçlarını karşılamaya yönelik kapsamlı hizmetler sunuyoruz. Bu hizmetler arasında periyodik bakım, muayene, lastik değişimi ve yol yardımı gibi araçla ilgili operasyonel ihtiyaçların tamamı yer alır. Ayrıca, araçların trafik sigortası, kasko ve Motorlu Taşıtlar Vergisi (MTV) gibi yasal yükümlülükleri tarafımızca karşılanır. Bunların yanı sıra, araçların HGS yönetimi, trafik cezalarının takibi kolayca yönetilmesi için destek sağlanır. Tüm bu hizmetler, müşterilerimizin operasyonel yüklerini azaltmak ve iş süreçlerini kolaylaştırmak amacıyla tek bir çatı altında sunulur.</p>
                     </div>
                 </div>
 
                 <div class="accordion-item ">
-                <h6 class="accordion-header col-ai">
+                    <h6 class="accordion-header col-ai">
                         Filo kiralamanın avantajları nelerdir?
                         <span class="icon-sss">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
@@ -273,7 +319,7 @@
                             </svg>
                         </span>
                     </h6>
-                    <div class="accordion-content" >
+                    <div class="accordion-content">
                         <p>Filo kiralama, işletmeler için birçok avantaj sunar. Bunlardan en önemlisi, araç satın alma maliyetlerinden ve finansman yükünden kurtulmanızı sağlamasıdır. Kiralama kapsamında periyodik bakım, sigorta, kasko, Motorlu Taşıtlar Vergisi (MTV) gibi masraflar DRD tarafından karşılanır, böylece operasyonel süreçlerinizde kolaylık sağlanır. Sabit kira ödemeleri, bütçenizin kontrol altında tutulmasına yardımcı olurken, beklenmeyen masraflarla karşılaşmanızı engeller. Ayrıca, araçların bakım ve onarım işlemleriyle uğraşmak zorunda kalmaz, zamandan tasarruf edersiniz. Geniş araç seçenekleri sayesinde ihtiyaçlarınıza uygun modelleri seçebilir ve filo yönetiminde esneklik elde edebilirsiniz. Operasyonel araç kiralama, teknolojik yenilikleri takip ederek araçlarınızı kolayca yenileme fırsatı da sunar.</p>
                     </div>
                 </div>
@@ -283,177 +329,41 @@
         <div id="car-models-container"></div>
 
     </main>
-    <script>
-        // Slider için gerekli JavaScript kodu
-        class CarImageSlider {
-            constructor() {
-                this.images = [
-                    'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-1.jpg',
-                    'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-2.jpg',
-                    'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-3.jpg',
-                    'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-4.jpg',
-                    'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-5.jpg'
-                ];
-                this.currentIndex = 0;
-                this.autoPlayInterval = null;
-                this.isDragging = false;
-                this.startX = 0;
-                this.currentX = 0;
-            }
+        <script>
+        // Galeri için gerekli değişkenler
+            let galleryExpanded = false;
 
-            init() {
-                // Ana img elementini bul
-                const originalImg = document.querySelector('.cars-detail > img');
+            // Ana görseli değiştir
+            function changeMainImage(src) {
+            const mainImage = document.getElementById('main-car-image');
+            mainImage.style.opacity = '0';
+            setTimeout(() => {
+                mainImage.src = src;
+            mainImage.style.opacity = '1';
+            }, 200);
+        }
 
-                // Yeni container oluştur
-                const sliderContainer = document.createElement('div');
-                sliderContainer.className = 'car-image-slider-container';
-                sliderContainer.style.cssText = 'width: 65%; position: relative;';
+            // Galeriyi aç/kapat
+            function toggleGallery() {
+            const expandedGallery = document.getElementById('expandedGallery');
+            const button = document.querySelector('.more-button');
 
-                // Ana görsel container
-                const mainImageContainer = document.createElement('div');
-                mainImageContainer.className = 'main-image-container';
-                mainImageContainer.style.cssText = 'position: relative; overflow: hidden; cursor: grab;';
+            galleryExpanded = !galleryExpanded;
 
-                // Ana görsel
-                const mainImg = document.createElement('img');
-                mainImg.src = this.images[0];
-                mainImg.alt = originalImg.alt || "Audi A3 Sedan 35 TFSI 150 Advanced S Tronic";
-                mainImg.title = originalImg.title || "Audi A3 Sedan 35 TFSI 150 Advanced S Tronic";
-                mainImg.style.cssText = 'width: 100%; display: block; user-select: none; -webkit-user-drag: none;';
-                mainImg.id = 'main-car-image';
-
-                mainImageContainer.appendChild(mainImg);
-
-                // Thumbnail container
-                const thumbnailContainer = document.createElement('div');
-                thumbnailContainer.className = 'thumbnail-container';
-                thumbnailContainer.style.cssText = 'display: flex; gap: 10px; margin-top: 10px; overflow-x: auto; padding: 5px;';
-
-                // Thumbnail'leri oluştur
-                this.images.forEach((src, index) => {
-                    const thumbDiv = document.createElement('div');
-                    thumbDiv.style.cssText = `flex: 0 0 calc(25% - 7.5px); cursor: pointer; border: 2px solid ${index === 0 ? '#000' : 'transparent'}; transition: all 0.3s;`;
-
-                    const thumbImg = document.createElement('img');
-                    thumbImg.src = src;
-                    thumbImg.alt = `Görsel ${index + 1}`;
-                    thumbImg.style.cssText = 'width: 100%; display: block; user-select: none; -webkit-user-drag: none;';
-
-                    thumbDiv.appendChild(thumbImg);
-                    thumbDiv.addEventListener('click', () => this.goToSlide(index));
-
-                    thumbnailContainer.appendChild(thumbDiv);
-                });
-
-                // Elementleri yerleştir
-                sliderContainer.appendChild(mainImageContainer);
-                sliderContainer.appendChild(thumbnailContainer);
-
-                // Orijinal img'yi değiştir
-                originalImg.replaceWith(sliderContainer);
-
-                // Referansları sakla
-                this.mainImage = mainImg;
-                this.mainImageContainer = mainImageContainer;
-                this.thumbnails = thumbnailContainer.querySelectorAll('div');
-
-                this.bindEvents();
-                this.startAutoPlay();
-            }
-
-            bindEvents() {
-                // Mouse events - ana görsel için
-                this.mainImageContainer.addEventListener('mousedown', this.handleStart.bind(this));
-                document.addEventListener('mousemove', this.handleMove.bind(this));
-                document.addEventListener('mouseup', this.handleEnd.bind(this));
-
-                // Touch events - ana görsel için
-                this.mainImageContainer.addEventListener('touchstart', this.handleStart.bind(this));
-                this.mainImageContainer.addEventListener('touchmove', this.handleMove.bind(this));
-                this.mainImageContainer.addEventListener('touchend', this.handleEnd.bind(this));
-
-                // Hover durumunda autoplay durdur
-                this.mainImageContainer.addEventListener('mouseenter', () => this.stopAutoPlay());
-                this.mainImageContainer.addEventListener('mouseleave', () => this.startAutoPlay());
-            }
-
-            handleStart(e) {
-                this.isDragging = true;
-                this.mainImageContainer.style.cursor = 'grabbing';
-                this.startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-                this.stopAutoPlay();
-            }
-
-            handleMove(e) {
-                if (!this.isDragging) return;
-
-                e.preventDefault();
-                this.currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-            }
-
-            handleEnd(e) {
-                if (!this.isDragging) return;
-
-                this.isDragging = false;
-                this.mainImageContainer.style.cursor = 'grab';
-
-                const diff = this.currentX - this.startX;
-                const threshold = 50; // En az 50px hareket
-
-                if (Math.abs(diff) > threshold) {
-                    if (diff > 0 && this.currentIndex > 0) {
-                        this.currentIndex--;
-                    } else if (diff < 0 && this.currentIndex < this.images.length - 1) {
-                        this.currentIndex++;
-                    }
-                }
-
-                this.updateSlider();
-                this.startAutoPlay();
-            }
-
-            goToSlide(index) {
-                this.currentIndex = index;
-                this.updateSlider();
-                this.stopAutoPlay();
-                this.startAutoPlay();
-            }
-
-            updateSlider() {
-                // Ana görseli güncelle - fade efekti ile
-                this.mainImage.style.opacity = '0';
-                setTimeout(() => {
-                    this.mainImage.src = this.images[this.currentIndex];
-                    this.mainImage.style.opacity = '1';
-                }, 200);
-
-                // Thumbnail aktif durumunu güncelle
-                this.thumbnails.forEach((thumb, index) => {
-                    thumb.style.borderColor = index === this.currentIndex ? '#000' : 'transparent';
-                });
-            }
-
-            startAutoPlay() {
-                this.stopAutoPlay();
-                this.autoPlayInterval = setInterval(() => {
-                    this.currentIndex = (this.currentIndex + 1) % this.images.length;
-                    this.updateSlider();
-                }, 3000); 
-            }
-
-            stopAutoPlay() {
-                if (this.autoPlayInterval) {
-                    clearInterval(this.autoPlayInterval);
-                    this.autoPlayInterval = null;
-                }
+            if (galleryExpanded) {
+                expandedGallery.classList.add('show');
+            button.style.display = 'none'; // Butonu gizle
             }
         }
 
-        // Sayfa yüklendiğinde slider'ı başlat
-        document.addEventListener('DOMContentLoaded', function () {
-            const slider = new CarImageSlider();
-            slider.init();
-        });    </script>
+            // Sayfa yüklendiğinde
+            document.addEventListener('DOMContentLoaded', function () {
+            // Ana görsele geçiş efekti ekle
+            const mainImage = document.getElementById('main-car-image');
+            if (mainImage) {
+                mainImage.style.transition = 'opacity 0.3s ease';
+            }
+        });
+    </script>
 </body>
 </html>

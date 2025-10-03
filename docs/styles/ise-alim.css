@@ -1,0 +1,55 @@
+﻿.follow {
+    display: flex;
+}
+
+    .follow a {
+        color: #292d32;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 72px;
+        text-decoration: none;
+        border-bottom: 1px solid #000;
+        width: 100%;
+        max-width: 825px;
+        display: block;
+        margin: 0 0 14px 70px;
+    }
+
+.follow-text {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px;
+    margin: 0;
+    width: 100%;
+    max-width: 200px;
+    margin-left: 55px;
+}
+
+.follow-container p {
+    color: #292d32;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+    margin: 3rem 0 14px 70px;
+    width: 100%;
+    max-width: 699px;
+}
+.curiosities-link {
+    margin: 0 1em 1em 1em;
+}
+
+@media screen and (max-width: 1200px) {
+    .follow-container p, .follow a {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .follow-text {
+        margin: 0;
+    }
+}

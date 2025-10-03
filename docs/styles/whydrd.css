@@ -83,6 +83,8 @@
         padding: 0 10%;
         min-height: 300px;
         gap: 0.6em;
+        display: flex;
+        margin: 0;
     }
 
     .why-drd-slide {
