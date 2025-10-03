@@ -260,6 +260,166 @@
         margin-bottom: 25px;
         line-height: 1.7;
     }
+/* Lightbox Modal Styles */
+.image-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.3s ease;
+}
+
+    .image-lightbox.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+.lightbox-content {
+    position: absolute;
+    top: 0;
+    max-width: 90%;
+    max-height: 90%;
+    animation: zoomIn 0.3s ease;
+}
+
+.lightbox-image {
+    display: block;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+/* Lightbox Controls */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 10000;
+}
+
+    .lightbox-close:hover {
+        color: #ff0029;
+    }
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #222;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+       color: #ccc;
+    }
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+/* Thumbnail Gallery in Lightbox */
+.lightbox-thumbnails {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.lightbox-thumb {
+    width: 47px;
+    height: 67px;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+    border: 2px solid transparent;
+    border-radius: 4px;
+}
+
+    .lightbox-thumb:hover {
+        opacity: 1;
+    }
+
+    .lightbox-thumb.active {
+        width: 94px;
+        opacity: 1;
+        border-color: #fff;
+    }
+
+/* Image Counter */
+.image-counter {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #999;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Make gallery images clickable */
+.image-grid-item,
+.gallery-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .cars-detail {
