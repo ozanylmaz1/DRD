@@ -458,7 +458,7 @@
 
 @media (max-width: 768px) {
     .lightbox-image {
-        margin-top: 15vw;
+        margin-top: 150px;
     }
     .cars-detail-right h1 {
         font-size: 24px;
@@ -497,3 +497,4 @@
             padding: 10px 15px;
         }
 }
+
