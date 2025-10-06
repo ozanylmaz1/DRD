@@ -348,8 +348,8 @@
     z-index: 100;
 }
 
-    .lightbox-prev:hover,
-    .lightbox-next:hover {
+    .lightbox-prev:hover svg,
+    .lightbox-next:hover svg{
        color: #fff;
     }
 
@@ -497,4 +497,3 @@
             padding: 10px 15px;
         }
 }
-
