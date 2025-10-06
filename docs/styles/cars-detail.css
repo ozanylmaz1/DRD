@@ -438,6 +438,7 @@
 @media (max-width: 1250px) {
     .lightbox-image {
         width: 100%;
+        height: auto;
     }
 }
 /* Responsive Design */
@@ -456,6 +457,9 @@
 }
 
 @media (max-width: 768px) {
+    .lightbox-image {
+        margin-top: 15vw;
+    }
     .cars-detail-right h1 {
         font-size: 24px;
     }
