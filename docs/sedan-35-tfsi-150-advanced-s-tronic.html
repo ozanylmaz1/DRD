@@ -79,7 +79,43 @@
                     <!-- Lightbox Modal -->
                     <div id="imageLightbox" class="image-lightbox">
                         <span class="image-counter" id="imageCounter">1 / 5</span>
-                        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+                        <div class="lightbox-close">
+                            <button onclick="glassLightbox()">
+                                <svg style="width: 30px; height: 30px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" role="img">
+                                    <circle cx="10" cy="10" r="6" stroke="currentColor" stroke-width="1.6" fill="none" />
+                                    <path d="M15.5 15.5 L20 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                                    <path d="M10 7.25 L10 12.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                                    <path d="M7.25 10 L12.75 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                                </svg>
+
+                            </button>
+                            <button onclick="playLightbox()" >
+                                <svg style="width: 35px; height: 35px;" xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" class="bi bi-play" viewBox="0 0 16 16">
+                                    <path d="M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z" />
+                                </svg>
+                            </button>
+                            <button onclick="fullLightbox()">
+                                <svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" class="bi bi-fullscreen" viewBox="0 0 16 16">
+                                    <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5M.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5" />
+                                </svg>
+                            </button>
+                            <button onclick="thumbnailsLightbox()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" role="img">
+                                    <rect x="1" y="1" width="22" height="17" rx="2" ry="2" stroke="currentColor" stroke-width="1.8" fill="none" />
+                                    <circle cx="2" cy="22" r="1" fill="currentColor" />
+                                    <circle cx="9" cy="22" r="1" fill="currentColor" />
+                                    <circle cx="15" cy="22" r="1" fill="currentColor" />
+                                    <circle cx="22" cy="22" r="1" fill="currentColor" />
+                                </svg>
+
+                            </button>
+                            <button onclick="closeLightbox()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                                </svg>
+                            </button>
+                        </div>
+                        
                         <button class="lightbox-prev" onclick="changeLightboxImage(-1)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
@@ -93,6 +129,7 @@
 
                         <div class="lightbox-content">
                             <img id="lightboxImage" class="lightbox-image" src="" alt="Büyük Görünüm">
+                            <p>Audi A3 Sedan 35 TFSI 150 Advanced S Tronic</p>
                         </div>
 
                         <div class="lightbox-thumbnails" id="lightboxThumbnails">
