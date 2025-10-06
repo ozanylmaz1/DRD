@@ -581,23 +581,26 @@ function initImageCarousels() {
 
         card.addEventListener('mouseenter', () => {
             if (images.length <= 1) return;
+            if (interval) return;
 
             interval = setInterval(() => {
-                // Eski görsel kaybolur
+                const nextIndex = (currentIndex + 1) % images.length;
                 img.classList.add('slide-out');
-
                 setTimeout(() => {
-                    currentIndex = (currentIndex + 1) % images.length;
-                    img.src = images[currentIndex];
+                    img.src = images[nextIndex];
                     img.classList.remove('slide-out');
-
-                    // Indicator'ları güncelle
+                    img.classList.add('slide-in');
+                    currentIndex = nextIndex;
                     indicators.forEach((indicator, index) => {
                         indicator.classList.toggle('active', index === currentIndex);
                     });
-                }, 100); // Yarım animasyon süresi
+                    setTimeout(() => {
+                        img.classList.remove('slide-in');
+                    }); 
 
-            }, 700); // 2 saniyede bir değiş
+                }); 
+
+            }, 600); 
         });
 
         card.addEventListener('mouseleave', () => {

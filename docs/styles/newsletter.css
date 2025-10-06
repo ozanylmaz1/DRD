@@ -137,3 +137,10 @@
         width: 80%;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .offer-btn {
+        font-size: 18px;
+        padding: 18px 10vw;
+    }
+}

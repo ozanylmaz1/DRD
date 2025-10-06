@@ -80,7 +80,7 @@
                     <div id="imageLightbox" class="image-lightbox">
                         <span class="image-counter" id="imageCounter">1 / 5</span>
                         <div class="lightbox-close">
-                            <button onclick="glassLightbox()">
+                            <button onclick="zoomLightbox()">
                                 <svg style="width: 30px; height: 30px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" role="img">
                                     <circle cx="10" cy="10" r="6" stroke="currentColor" stroke-width="1.6" fill="none" />
                                     <path d="M15.5 15.5 L20 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
@@ -128,7 +128,7 @@
                         </button>
 
                         <div class="lightbox-content">
-                            <img id="lightboxImage" class="lightbox-image" src="" alt="Büyük Görünüm">
+                            <img id="lightboxImage" class="lightbox-image" src="" alt="Büyük Görünüm" onclick="zoomLightbox()">
                             <p>Audi A3 Sedan 35 TFSI 150 Advanced S Tronic</p>
                         </div>
 
@@ -441,6 +441,78 @@
             // Body scroll'u aç
             document.body.style.overflow = 'auto';
         }
+
+        function thumbnailsLightbox() {
+            const thumbnails = document.getElementById("lightboxThumbnails");
+            const image = document.querySelector(".lightbox-image");
+            if (!thumbnails || !image) return;
+
+            const isMobile = window.innerWidth <= 768;
+
+            thumbnails.classList.toggle("hidden");
+
+            if (thumbnails.classList.contains("hidden")) {
+                // Thumbnail kapanıyor
+                setTimeout(() => {
+                    thumbnails.style.display = "none";
+                }, 400);
+
+                image.style.transition = "height 0.4s ease";
+                image.style.height = isMobile ? "80vh" : "90vh";
+            } else {
+                // Thumbnail geri açılıyor
+                thumbnails.style.display = "flex";
+
+                image.style.transition = "height 0.4s ease";
+                image.style.height = isMobile ? "70vh" : "80vh";
+            }
+        }
+
+        function zoomLightbox() {
+            const thumbnails = document.getElementById("lightboxThumbnails");
+            const text = document.querySelector(".lightbox-content p");
+            const image = document.querySelector(".lightbox-image");
+            const isMobile = window.innerWidth <= 768;
+
+            // Eğer thumbnails gizliyse fonksiyon çalışmasın
+            if (!thumbnails || thumbnails.classList.contains("hidden")) return;
+            if (!text || !image) return;
+
+            if (text.style.display === "none") {
+                text.style.display = "block";
+                image.style.transition = "height 0.4s ease";
+                image.style.height = isMobile ? "70vh" : "80vh";
+            } else {
+                text.style.display = "none";
+                image.style.transition = "height 0.4s ease";
+                image.style.height = isMobile ? "75vh" : "85vh";
+            }
+        }
+
+        function fullLightbox() {
+            const elem = document.documentElement;
+
+            if (!document.fullscreenElement) {
+                // Tam ekran moduna geç
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                    elem.msRequestFullscreen();
+                }
+            } else {
+                // Tam ekran modundan çık
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+            }
+        }
+
 
         // Lightbox resim değiştir
         function changeLightboxImage(direction) {

@@ -124,7 +124,7 @@
 .mobile-menu {
     position: fixed;
     top: 0;
-    right: -100%;
+    left: -100%;
     width: 80%;
     max-width: 400px;
     height: 100%;
@@ -132,11 +132,12 @@
     z-index: 999;
     transition: right 0.3s ease;
     overflow-y: auto;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 12px 0 16px 8px rgba(0, 0, 0, 0.2);
 }
 
     .mobile-menu.open {
-        right: 0;
+        left: 0;
+
     }
 
 .mobile-menu-header {
@@ -198,7 +199,6 @@
                 background-color: #f9f9f9;
             }
 
-/* Mobile dropdown styles */
 
 /*dropdown*/
 .nav-item {
