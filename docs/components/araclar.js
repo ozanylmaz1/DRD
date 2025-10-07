@@ -525,13 +525,6 @@ function clearFilters() {
     displayAllVehicles();
 }
 
-function showVehicleDetail(vehicleId) {
-    const vehicle = vehicleData.find(v => v.id === vehicleId);
-    if (vehicle) {
-        alert(`Detay Bilgileri:\n\nMarka: ${vehicle.brand}\nModel: ${vehicle.model}\nYakıt: ${vehicle.fuelType}\nVites: ${vehicle.transmission}`);
-    }
-}
-
 function requestOffer(vehicleId) {
     const vehicle = vehicleData.find(v => v.id === vehicleId);
     if (vehicle) {

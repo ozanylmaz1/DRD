@@ -84,19 +84,37 @@
                                 <svg style="width: 30px; height: 30px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" role="img">
                                     <circle cx="10" cy="10" r="6" stroke="currentColor" stroke-width="1.6" fill="none" />
                                     <path d="M15.5 15.5 L20 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-                                    <path d="M10 7.25 L10 12.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                                    <path class="zoom-out" d="M10 7.25 L10 12.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
                                     <path d="M7.25 10 L12.75 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
                                 </svg>
 
                             </button>
-                            <button onclick="playLightbox()" >
-                                <svg style="width: 35px; height: 35px;" xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" class="bi bi-play" viewBox="0 0 16 16">
-                                    <path d="M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z" />
+                            <button onclick="playLightbox()" id="playButton">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" class="play">
+                                    <polygon points="6,1.25 6,22.25 22.5,11.75" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
                                 </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 24" aria-hidden="true" class="pluse">
+                                    <line x1="5" y1="1.25"
+                                          x2="5" y2="22.25"
+                                          stroke="currentColor"
+                                          stroke-width="2.2"
+                                          stroke-linecap="round" />
+
+                                    <line x1="13" y1="1.25"
+                                          x2="13" y2="22.25"
+                                          stroke="currentColor"
+                                          stroke-width="2.2"
+                                          stroke-linecap="round" />
+                                </svg>
+
+
                             </button>
                             <button onclick="fullLightbox()">
-                                <svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" class="bi bi-fullscreen" viewBox="0 0 16 16">
+                                <svg class="fullscreen" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                     <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5M.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5" />
+                                </svg>
+                                <svg class="screen" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5m5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5M0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5m10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0z" />
                                 </svg>
                             </button>
                             <button onclick="thumbnailsLightbox()">
@@ -442,77 +460,99 @@
             document.body.style.overflow = 'auto';
         }
 
+        let lightboxImages = [];
+        let lightboxInterval = null;
+        let isPlaying = false;
+
+        // 🔹 OYNAT / DURDUR (3 SN’DE BİR GEÇİŞ)
+        function playLightbox() {
+            const playButton = document.getElementById('playButton');
+            const play = document.querySelector(".play");
+            const pluse = document.querySelector(".pluse");
+
+
+            if (!isPlaying) {
+                play.style.display = "none";
+                pluse.style.display = "block";
+                isPlaying = true;
+                playButton.classList.add('playing');
+                lightboxInterval = setInterval(() => {
+                    changeLightboxImage(1);
+                }, 3000);
+            } else {
+                play.style.display = "block";
+                pluse.style.display = "none";
+                isPlaying = false;
+                playButton.classList.remove('playing');
+                clearInterval(lightboxInterval);
+            }
+        }
+
+        // 🔹 THUMBNAIL GİZLE / GÖSTER
         function thumbnailsLightbox() {
             const thumbnails = document.getElementById("lightboxThumbnails");
             const image = document.querySelector(".lightbox-image");
             if (!thumbnails || !image) return;
 
             const isMobile = window.innerWidth <= 768;
-
             thumbnails.classList.toggle("hidden");
 
             if (thumbnails.classList.contains("hidden")) {
-                // Thumbnail kapanıyor
                 setTimeout(() => {
                     thumbnails.style.display = "none";
                 }, 400);
-
                 image.style.transition = "height 0.4s ease";
-                image.style.height = isMobile ? "80vh" : "90vh";
+                image.style.height = isMobile ? "calc(80vh - 125px)" : "calc(90vh - 25px)";
             } else {
-                // Thumbnail geri açılıyor
                 thumbnails.style.display = "flex";
-
                 image.style.transition = "height 0.4s ease";
-                image.style.height = isMobile ? "70vh" : "80vh";
+                image.style.height = isMobile ? "calc(70vh - 100px)" : "calc(95vh - 100px)";
             }
         }
 
+        // 🔹 YAZI GÖSTER / GİZLE
         function zoomLightbox() {
-            const thumbnails = document.getElementById("lightboxThumbnails");
             const text = document.querySelector(".lightbox-content p");
             const image = document.querySelector(".lightbox-image");
+            const zoom = document.querySelector(".zoom-out");
             const isMobile = window.innerWidth <= 768;
 
-            // Eğer thumbnails gizliyse fonksiyon çalışmasın
-            if (!thumbnails || thumbnails.classList.contains("hidden")) return;
             if (!text || !image) return;
 
             if (text.style.display === "none") {
                 text.style.display = "block";
                 image.style.transition = "height 0.4s ease";
-                image.style.height = isMobile ? "70vh" : "80vh";
+                image.style.height = isMobile ? "calc(70vh - 100px)" : "calc(95vh - 100px)";
+                zoom.style.display = "block";
             } else {
                 text.style.display = "none";
                 image.style.transition = "height 0.4s ease";
-                image.style.height = isMobile ? "75vh" : "85vh";
+                image.style.height = isMobile ? "" : "100vh";
+                image.style.width = isMobile ? "100vw" : "";
+                zoom.style.display = "none";
             }
         }
 
+        // 🔹 TAM EKRAN MODU
         function fullLightbox() {
             const elem = document.documentElement;
+            const fullscreen = document.querySelector(".fullscreen");
+            const screen = document.querySelector(".screen");
 
             if (!document.fullscreenElement) {
-                // Tam ekran moduna geç
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen();
-                } else if (elem.webkitRequestFullscreen) { /* Safari */
-                    elem.webkitRequestFullscreen();
-                } else if (elem.msRequestFullscreen) { /* IE11 */
-                    elem.msRequestFullscreen();
-                }
+                fullscreen.style.display = "none";
+                screen.style.display = "block";
+                if (elem.requestFullscreen) elem.requestFullscreen();
+                else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
+                else if (elem.msRequestFullscreen) elem.msRequestFullscreen();
             } else {
-                // Tam ekran modundan çık
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) { /* Safari */
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) { /* IE11 */
-                    document.msExitFullscreen();
-                }
+                fullscreen.style.display = "block";
+                screen.style.display = "none";
+                if (document.exitFullscreen) document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                else if (document.msExitFullscreen) document.msExitFullscreen();
             }
         }
-
 
         // Lightbox resim değiştir
         function changeLightboxImage(direction) {

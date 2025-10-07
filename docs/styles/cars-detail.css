@@ -292,12 +292,16 @@
         cursor: zoom-in;
     }
 
-    .lightbox-image {
-        display: block;
-        height: 80vh;
-        object-fit: contain;
-        margin: 0 auto;
-    }
+.lightbox-image {
+    display: block;
+    height: calc(95vh - 100px);
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.screen, .pluse {
+    display: none;
+}
 
 /* Lightbox Controls */
 .lightbox-close {
@@ -466,7 +470,7 @@
 @media (max-width: 768px) {
     .lightbox-image {
         width: 100%;
-        height: 70vh;
+        height: calc(70vh - 100px);
         margin-top: 70px;
     }
     .cars-detail-right h1 {
