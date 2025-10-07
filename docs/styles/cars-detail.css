@@ -106,10 +106,6 @@
         transition: transform 0.3s ease;
     }
 
-    .gallery-item:hover img {
-        transform: scale(1.05);
-    }
-
 @keyframes slideDown {
     from {
         opacity: 0;
@@ -288,7 +284,8 @@
     text-align: center;
     color: #ddd;
 }
-    .lightbox-content img{
+
+    .lightbox-content img {
         cursor: zoom-in;
     }
 
@@ -357,7 +354,7 @@
 
     .lightbox-prev:hover,
     .lightbox-next:hover {
-       color: #fff;
+        color: #fff;
     }
 
 .lightbox-prev {
@@ -381,12 +378,14 @@
     overflow: hidden;
     max-height: 100px;
 }
+
     .lightbox-thumbnails.hidden {
         transition: all 0.4s ease;
         transform: translate(-50%, 30px); /* Aşağı doğru kayar */
         max-height: 0;
         padding: 0;
     }
+
 .lightbox-thumb {
     width: 47px;
     height: 67px;
@@ -403,7 +402,7 @@
     }
 
     .lightbox-thumb.active {
-        width: 94px;
+        width: 100%;
         opacity: 1;
         border-color: #fff;
     }
@@ -417,7 +416,6 @@
     font-size: 16px;
     padding: 5px 10px;
     border-radius: 4px;
-
 }
 
 /* Animations */
@@ -449,8 +447,8 @@
     cursor: pointer;
     transition: all 0.3s ease;
 }
-@media (max-width: 1250px) {
 
+@media (max-width: 1250px) {
 }
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -473,6 +471,7 @@
         height: calc(70vh - 100px);
         margin-top: 70px;
     }
+
     .cars-detail-right h1 {
         font-size: 24px;
     }
