@@ -408,245 +408,750 @@
 
     </main>
     <script>
-        // Galeri için gerekli değişkenler
-        let galleryExpanded = false;
-        let currentLightboxIndex = 0;
-        let galleryImages = [
-            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-1.jpg',
-            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-2.jpg',
-            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-3.jpg',
-            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-4.jpg',
-            'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-5.jpg'
-        ];
+// Galeri için gerekli değişkenler
+let galleryExpanded = false;
+let currentLightboxIndex = 0;
+let lightboxInterval = null;
+let isPlaying = false;
+let isZoomed = false;
+let isThumbnailsVisible = true;
+let isDragging = false;
+let startX = 0;
+let currentTranslateX = 0;
+let hasDragged = false;
+let zoomLevel = 1;
+let zoomPanX = 0;
+let zoomPanY = 0;
+let isPanning = false;
+let panStartX = 0;
+let panStartY = 0;
+let lastPanX = 0;
+let lastPanY = 0;
 
-        // Ana görseli değiştir ve lightbox aç
-        function changeMainImage(src) {
-            const mainImage = document.getElementById('main-car-image');
-            mainImage.style.opacity = '0';
-            setTimeout(() => {
-                mainImage.src = src;
-                mainImage.style.opacity = '1';
-            }, 200);
+// Galeri resimleri dizisi
+let galleryImages = [
+    'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-1.jpg',
+    'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-2.jpg',
+    'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-3.jpg',
+    'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-4.jpg',
+    'https://drdcmsv2.taigalab.com/Files/img/CarImages/2025/audi-a3-sedan-35-tfsi-150-advanced-s-tronic/audi-a3-sedan-35-tfsi-150-advanced-s-tronic-5.jpg'
+];
 
-            // Lightbox'ı aç
-            openLightbox(src);
+// Mobil cihaz kontrolü
+function isMobile() {
+    return window.innerWidth <= 768 ||
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+// Ana görseli değiştir ve lightbox aç
+function changeMainImage(src) {
+    const mainImage = document.getElementById('main-car-image');
+    mainImage.style.opacity = '0';
+    setTimeout(() => {
+        mainImage.src = src;
+        mainImage.style.opacity = '1';
+    }, 200);
+    openLightbox(src);
+}
+
+// Lightbox'ı aç
+function openLightbox(src) {
+    const lightbox = document.getElementById('imageLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+
+    if (typeof src === 'number') {
+        currentLightboxIndex = src;
+        lightboxImage.src = galleryImages[currentLightboxIndex];
+    } else if (src) {
+        currentLightboxIndex = galleryImages.findIndex(img => img === src);
+        if (currentLightboxIndex === -1) currentLightboxIndex = 0;
+        lightboxImage.src = src;
+    } else {
+        currentLightboxIndex = 0;
+        lightboxImage.src = galleryImages[0];
+    }
+
+    lightboxImage.removeAttribute('onclick');
+    lightboxImage.onclick = null;
+
+    lightbox.classList.add('active');
+    updateLightboxThumbnails();
+    updateImageCounter();
+
+    document.body.style.overflow = 'hidden';
+
+    if (isMobile()) {
+        hideMobileButtons();
+    }
+
+    resetLightboxState();
+    initializeImageSlider();
+}
+
+// Lightbox'ı kapat
+function closeLightbox() {
+    const lightbox = document.getElementById('imageLightbox');
+    lightbox.classList.remove('active');
+
+    if (isPlaying) {
+        stopSlideshow();
+    }
+
+    document.body.style.overflow = 'auto';
+
+    if (document.fullscreenElement) {
+        document.exitFullscreen();
+    }
+
+    cleanupSliderEvents();
+    resetZoom();
+}
+
+// Zoom'u sıfırla
+function resetZoom() {
+    zoomLevel = 1;
+    zoomPanX = 0;
+    zoomPanY = 0;
+    lastPanX = 0;
+    lastPanY = 0;
+    const lightboxImage = document.getElementById('lightboxImage');
+    if (lightboxImage) {
+        lightboxImage.style.transform = 'scale(1) translate(0, 0)';
+    }
+}
+
+// Mouse tekerleği ile zoom
+function handleWheel(e) {
+    if (!isZoomed) return;
+    
+    e.preventDefault();
+    
+    const delta = e.deltaY > 0 ? -0.1 : 0.1;
+    const newZoomLevel = Math.max(1, Math.min(5, zoomLevel + delta));
+    
+    if (newZoomLevel !== zoomLevel) {
+        zoomLevel = newZoomLevel;
+        updateZoomTransform();
+    }
+}
+
+// Zoom transform'u güncelle
+function updateZoomTransform() {
+    const lightboxImage = document.getElementById('lightboxImage');
+    if (lightboxImage) {
+        lightboxImage.style.transform = `scale(${zoomLevel}) translate(${lastPanX}px, ${lastPanY}px)`;
+        lightboxImage.style.cursor = zoomLevel > 1 ? 'move' : 'zoom-out';
+    }
+}
+
+// Mobilde butonları gizle
+function hideMobileButtons() {
+    if (!isMobile()) return;
+    const prevButton = document.querySelector('.lightbox-prev');
+    const nextButton = document.querySelector('.lightbox-next');
+    if (prevButton) prevButton.style.display = 'none';
+    if (nextButton) nextButton.style.display = 'none';
+}
+
+// Lightbox durumunu sıfırla
+function resetLightboxState() {
+    const playButton = document.getElementById('playButton');
+    const thumbnails = document.getElementById('lightboxThumbnails');
+    const image = document.querySelector('.lightbox-image');
+    const text = document.querySelector('.lightbox-content p');
+    const zoomOut = document.querySelector('.zoom-out');
+
+    if (playButton) {
+        playButton.classList.remove('playing');
+    }
+
+    if (thumbnails) {
+        thumbnails.classList.remove('hidden');
+        isThumbnailsVisible = true;
+    }
+
+    if (text) text.style.display = 'block';
+    if (image) {
+        image.style.height = '';
+        image.style.width = '';
+        image.style.cursor = isMobile() ? 'grab' : 'zoom-in';
+    }
+    if (zoomOut) zoomOut.style.display = 'block';
+    isZoomed = false;
+    resetZoom();
+}
+
+// Image Slider'ı başlat
+function initializeImageSlider() {
+    const lightboxImage = document.getElementById('lightboxImage');
+    if (!lightboxImage) return;
+
+    lightboxImage.addEventListener('mousedown', handleDragStart);
+    lightboxImage.addEventListener('mousemove', handleDragMove);
+    lightboxImage.addEventListener('mouseup', handleDragEnd);
+    lightboxImage.addEventListener('mouseleave', handleDragEnd);
+    lightboxImage.addEventListener('click', handleImageClick);
+    lightboxImage.addEventListener('touchstart', handleTouchStart, { passive: true });
+    lightboxImage.addEventListener('touchmove', handleTouchMove, { passive: false });
+    lightboxImage.addEventListener('touchend', handleTouchEnd);
+    lightboxImage.addEventListener('wheel', handleWheel, { passive: false });
+    
+    lightboxImage.ondragstart = () => false;
+}
+
+// Resme tıklama işlemi
+function handleImageClick(e) {
+    if (hasDragged || isPanning) {
+        hasDragged = false;
+        isPanning = false;
+        return;
+    }
+
+    if (!isMobile()) {
+        zoomLightbox();
+    }
+}
+
+// Slider event'larını temizle
+function cleanupSliderEvents() {
+    const lightboxImage = document.getElementById('lightboxImage');
+    if (!lightboxImage) return;
+
+    lightboxImage.removeEventListener('mousedown', handleDragStart);
+    lightboxImage.removeEventListener('mousemove', handleDragMove);
+    lightboxImage.removeEventListener('mouseup', handleDragEnd);
+    lightboxImage.removeEventListener('mouseleave', handleDragEnd);
+    lightboxImage.removeEventListener('click', handleImageClick);
+    lightboxImage.removeEventListener('touchstart', handleTouchStart);
+    lightboxImage.removeEventListener('touchmove', handleTouchMove);
+    lightboxImage.removeEventListener('touchend', handleTouchEnd);
+    lightboxImage.removeEventListener('wheel', handleWheel);
+}
+
+// Mouse drag başlangıcı
+function handleDragStart(e) {
+    // Zoom modunda ve zoom seviyesi 1'den büyükse pan yap
+    if (isZoomed && zoomLevel > 1) {
+        isPanning = true;
+        panStartX = e.clientX - lastPanX;
+        panStartY = e.clientY - lastPanY;
+        const lightboxImage = document.getElementById('lightboxImage');
+        lightboxImage.style.cursor = 'grabbing';
+        lightboxImage.style.transition = 'none';
+        return;
+    }
+    
+    // Normal drag (resim değiştirme için)
+    if (!isZoomed) {
+        isDragging = true;
+        hasDragged = false;
+        startX = e.clientX;
+        currentTranslateX = 0;
+        const lightboxImage = document.getElementById('lightboxImage');
+        lightboxImage.style.cursor = 'grabbing';
+        lightboxImage.style.transition = 'none';
+    }
+}
+
+// Mouse hareket
+function handleDragMove(e) {
+    // Zoom modunda pan yap
+    if (isPanning && isZoomed && zoomLevel > 1) {
+        e.preventDefault();
+        lastPanX = e.clientX - panStartX;
+        lastPanY = e.clientY - panStartY;
+        
+        const lightboxImage = document.getElementById('lightboxImage');
+        lightboxImage.style.transform = `scale(${zoomLevel}) translate(${lastPanX}px, ${lastPanY}px)`;
+        return;
+    }
+    
+    // Normal drag (resim değiştirme için)
+    if (!isDragging || isZoomed) return;
+
+    e.preventDefault();
+    const currentX = e.clientX;
+    currentTranslateX = currentX - startX;
+
+    if (Math.abs(currentTranslateX) > 5) {
+        hasDragged = true;
+    }
+
+    const lightboxImage = document.getElementById('lightboxImage');
+    lightboxImage.style.transform = `translateX(${currentTranslateX}px)`;
+    lightboxImage.style.opacity = 1 - Math.abs(currentTranslateX) / 500;
+}
+
+// Mouse drag bitişi
+function handleDragEnd(e) {
+    // Pan modunu bitir
+    if (isPanning) {
+        isPanning = false;
+        const lightboxImage = document.getElementById('lightboxImage');
+        lightboxImage.style.cursor = zoomLevel > 1 ? 'move' : 'zoom-out';
+        lightboxImage.style.transition = '';
+        return;
+    }
+    
+    // Normal drag bitişi
+    if (!isDragging) return;
+
+    isDragging = false;
+    const lightboxImage = document.getElementById('lightboxImage');
+    lightboxImage.style.cursor = isMobile() ? 'grab' : (isZoomed ? 'zoom-out' : 'zoom-in');
+    lightboxImage.style.transition = '';
+    lightboxImage.style.transform = '';
+    lightboxImage.style.opacity = '';
+
+    if (Math.abs(currentTranslateX) > 50) {
+        if (currentTranslateX > 0) {
+            changeLightboxImage(-1);
+        } else {
+            changeLightboxImage(1);
+        }
+    }
+
+    currentTranslateX = 0;
+}
+
+// Touch başlangıcı
+function handleTouchStart(e) {
+    // Zoom modunda pan için
+    if (isZoomed && zoomLevel > 1) {
+        isPanning = true;
+        panStartX = e.touches[0].clientX - lastPanX;
+        panStartY = e.touches[0].clientY - lastPanY;
+        const lightboxImage = document.getElementById('lightboxImage');
+        lightboxImage.style.transition = 'none';
+        return;
+    }
+    
+    // Normal touch
+    if (!isZoomed) {
+        hasDragged = false;
+        startX = e.touches[0].clientX;
+        currentTranslateX = 0;
+        const lightboxImage = document.getElementById('lightboxImage');
+        lightboxImage.style.transition = 'none';
+    }
+}
+
+// Touch hareket
+function handleTouchMove(e) {
+    // Zoom modunda pan
+    if (isPanning && isZoomed && zoomLevel > 1) {
+        e.preventDefault();
+        lastPanX = e.touches[0].clientX - panStartX;
+        lastPanY = e.touches[0].clientY - panStartY;
+        
+        const lightboxImage = document.getElementById('lightboxImage');
+        lightboxImage.style.transform = `scale(${zoomLevel}) translate(${lastPanX}px, ${lastPanY}px)`;
+        return;
+    }
+    
+    // Normal touch move
+    if (!startX || isZoomed) return;
+
+    const currentX = e.touches[0].clientX;
+    currentTranslateX = currentX - startX;
+
+    if (Math.abs(currentTranslateX) > 5) {
+        hasDragged = true;
+    }
+
+    if (Math.abs(currentTranslateX) > 10) {
+        e.preventDefault();
+    }
+
+    const lightboxImage = document.getElementById('lightboxImage');
+    lightboxImage.style.transform = `translateX(${currentTranslateX}px)`;
+    lightboxImage.style.opacity = 1 - Math.abs(currentTranslateX) / 300;
+}
+
+// Touch bitişi
+function handleTouchEnd(e) {
+    // Pan modunu bitir
+    if (isPanning) {
+        isPanning = false;
+        const lightboxImage = document.getElementById('lightboxImage');
+        lightboxImage.style.transition = '';
+        return;
+    }
+    
+    // Normal touch end
+    if (isZoomed) return;
+    
+    const lightboxImage = document.getElementById('lightboxImage');
+    lightboxImage.style.transition = '';
+    lightboxImage.style.transform = '';
+    lightboxImage.style.opacity = '';
+
+    if (Math.abs(currentTranslateX) > 30) {
+        if (currentTranslateX > 0) {
+            changeLightboxImage(-1);
+        } else {
+            changeLightboxImage(1);
+        }
+    }
+
+    startX = 0;
+    currentTranslateX = 0;
+}
+
+// OYNAT / DURDUR
+function playLightbox() {
+    if (!isPlaying) {
+        startSlideshow();
+    } else {
+        stopSlideshow();
+    }
+}
+
+// Slayt gösterisini başlat
+function startSlideshow() {
+    const playButton = document.getElementById('playButton');
+    isPlaying = true;
+    playButton.classList.add('playing');
+    changeLightboxImage(1);
+    lightboxInterval = setInterval(() => {
+        changeLightboxImage(1);
+    }, 3000);
+}
+
+// Slayt gösterisini durdur
+function stopSlideshow() {
+    const playButton = document.getElementById('playButton');
+    isPlaying = false;
+    playButton.classList.remove('playing');
+    if (lightboxInterval) {
+        clearInterval(lightboxInterval);
+        lightboxInterval = null;
+    }
+}
+
+// THUMBNAIL GİZLE / GÖSTER
+function thumbnailsLightbox() {
+    const thumbnails = document.getElementById('lightboxThumbnails');
+    const image = document.querySelector('.lightbox-image');
+
+    if (!thumbnails || !image) return;
+
+    isThumbnailsVisible = !isThumbnailsVisible;
+    const mobile = isMobile();
+
+    if (!isThumbnailsVisible) {
+        thumbnails.classList.add('hidden');
+        if (!isZoomed) {
+            image.style.height = mobile ? 'calc(80vh - 60px)' : 'calc(95vh - 20px)';
+        }
+    } else {
+        thumbnails.classList.remove('hidden');
+        if (!isZoomed) {
+            image.style.height = mobile ? 'calc(70vh - 100px)' : 'calc(95vh - 100px)';
+        }
+    }
+}
+
+// ZOOM
+function zoomLightbox() {
+    if (isMobile()) return;
+
+    const text = document.querySelector('.lightbox-content p');
+    const image = document.querySelector('.lightbox-image');
+    const zoomOut = document.querySelector('.zoom-out');
+    const thumbnails = document.getElementById('lightboxThumbnails');
+
+    if (!text || !image) return;
+
+    isZoomed = !isZoomed;
+
+    if (isZoomed) {
+        text.style.display = 'none';
+        zoomOut.style.display = 'none';
+
+        if (thumbnails && isThumbnailsVisible) {
+            thumbnails.classList.add('hidden');
         }
 
-        // Lightbox'ı aç
-        function openLightbox(src) {
-            const lightbox = document.getElementById('imageLightbox');
+        image.style.height = '100vh';
+        image.style.width = '';
+        image.style.maxWidth = 'none';
+        image.style.cursor = 'zoom-out';
+        image.style.objectFit = 'contain';
+        
+        zoomLevel = 1;
+        lastPanX = 0;
+        lastPanY = 0;
+
+    } else {
+        text.style.display = 'block';
+        zoomOut.style.display = 'block';
+
+        if (thumbnails && isThumbnailsVisible) {
+            thumbnails.classList.remove('hidden');
+        }
+
+        const mobile = isMobile();
+        image.style.height = mobile ? 'calc(70vh - 100px)' : 'calc(95vh - 100px)';
+        image.style.width = '';
+        image.style.maxWidth = '';
+        image.style.cursor = mobile ? 'grab' : 'zoom-in';
+        image.style.objectFit = '';
+        
+        resetZoom();
+    }
+}
+
+// TAM EKRAN MODU
+function fullLightbox() {
+    const elem = document.documentElement;
+    const fullscreenIcon = document.querySelector('.fullscreen');
+    const screenIcon = document.querySelector('.screen');
+
+    if (!document.fullscreenElement) {
+        fullscreenIcon.style.display = 'none';
+        screenIcon.style.display = 'block';
+        
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        }
+    } else {
+        fullscreenIcon.style.display = 'block';
+        screenIcon.style.display = 'none';
+        
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    }
+}
+
+// Lightbox resim değiştir
+function changeLightboxImage(direction) {
+    if (isZoomed) {
+        resetZoom();
+    }
+    
+    currentLightboxIndex += direction;
+
+    if (currentLightboxIndex >= galleryImages.length) {
+        currentLightboxIndex = 0;
+    } else if (currentLightboxIndex < 0) {
+        currentLightboxIndex = galleryImages.length - 1;
+    }
+
+    const lightboxImage = document.getElementById('lightboxImage');
+    const slideDirection = direction > 0 ? '100%' : '-100%';
+    lightboxImage.style.transform = `translateX(${slideDirection})`;
+    lightboxImage.style.opacity = '0';
+
+    setTimeout(() => {
+        lightboxImage.src = galleryImages[currentLightboxIndex];
+        lightboxImage.style.transform = 'translateX(0)';
+        lightboxImage.style.opacity = '1';
+    }, 200);
+
+    updateLightboxThumbnails();
+    updateImageCounter();
+}
+
+// Thumbnail'leri güncelle
+function updateLightboxThumbnails() {
+    const container = document.getElementById('lightboxThumbnails');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    galleryImages.forEach((src, index) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.className = 'lightbox-thumb';
+
+        if (index === currentLightboxIndex) {
+            thumb.classList.add('active');
+        }
+
+        thumb.onclick = () => {
+            currentLightboxIndex = index;
             const lightboxImage = document.getElementById('lightboxImage');
 
-            // Resmin index'ini bul
-            currentLightboxIndex = galleryImages.findIndex(img => img === src);
-            if (currentLightboxIndex === -1) currentLightboxIndex = 0;
-
-            lightboxImage.src = src;
-            lightbox.classList.add('active');
-
-            updateLightboxThumbnails();
-            updateImageCounter();
-
-            // Body scroll'u kapat
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Lightbox'ı kapat
-        function closeLightbox() {
-            const lightbox = document.getElementById('imageLightbox');
-            lightbox.classList.remove('active');
-
-            // Body scroll'u aç
-            document.body.style.overflow = 'auto';
-        }
-
-        let lightboxImages = [];
-        let lightboxInterval = null;
-        let isPlaying = false;
-
-        // 🔹 OYNAT / DURDUR (3 SN’DE BİR GEÇİŞ)
-        function playLightbox() {
-            const playButton = document.getElementById('playButton');
-            const play = document.querySelector(".play");
-            const pluse = document.querySelector(".pluse");
-
-
-            if (!isPlaying) {
-                play.style.display = "none";
-                pluse.style.display = "block";
-                isPlaying = true;
-                playButton.classList.add('playing');
-                lightboxInterval = setInterval(() => {
-                    changeLightboxImage(1);
-                }, 3000);
-            } else {
-                play.style.display = "block";
-                pluse.style.display = "none";
-                isPlaying = false;
-                playButton.classList.remove('playing');
-                clearInterval(lightboxInterval);
-            }
-        }
-
-        // 🔹 THUMBNAIL GİZLE / GÖSTER
-        function thumbnailsLightbox() {
-            const thumbnails = document.getElementById("lightboxThumbnails");
-            const image = document.querySelector(".lightbox-image");
-            if (!thumbnails || !image) return;
-
-            const isMobile = window.innerWidth <= 768;
-            thumbnails.classList.toggle("hidden");
-
-            if (thumbnails.classList.contains("hidden")) {
-                setTimeout(() => {
-                    thumbnails.style.display = "none";
-                }, 400);
-                image.style.transition = "height 0.4s ease";
-                image.style.height = isMobile ? "calc(80vh - 125px)" : "calc(90vh - 25px)";
-            } else {
-                thumbnails.style.display = "flex";
-                image.style.transition = "height 0.4s ease";
-                image.style.height = isMobile ? "calc(70vh - 100px)" : "calc(95vh - 100px)";
-            }
-        }
-
-        // 🔹 YAZI GÖSTER / GİZLE
-        function zoomLightbox() {
-            const text = document.querySelector(".lightbox-content p");
-            const image = document.querySelector(".lightbox-image");
-            const zoom = document.querySelector(".zoom-out");
-            const isMobile = window.innerWidth <= 768;
-
-            if (!text || !image) return;
-
-            if (text.style.display === "none") {
-                text.style.display = "block";
-                image.style.cursor = "zoom-in";
-                image.style.height = "calc(95vh - 100px)";
-                image.style.transition = "height 0.4s ease";
-                zoom.style.display = "block";
-
-            } else {
-                text.style.display = "none";
-                image.style.transition = "height 0.4s ease";
-                image.style.height = "100vh";
-                image.style.cursor = "grab";
-                zoom.style.display = "none";
-            }
-        }
-
-        // 🔹 TAM EKRAN MODU
-        function fullLightbox() {
-            const elem = document.documentElement;
-            const fullscreen = document.querySelector(".fullscreen");
-            const screen = document.querySelector(".screen");
-
-            if (!document.fullscreenElement) {
-                fullscreen.style.display = "none";
-                screen.style.display = "block";
-                if (elem.requestFullscreen) elem.requestFullscreen();
-                else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
-                else if (elem.msRequestFullscreen) elem.msRequestFullscreen();
-            } else {
-                fullscreen.style.display = "block";
-                screen.style.display = "none";
-                if (document.exitFullscreen) document.exitFullscreen();
-                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-                else if (document.msExitFullscreen) document.msExitFullscreen();
-            }
-        }
-
-        // Lightbox resim değiştir
-        function changeLightboxImage(direction) {
-            currentLightboxIndex += direction;
-
-            // Döngüsel navigasyon
-            if (currentLightboxIndex >= galleryImages.length) {
-                currentLightboxIndex = 0;
-            } else if (currentLightboxIndex < 0) {
-                currentLightboxIndex = galleryImages.length - 1;
-            }
-
-            const lightboxImage = document.getElementById('lightboxImage');
             lightboxImage.style.opacity = '0';
-
             setTimeout(() => {
-                lightboxImage.src = galleryImages[currentLightboxIndex];
+                lightboxImage.src = src;
                 lightboxImage.style.opacity = '1';
             }, 200);
 
             updateLightboxThumbnails();
             updateImageCounter();
-        }
+        };
 
-        // Lightbox thumbnail'lerini güncelle
-        function updateLightboxThumbnails() {
-            const container = document.getElementById('lightboxThumbnails');
-            container.innerHTML = '';
+        container.appendChild(thumb);
+    });
 
-            galleryImages.forEach((src, index) => {
-                const thumb = document.createElement('img');
-                thumb.src = src;
-                thumb.className = 'lightbox-thumb';
-                if (index === currentLightboxIndex) {
-                    thumb.classList.add('active');
-                }
-                thumb.onclick = () => {
-                    currentLightboxIndex = index;
-                    document.getElementById('lightboxImage').src = src;
-                    updateLightboxThumbnails();
-                    updateImageCounter();
-                };
-                container.appendChild(thumb);
+    scrollToActiveThumbnail();
+}
+
+// Aktif thumbnail'i görünür alana kaydır
+function scrollToActiveThumbnail() {
+    const container = document.getElementById('lightboxThumbnails');
+    const activeThumbnail = container?.querySelector('.lightbox-thumb.active');
+
+    if (activeThumbnail && container) {
+        const containerWidth = container.offsetWidth;
+        const scrollLeft = container.scrollLeft;
+        const thumbLeft = activeThumbnail.offsetLeft;
+        const thumbWidth = activeThumbnail.offsetWidth;
+
+        if (thumbLeft < scrollLeft || thumbLeft + thumbWidth > scrollLeft + containerWidth) {
+            const targetScroll = thumbLeft - (containerWidth / 2) + (thumbWidth / 2);
+            container.scrollTo({
+                left: targetScroll,
+                behavior: 'smooth'
             });
         }
+    }
+}
 
-        // Resim sayacını güncelle
-        function updateImageCounter() {
-            const counter = document.getElementById('imageCounter');
-            counter.textContent = `${currentLightboxIndex + 1} / ${galleryImages.length}`;
+// Resim sayacını güncelle
+function updateImageCounter() {
+    const counter = document.getElementById('imageCounter');
+    if (counter) {
+        counter.textContent = `${currentLightboxIndex + 1} / ${galleryImages.length}`;
+    }
+}
+
+// Galeriyi aç/kapat
+function toggleGallery() {
+    const expandedGallery = document.getElementById('expandedGallery');
+    const button = document.querySelector('.more-button');
+
+    galleryExpanded = !galleryExpanded;
+
+    if (galleryExpanded) {
+        expandedGallery.classList.add('show');
+        button.textContent = 'Daha Az';
+    } else {
+        expandedGallery.classList.remove('show');
+        button.textContent = 'Daha Fazla';
+    }
+}
+
+// Klavye kontrollerini ekle
+document.addEventListener('keydown', (e) => {
+    if (isMobile()) return;
+
+    const lightbox = document.getElementById('imageLightbox');
+    if (!lightbox || !lightbox.classList.contains('active')) return;
+
+    switch (e.key) {
+        case 'Escape':
+            closeLightbox();
+            break;
+        case 'ArrowLeft':
+            if (!isZoomed) changeLightboxImage(-1);
+            break;
+        case 'ArrowRight':
+            if (!isZoomed) changeLightboxImage(1);
+            break;
+        case ' ':
+            e.preventDefault();
+            playLightbox();
+            break;
+        case 'f':
+            fullLightbox();
+            break;
+        case 'z':
+            zoomLightbox();
+            break;
+        case 't':
+            thumbnailsLightbox();
+            break;
+    }
+});
+
+// Lightbox arka planına tıklayınca kapat
+document.getElementById('imageLightbox')?.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) {
+        closeLightbox();
+    }
+});
+
+// Sayfa yüklendiğinde
+document.addEventListener('DOMContentLoaded', function () {
+    const mainImage = document.getElementById('main-car-image');
+    if (mainImage) {
+        mainImage.style.transition = 'opacity 0.3s ease';
+        mainImage.style.cursor = 'pointer';
+        mainImage.onclick = () => openLightbox(mainImage.src);
+    }
+
+    const style = document.createElement('style');
+    style.textContent = `
+        .lightbox-image {
+            transition: transform 0.1s ease, opacity 0.3s ease;
+            user-select: none;
+            -webkit-user-drag: none;
+            cursor: grab;
+            transform-origin: center center;
         }
-
-        // Galeriyi aç/kapat
-        function toggleGallery() {
-            const expandedGallery = document.getElementById('expandedGallery');
-            const button = document.querySelector('.more-button');
-
-            galleryExpanded = !galleryExpanded;
-
-            if (galleryExpanded) {
-                expandedGallery.classList.add('show');
-                button.style.display = 'none';
-            }
+        
+        .lightbox-image:active {
+            cursor: grabbing;
         }
+        
+        .lightbox-thumbnails {
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .lightbox-thumbnails::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .lightbox-thumbnails::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+        
+        .lightbox-thumbnails::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+        
+        #playButton svg.play {
+            display: block;
+        }
+        
+        #playButton svg.pluse {
+            display: none;
+        }
+        
+        #playButton.playing svg.play {
+            display: none;
+        }
+        
+        #playButton.playing svg.pluse {
+            display: block;
+        }
+                
+        .zoom-out {
+            display: block;
+        }
+    `;
+    document.head.appendChild(style);
 
-        // ESC tuşu ile lightbox'ı kapat
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            } else if (e.key === 'ArrowLeft') {
-                changeLightboxImage(-1);
-            } else if (e.key === 'ArrowRight') {
-                changeLightboxImage(1);
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const lightbox = document.getElementById('imageLightbox');
+            if (lightbox && lightbox.classList.contains('active')) {
+                hideMobileButtons();
             }
-        });
-
-        // Lightbox arka planına tıklayınca kapat
-        document.getElementById('imageLightbox').addEventListener('click', (e) => {
-            if (e.target === e.currentTarget) {
-                closeLightbox();
-            }
-        });
-
-        // Sayfa yüklendiğinde
-        document.addEventListener('DOMContentLoaded', function () {
-            const mainImage = document.getElementById('main-car-image');
-            if (mainImage) {
-                mainImage.style.transition = 'opacity 0.3s ease';
-                mainImage.style.cursor = 'pointer';
-                mainImage.onclick = () => openLightbox(mainImage.src);
-            }
-        });
+        }, 250);
+    });
+});
     </script>
 </body>
 </html>

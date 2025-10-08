@@ -292,6 +292,7 @@
 .lightbox-image {
     display: block;
     height: calc(95vh - 100px);
+    width: 90%;
     object-fit: contain;
     margin: 0 auto;
 }
