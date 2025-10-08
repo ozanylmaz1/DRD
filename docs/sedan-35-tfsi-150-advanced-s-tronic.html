@@ -1028,10 +1028,7 @@ function toggleGallery() {
 
     if (galleryExpanded) {
         expandedGallery.classList.add('show');
-        button.textContent = 'Daha Az';
-    } else {
-        expandedGallery.classList.remove('show');
-        button.textContent = 'Daha Fazla';
+        button.style.display = 'none';
     }
 }
 
@@ -1151,6 +1148,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }, 250);
     });
+
 });
     </script>
 </body>
