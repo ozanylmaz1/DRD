@@ -46,12 +46,12 @@
                     <!--nav action-->
                     <button id="nav-fleetino-login" class="btn btn-primary">
                         Fleetino | Giriş
-                        <svg style="margin-left: 8px" xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                        <svg style="margin-left: 7px" xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
                             <path d="M1.08517 11.1477L11.1461 1.08671M11.1461 1.08671H1.08517M11.1461 1.08671V11.1477" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="square"></path>
                         </svg>
                     </button>
                     <button id="nav-search-btn" class="search-btn" aria-label="Ara">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" aria-hidden="true">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" aria-hidden="true">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                       </svg>
                     </button>

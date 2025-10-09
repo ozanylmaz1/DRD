@@ -20,7 +20,7 @@
         font-weight: 700;
         line-height: 42px;
         font-size: 30px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         max-width: 500px;
     }
 
@@ -36,8 +36,8 @@
 
     .index-threesteps img {
         border-radius: 9px;
-        width: 546px;
-        height: 307px;
+        width: 575px;
+        height: 322px;
         object-fit: cover;
     }
 
@@ -58,7 +58,7 @@
 
 @media screen and (max-width: 968px) {
     .index-threesteps {
-        flex-direction: column;
+        flex-direction: column-reverse;
         padding: 40px 30px;
         gap: 30px;
     }

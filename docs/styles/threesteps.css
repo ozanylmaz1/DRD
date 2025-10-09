@@ -10,7 +10,7 @@
         color: white;
         font-weight: normal;
         width: 500px;
-        padding: 60px;
+        padding: 66px 0 80px 63px;
     }
 
     .threesteps h2 {
@@ -18,13 +18,14 @@
         font-weight: 700;
         line-height: 42px;
         font-size: 30px;
+        margin: 0;
     }
 
     .threesteps h3 {
         font-size: 18px;
-        font-weight: bold;
+        font-weight: 600;
         line-height: 20.5px;
-        margin: 3em 0 12px 0;
+        margin: 34px 0 12px 0;
     }
 
     .threesteps p {
@@ -32,12 +33,13 @@
         font-size: 16px;
         line-height: 20px;
         margin: 0;
+        margin-bottom: 46px;
         max-width: 450px;
     }
 
     .threesteps span {
         display: flex;
-        gap: 4em;
+        gap: 3em;
     }
 
     .threesteps a {
@@ -64,11 +66,18 @@
     white-space: nowrap;
 }
 
-.threesteps img {
-    object-fit: cover;
-    border-radius: 0 9px 9px 0;
-    width: 600px;
-}
+    .threesteps-link-2 svg {
+        border-radius: 90px;
+        border: 2px solid white;
+        padding: 6.5px 10px;
+    }
+    .threesteps img {
+        object-fit: cover;
+        border-radius: 0 9px 9px 0;
+        width: 600px;
+        display: flex;
+        object-position: left center;
+    }
 
 @media screen and (max-width: 1070px) {
     .threesteps {

@@ -19,7 +19,7 @@
 .nav-top {
     display: flex;
     justify-content: center;
-    padding: 28px;
+    padding: 31px 46px 28px 15px;
     width: 100%;
     max-width: 1200px;
     box-sizing: border-box;
@@ -37,6 +37,8 @@
     aspect-ratio: 167 / 45;
     width: 167px;
     height: 45px;
+    position: relative;
+    top: 3px;
 }
 
 .nav-top-right {
@@ -44,18 +46,19 @@
     align-items: center;
     justify-content: space-between;
     gap: 3em;
+
 }
 
 .nav-top-list {
     font-size: 14px;
-    gap: 4em;
+    gap: 58px;
 }
 
 .nav-top-actions {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2em;
+    gap: 21px;
 }
 
 .btn-primary {
@@ -63,13 +66,14 @@
     align-items: center;
     height: 50px;
     background-color: #ff002a;
-    padding: 0 40px;
+    padding: 0 42px;
     color: white;
     font-weight: 600;
     font-size: 14px;
     border: 0;
-    border-radius: 25px;
+    border-radius: 90px;
     cursor: pointer;
+    line-height: 160%;
 }
 
     .btn-primary:hover {
@@ -86,19 +90,41 @@
     border-radius: 25px;
     background-color: white;
     cursor: pointer;
+
 }
+.language-selector {
+    text-align: center;
+    margin-left: 6px;
+    width: 27px;
+}
+    .language-selector hr {
+        background: #bfbfbf;
+        height: 1.8px;
+        border: none;
+        margin: 5px 0;
+
+    }
+    .language-selector a {
+        text-decoration: none;
+        color: #292d32;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%;
+    }
+
+        .language-selector a:active {
+            color: #292d32;
+            font-weight: 600;
+            font-size: 16px;
+        }
 
 .nav-bottom {
-    margin-top: 8px;
     width: 100%;
-    padding-right: 2.5em;
+    padding-right: 48px;
     max-width: 1225px;
     box-sizing: border-box;
     position: relative;
-}
-.language-selector a{
-    text-decoration: none;
-    color: #000;
 }
 
 .list-btn {
@@ -242,21 +268,11 @@
     display: block;
 }
 
-/* 1024px Media Query */
-@media screen and (max-width: 1024px) {
-    nav {
-        width: 95vw;
-        margin: 0 auto;
-    }
-}
-
-/* Mobile Layout */
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 990px) {
     nav {
         flex-direction: row;
         justify-content: center;
-        max-width: 668px;
-        width: 90vw;
+        width: 95vw;
         margin: 0 auto;
     }
 
@@ -272,9 +288,10 @@
     .nav-top-right {
         display: none;
     }
-
     .logo {
-        width: 150px;
+        aspect-ratio: 207 / 45;
+        width: 207px;
+        height: 45px;
     }
 
     .nav-bottom-list {
@@ -288,6 +305,12 @@
     .mobile-menu-overlay.show {
         display: block;
     }
+}
+
+/* Mobile Layout */
+@media screen and (max-width: 860px) {
+
+
 }
 /*footer*/
 footer {
