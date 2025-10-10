@@ -1,7 +1,11 @@
-﻿.widget {
+﻿section#widget-section {
+    padding-bottom: 20px;
+}
+
+.widget {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1em;
+    gap: 20px;
 }
     .widget h2 {
         font-style: normal;

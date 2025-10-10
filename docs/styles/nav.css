@@ -19,7 +19,7 @@
 .nav-top {
     display: flex;
     justify-content: center;
-    padding: 31px 46px 28px 15px;
+    padding: 31px 46px 29px 15px;
     width: 100%;
     max-width: 1200px;
     box-sizing: border-box;
@@ -99,7 +99,7 @@
 }
     .language-selector hr {
         background: #bfbfbf;
-        height: 1.8px;
+        height: 1px;
         border: none;
         margin: 5px 0;
 

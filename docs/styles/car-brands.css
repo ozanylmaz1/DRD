@@ -1,21 +1,28 @@
+section.car-brands {
+    padding-bottom: 60px;
+}
+.car-brands .section-head h2 {
+    margin: 0 0 8px 0;
+}
 .car-brands-main, .brands-main {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 1em;
+    gap: 24px;
+    margin: 12px 0;
 }
 
     .car-brands-main a, .brands-main a{
         text-decoration: none;
         color: black;
         background: #f1f1f1;
-        border-radius: 9px;
-        padding: 1em;
+        border-radius: 10px;
+        padding: 15px 28px;
     }
 
     .car-brands-main img, .brands-main img {
         display: block;
-        width: 80%;
-        height: 100%;
+        max-width: 159px;
+        max-height: 103px;
         margin: 0 auto;
         filter: grayscale(100%);
         transition: filter 0.3s ease-in-out;

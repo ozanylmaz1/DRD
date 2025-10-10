@@ -17,7 +17,7 @@ main {
 
 /* Diğer stil kurallarınızı (section, header vb.) .page-wrapper içine uygulayın */
 section {
-    margin: 1.5em 0;
+    margin: 0;
     width: 100%;
     height: auto;
     max-width: 1175px;
@@ -104,13 +104,14 @@ section {
 }
 
 .detail {
-    margin: 10px 0;
+    margin: 10px 0 0;
     display: flex;
     align-items: center;
     gap: 10px;
     text-decoration: none;
     color: black;
     font-weight: 500;
+    font-size: 14px;
 }
 
 .curiosities-link {

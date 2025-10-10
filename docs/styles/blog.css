@@ -1,28 +1,39 @@
-﻿.blog-main {
+﻿section.blog {
+    padding-bottom: 30px;
+}
+.blog .section-head {
+    padding-bottom: 20px;
+}
+.blog .section-head h2 {
+    margin: 0 0 8px 0;
+}
+.blog-main {
     display:grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1em;
+    gap: 12px;
 }
 .blog-main a{
     text-decoration: none;
     color: black;
+    margin-bottom: 29px;
 }
     .blog-main a h2 {
         color: #292d32;
         font-size: 20px;
         font-weight: 700;
         line-height: 32px;
-        margin: 20px 20px 10px 0;
+        margin: 13px 20px 7px 10px;
     }
     .blog-main a p, .blog-card p {
         color: #292d32;
         text-align: left;
-        margin: 0;
+        margin: 0 10px;
+        line-height: 24px;
     }
 
 .blog-img {
     width: 100%;
-    height: auto;
+    height: 240px;
     object-fit: cover;
     border-radius: 9px;
 }
