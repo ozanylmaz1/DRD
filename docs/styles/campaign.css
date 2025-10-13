@@ -1,11 +1,12 @@
 ﻿.campaign{
 	display: flex;
 	align-items: center;
-	gap: 5em
-
+	gap: 5em;
+	padding-top: 60px;
 }
 	.campaign img {
 		border-radius: 9px;
+		margin-bottom: 16px;
 	}
 .campaign a{
 	display: block;

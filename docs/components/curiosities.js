@@ -9,7 +9,6 @@
                 <div id="curiosities-content" style="max-width: 450px;">
                     <h2 id="curiosities-title">Filo kiralama ile ilgili merak edilenler</h2>
                     <p id="curiosities-description">Filo kiralama hakkında merak ettiğiniz tüm soruların cevaplarını burada bulabilirsiniz.</p>
-                    <br />
                     <a href="sikca-sorulan-sorular.html" class="curiosities-link">
                         Tüm SSS'leri okuyun
                     </a>

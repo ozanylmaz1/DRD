@@ -1,11 +1,12 @@
 .gallery-content {
     color: #292d32;
     flex-direction: column;
+    padding-top: 60px;
 }
 
     .gallery-content h2 {
         color: #292d32;
-        margin: 60px 0 14px 55px;
+        margin: 0 0 14px 60px;
         width: 90%;
         max-width: 920px;
         font-weight: 700;
@@ -20,10 +21,9 @@
     overflow-x: auto;
     cursor: grab;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     min-height: 500px;
-    margin: 2em 0;
-    padding: 0 20%; 
+    padding: 60px 20% 30px 20%;
 }
     .why-drd-slider:active {
         cursor: grabbing;
@@ -52,10 +52,15 @@
     .why-drd-slider::-webkit-scrollbar {
         display: none;
     }
-
+.drd-meet{
+    padding: 60px 0;
+}
+.drd-meet h2{
+    margin: 12px 0 14px 0;
+}
 .drd-meet img {
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 @media screen and (max-width: 1024px) {

@@ -1,9 +1,11 @@
 section.car-brands {
     padding-bottom: 60px;
 }
-.car-brands .section-head h2 {
-    margin: 0 0 8px 0;
+
+section.car-brands-list {
+    padding: 30px 0;
 }
+
 .car-brands-main, .brands-main {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -11,7 +13,7 @@ section.car-brands {
     margin: 12px 0;
 }
 
-    .car-brands-main a, .brands-main a{
+    .car-brands-main a, .brands-main a {
         text-decoration: none;
         color: black;
         background: #f1f1f1;
@@ -25,12 +27,11 @@ section.car-brands {
         max-height: 103px;
         margin: 0 auto;
         filter: grayscale(100%);
-        transition: filter 0.3s ease-in-out;
     }
 
-        .car-brands-main a:hover img, .brands-main a:hover img {
-            filter: grayscale(0%);
-        }
+    .car-brands-main a:hover img, .brands-main a:hover img {
+        filter: grayscale(0%);
+    }
 
 @media screen and (max-width: 1024px) {
     .car-brands-main,

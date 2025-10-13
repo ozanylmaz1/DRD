@@ -1,11 +1,11 @@
-class WhyDrdSliderComponent {
+ï»¿class WhyDrdSliderComponent {
     constructor(customSlides = null) {
         this.componentName = 'why-drd-slider';
 
         this.defaultSlides = [
-            { img: 'https://drdcmsv2.taigalab.com/Files/img/neden-drd/neden-drd-5.png', title: 'Hızlı ve Etkin Çözümler' },
-            { img: 'https://drdcmsv2.taigalab.com/Files/img/neden-drd/neden-drd-4.png', title: 'Yaygın Servis Ağı' },
-            { img: 'https://drdcmsv2.taigalab.com/Files/img/neden-drd/neden-drd-1.png', title: 'Geniş Araç Portföyü' }
+            { img: 'https://drdcmsv2.taigalab.com/Files/img/neden-drd/neden-drd-5.png', title: 'HÄ±zlÄ± ve Etkin Ã‡Ã¶zÃ¼mler' },
+            { img: 'https://drdcmsv2.taigalab.com/Files/img/neden-drd/neden-drd-4.png', title: 'YaygÄ±n Servis AÄŸÄ±' },
+            { img: 'https://drdcmsv2.taigalab.com/Files/img/neden-drd/neden-drd-1.png', title: 'GeniÅŸ AraÃ§ PortfÃ¶yÃ¼' }
         ];
 
         this.slides = customSlides || this.defaultSlides;

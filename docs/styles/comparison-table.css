@@ -2,7 +2,7 @@
 .comparison-section {
     background-color: #f8f8f8;
     width: 1175px;
-    padding: 3em 40vw;
+    padding: 60px 40vw;
 }
 
 .comparison-section h2 {
@@ -10,8 +10,8 @@
     font-size: 30px;
     font-weight: 700;
     line-height: 42px;
-    margin-bottom: 40px;
     text-align: left;
+    margin: 0 0 8px 0;
 }
 
 .comparison-table {
@@ -28,7 +28,7 @@
     color: #292d32;
     font-weight: 700;
     font-size: 18px;
-    padding: 20px;
+    padding: 17px 10px;
     text-align: center;
     border-bottom: 2px solid #e9ecef;
     width: 30vw;
@@ -44,13 +44,13 @@
     border-right: 1px solid #e9ecef;
 }
 
-.comparison-table td {
-    padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid #e9ecef;
-    font-size: 16px;
-    color: #292d32;
-}
+    .comparison-table td {
+        padding: 14px 10px;
+        text-align: center;
+        border-bottom: 1px solid #e9ecef;
+        font-size: 16px;
+        color: #292d32;
+    }
     .comparison-table th:nth-child(2),
     .comparison-table td:nth-child(2) {
         width: 175px; 

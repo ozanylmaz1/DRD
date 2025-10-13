@@ -37,15 +37,28 @@
     object-fit: cover;
     border-radius: 9px;
 }
+
+section.features-container {
+    padding-top: 60px;
+}
 .fleet-main-why {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1em;
+    gap: 12px;
 }
-.certificates span {
-    display: flex;
-    flex-direction: column;
+.fleet-main-why img{
+    margin: 24px 0 0 0;
 }
+    .fleet-main-why .blog-card h2{
+        margin: 27px 0 8px 0;
+        padding: 0 10px;
+        font-size: 20px;
+        color:#333 ;
+    }
+    .certificates span {
+        display: flex;
+        flex-direction: column;
+    }
 
 .certificates a {
     color: #292d32;
@@ -53,6 +66,9 @@
     font-size: 26px;
     border-bottom: 1px solid #ccc;
     padding: 1em;
+}
+section.news {
+    padding-bottom: 60px;
 }
 /* Mobile Layout */
 @media screen and (max-width: 860px) {

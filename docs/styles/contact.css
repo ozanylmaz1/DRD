@@ -1,7 +1,8 @@
-﻿.global-space-top{
-    display: flex; 
-    padding: 0 55px;
-    column-gap: 6em;
+﻿.global-space-top {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:30px;
+    padding-left:60px;
 }
     .global-space-top a {
     text-decoration: none;

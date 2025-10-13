@@ -1,11 +1,11 @@
 section#car-models-section {
     padding: 60px 0;
 }
+section#car-models-electric-section{
+    padding-bottom: 60px;
+}
 .car-models .section-head {
     margin: 16px 0;
-}
-.car-models .section-head h2 {
-    margin: 0 0 8px 0;
 }
 .car-models-main {
     padding-top: 32px;
